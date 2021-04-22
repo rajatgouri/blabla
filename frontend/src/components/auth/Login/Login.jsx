@@ -25,6 +25,9 @@ function Login() {
                   placeholder="Password"
                 />
               </div>
+              <p className="font-demi grey-hover mt-4 py-3 px-3">
+                Remember Me
+              </p>
               <p className="text-secondaryColor font-demi grey-hover mt-4 py-3 px-3">
                 Forgot Password
               </p>

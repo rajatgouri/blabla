@@ -6,8 +6,22 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div className=" container d-flex justify-content-between">
-      <img src={logo} className="img-fluid my-4" alt="logo" />
+      <Link to="/">
+        <img src={logo} className="img-fluid my-4" alt="logo" />
+      </Link>
       <div>
+        <Link to="">
+          <i className="fas fa fa-search pr-1"></i>
+          <span className="pr-5 font-weight-bold">
+            Find a Ride
+          </span>
+        </Link>
+        <Link to="">
+          <i className="fas fa fa-plus-circle pr-1"></i>
+          <span className="pr-5 font-weight-bold">
+            Offer a Ride
+          </span>
+        </Link>
         <Link to="/login">
           <img
             src={user}

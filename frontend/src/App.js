@@ -10,6 +10,7 @@ import Dob from "./components/auth/Signup/Dob";
 import Password from "./components/auth/Signup/Password";
 import Signup from "./components/auth/Signup/Signup";
 import Loginhome from "./components/auth/Login/Loginhome";
+import Contact from "./components/auth/Signup/Contact";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/signup/name" component={Name} />
         <Route path="/signup/dob" component={Dob} />
         <Route path="/signup/password" component={Password} />
+        <Route path="/signup/contact" component={Contact} />
       </Switch>
     </div>
   );

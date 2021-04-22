@@ -18,11 +18,13 @@ function Password() {
                   placeholder="Password (min. 8 characters)"
                 />
               </div>
-              <div className="text-center mt-5">
-                <button className="text-white bg-secondaryColor font-demi btn-blue">
-                  Continue
-                </button>
-              </div>
+              <Link to="/signup/contact">
+                <div className="text-center mt-5">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue">
+                    Continue
+                  </button>
+                </div>
+              </Link>
             </form>
           </div>
         </div>

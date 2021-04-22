@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './styled.css';
 
 function Signup() {
   return (
@@ -25,14 +26,17 @@ function Signup() {
                 <div className="text-secondaryColor">Sign in</div>
               </Link>
             </div>
-            <div className="text-muted font-14 px-3 font-demi mt-3">
-              By continuing, you accept our ToS and Privacy Policy. This
-              information is collected by COMUTO SA for the purposes of creating
+            <div className="text-muted privacy-policy px-3 font-demi mt-3">
+              By continuing, you accept our <a href="">ToS</a> and <a href="">Privacy Policy.</a>
+              <br />
+              This information is collected by COMUTO SA for the purposes of creating
               your account, managing your booking, use and improve our services
-              and ensuring the security of our platform. You have rights on your
-              personal data and can exercise them by contacting BlaBlaCar
-              through our contact form. You can learn more about your rights and
-              how we handle your personal data in our Privacy Policy.
+              and ensuring the security of our platform.
+              <br /> You have rights on your
+              personal data and can exercise them by contacting us
+              through our <a href="">contact form.</a>
+              <br /> You can learn more about your rights and
+              how we handle your personal data in our <a href="">Privacy Policy.</a>
             </div>
           </div>
         </div>
