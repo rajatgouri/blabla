@@ -17,12 +17,6 @@ function Contact() {
                   placeholder="Mobile Phone"
                 />
               </div>
-              <div className="d-flex justify-content-between grey-hover mt-4 py-3 px-3">
-                <div className="text-primaryColor font-demi font-18">
-                  I will do it later                 
-                </div>
-                <i className="text-muted fas fa-chevron-right"></i>
-              </div>
               <div className="text-center mt-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
                   Continue
