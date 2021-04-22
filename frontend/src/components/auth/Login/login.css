@@ -5,7 +5,7 @@
 .form-control {
     display: block;
     width: 100%;
-    padding: 24px 15px;
+    padding: 27px 20px;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -13,27 +13,14 @@
     background-color: #EDEDED;
     background-clip: padding-box;
     border: none;
-    border-radius: 48px;
+    border-radius: 30px;
 }
 
-.input-group-text {
-    display: flex;
-    align-items: center;
-    padding: .375rem 1rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 48px;
-    border: none;
-    color: var(--primaryColor);
-    background-color: #EDEDED;
-}
-
-.forgot-password{
+.grey-hover{
     font-size: 18px;
     transition: all 0.3s ease-in;
 }
-.forgot-password:hover{
+.grey-hover:hover{
     background-color: rgb(237, 237, 237);
 }
 

@@ -106,9 +106,14 @@ body {
   font-size: 25px;
 }
 
+/* Links */
+a:hover {
+  text-decoration: none !important;
+}
+
 /* Font colour */
-.text-primrayColor{
-  color: var(--primaryColor);
+.text-primaryColor{
+  color: var(--primaryColor) !important;
 }
 .text-secondaryColor{
   color: var(--secondaryColor)
