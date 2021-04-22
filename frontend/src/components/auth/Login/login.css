@@ -1,0 +1,55 @@
+.card{
+    border: none;
+    background: transparent;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 24px 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--primaryColor);
+    background-color: #EDEDED;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 48px;
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: .375rem 1rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 48px;
+    border: none;
+    color: var(--primaryColor);
+    background-color: #EDEDED;
+}
+
+.forgot-password{
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+.forgot-password:hover{
+    background-color: rgb(237, 237, 237);
+}
+
+.btn-blue {
+    padding: 0px 24px;
+    border: 1px solid transparent;
+    border-radius: 48px;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    height: 48px;
+    min-width: 48px;
+    transition: all 0.5s ease-in;
+}
+.btn-blue:hover{
+    background: #138FC1;
+}
