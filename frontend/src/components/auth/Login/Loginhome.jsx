@@ -11,8 +11,11 @@ function Loginhome() {
               How do you want to log in?
             </h1>
             <Link to="/login/email">
-              <div className="text-primaryColor font-demi grey-hover mt-4 py-3 px-3 font-18">
-                Continue with email
+              <div className="d-flex justify-content-between grey-hover mt-4 py-3 px-3">
+                <div className="text-primaryColor font-demi font-18">
+                  Continue with email
+                </div>
+                <i className="text-muted fas fa-chevron-right"></i>
               </div>
             </Link>
             <hr />
