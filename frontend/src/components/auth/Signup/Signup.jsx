@@ -22,6 +22,15 @@ function Signup() {
                 <div className="text-secondaryColor">Sign in</div>
               </Link>
             </div>
+            <div className="text-muted font-14 px-3 font-demi mt-3">
+              By continuing, you accept our ToS and Privacy Policy. This
+              information is collected by COMUTO SA for the purposes of creating
+              your account, managing your booking, use and improve our services
+              and ensuring the security of our platform. You have rights on your
+              personal data and can exercise them by contacting BlaBlaCar
+              through our contact form. You can learn more about your rights and
+              how we handle your personal data in our Privacy Policy.
+            </div>
           </div>
         </div>
       </div>
