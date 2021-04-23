@@ -37,7 +37,7 @@ function Features() {
         className="font-bold text-primaryColor mb-4 mt-5 mobile-center"
         style={{ fontSize: "30px" }}
       >
-        3 things you'll love about BlaBlaCar
+        3 things you'll love about Us
       </h2>
       <div className="row">
         <div className="col-lg-4 col-md-4 col-sm-12 col-12 mobile-center">

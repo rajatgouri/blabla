@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../navbar/NavbarComponent";
 import "./login.css";
 
-function Login() {
+function LoginNumber() {
   return (
     <>
       <Navbar />
@@ -11,14 +11,16 @@ function Login() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                What's your email and password?
+                What's your number and password?
               </h1>
               <form>
                 <div className="input-group mt-4">                
                   <input
-                    type="email"
+                    type="number" 
+                    pattern="\d*" 
+                    maxlength="10"
                     className="form-control"
-                    placeholder="Email"
+                    placeholder="Phone Number"
                   />
                 </div>
                 <div className="input-group mt-4">                
@@ -48,4 +50,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginNumber;

@@ -27,16 +27,7 @@ function NavbarComponent() {
                 className="font-demi font-17 px-3 navbar-item
                   text-primaryColor text-center"
               >
-                Home
-              </Nav.Link>
-            </NavLink>
-            <NavLink to="/blogs/carRental" activeClassName="activeNav">
-              <Nav.Link
-                href="/blogs/carRental"
-                className="font-demi font-17 px-3 navbar-item
-                  text-primaryColor text-center"
-              >
-                Rental cars
+                Company
               </Nav.Link>
             </NavLink>
             <NavLink to="/contact" activeClassName="activeNav">
@@ -48,14 +39,15 @@ function NavbarComponent() {
                 Contact Us
               </Nav.Link>
             </NavLink>
-            <Nav.Link
-              className="font-demi font-17 px-5
-                mx-auto text-center text-white d-none d-lg-block bg-primaryColor"
-              as={Link}
-              to="/login"
-            >
-              Login
-            </Nav.Link>
+            <NavLink to="/login" activeClassName="activeNav">
+              <Nav.Link
+                href="/login"
+                className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center"
+              >
+                Login
+              </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

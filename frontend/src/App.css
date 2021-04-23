@@ -7,8 +7,9 @@ body {
 
 /* Root variables */
 :root {
-  --primaryColor: #114852;
+  --primaryColor: #1e4c6b;
   --secondaryColor: #00AFF5;
+  --tertiaryColor: #c8e2ec;
   --darkBrown: #1a0f05;
 }
 

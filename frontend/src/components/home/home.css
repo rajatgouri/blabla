@@ -1,5 +1,5 @@
 #home{
-    background-image: url('../../images/home.png') ,linear-gradient(130deg, #F7FAEF 20%,#EBF8EC 40%, #DEF5E9 50%, #CBF0E5 60% );
+    background-image: url('../../images/home.png') ,linear-gradient(130deg, #eff7fa 20%,#e3e8eb 40%, #dbe3e9 50%, #e3eaf0 60% );
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -25,8 +25,8 @@
 }
 
 .home-button {
-    border-radius: 4px;
-    background-color: #47beb9;
+    border-radius: 25px;
+    background-color: var(--secondaryColor);
     border: none;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
     font-size: 18px;
@@ -34,7 +34,7 @@
 }
 
 .input-bg{
-    background: #e4f8f3 !important;
+    background: var(--tertiaryColor) !important;
 }
 
 
