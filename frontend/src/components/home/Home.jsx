@@ -3,6 +3,7 @@ import Navbar from "../navbar/NavbarComponent";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Features from "./Features/Features";
+import Footer from "../footer/Footer";
 
 function Home() {
   return (
@@ -20,11 +21,11 @@ function Home() {
                 <p className="font-demi text-primaryColor home-para">
                   Introducing the end of carpool hassle.
                   <br />
-                  With access to millions of journeys, 
+                  With access to millions of journeys,
                   <br />
-                  you can quickly find people nearby travelling your way 
+                  you can quickly find people nearby travelling your way
                   <br />
-                  and book a ride within seconds. 
+                  and book a ride within seconds.
                 </p>
                 <Link to="/login">
                   <div className="mobile-center">
@@ -62,9 +63,8 @@ function Home() {
                     placeholder="On"
                   />
                 </div>
-              
                 <Link to="/login">
-                  <div className="pl-2 mt-5">
+                  <div className="pl-2 mt-5 mobile-center">
                     <button className="home-button text-white font-demi py-2 px-4">
                       Check
                     </button>
@@ -76,6 +76,7 @@ function Home() {
         </div>
       </div>
       <Features />
+      <Footer />
     </>
   );
 }
