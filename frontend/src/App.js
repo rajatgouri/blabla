@@ -10,19 +10,17 @@ import Dob from "./components/auth/Signup/Dob";
 import Password from "./components/auth/Signup/Password";
 import Signup from "./components/auth/Signup/Signup";
 import Loginhome from "./components/auth/Login/Loginhome";
-import LoginNumber from "./components/auth/Login/LoginNumber";
 import Contact from "./components/auth/Signup/Contact";
 import Home from "./components/home/Home";
 
 function App() {
   const pathname = window.location.pathname;
-  return (    
-    <div className="App">     
+  return (
+    <div className="App">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Loginhome} />
         <Route path="/login/email" component={Login} />
-        <Route path="/login/number" component={LoginNumber} />
 
         {/* Sign up */}
         <Route exact path="/signup" component={Signup} />

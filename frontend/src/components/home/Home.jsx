@@ -42,29 +42,34 @@ function Home() {
                 <h4 className="font-bold font-20 text-primaryColor pl-2 mobile-center">
                   Enter your location , destination and Date of travel
                 </h4>
-                <div className="input-group mt-5">
+                <div className="mt-4">
+                  <label className="text-muted font-bold font-18">From</label>
                   <input
                     type="text"
-                    className="form-control input-bg"
+                    className="form-control"
                     placeholder="From"
                   />
                 </div>
-                <div className="input-group mt-4">
+                <div className="mt-3">
+                  <label className="text-muted font-bold font-18">To</label>
                   <input
                     type="text"
-                    className="form-control input-bg"
+                    className="form-control"
                     placeholder="To"
                   />
                 </div>
-                <div className="input-group mt-4">
+                <div className="mt-3">
+                  <label className="text-muted font-bold font-18">
+                    Date of travel
+                  </label>
                   <input
                     type="Date"
-                    className="form-control input-bg"
+                    className="form-control"
                     placeholder="On"
                   />
                 </div>
                 <Link to="/login">
-                  <div className="pl-2 mt-5 mobile-center">
+                  <div className=" mt-4 mobile-center">
                     <button className="home-button text-white font-demi py-2 px-4">
                       Check
                     </button>

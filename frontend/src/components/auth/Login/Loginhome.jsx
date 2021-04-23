@@ -16,15 +16,7 @@ function Loginhome() {
               <Link to="/login/email">
                 <div className="d-flex justify-content-between grey-hover mt-4 py-3 px-3">
                   <div className="text-primaryColor font-demi font-18">
-                    Continue with email
-                  </div>
-                  <i className="text-muted fas fa-chevron-right"></i>
-                </div>
-              </Link>
-              <Link to="/login/number">
-                <div className="d-flex justify-content-between grey-hover mt-4 py-3 px-3">
-                  <div className="text-primaryColor font-demi font-18">
-                    Continue with number
+                    Continue with email/number
                   </div>
                   <i className="text-muted fas fa-chevron-right"></i>
                 </div>
