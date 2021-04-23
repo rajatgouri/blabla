@@ -1,0 +1,68 @@
+#home{
+    background-image: url('../../images/home.png') ,linear-gradient(130deg, #F7FAEF 20%,#EBF8EC 40%, #DEF5E9 50%, #CBF0E5 60% );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    min-height: 100vh;
+}
+.main-heading{
+    margin-top: 0px;
+    margin-bottom: 0vh;
+    border-bottom: 10px none #000;
+    font-size: 70px;
+    line-height: 86px;
+    letter-spacing: -3.09px;
+    text-decoration: none
+}
+
+.home-para{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 500;
+}
+
+.home-button {
+    border-radius: 4px;
+    background-color: #47beb9;
+    border: none;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.input-bg{
+    background: #e4f8f3 !important;
+}
+
+
+.py-section{
+    padding: 100px 0px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media( max-width: 760px){
+    .py-section{
+        padding: 0px;
+    }
+    .main-heading{
+        font-size: 50px;
+        text-align: center;
+        line-height: 53px;
+    }
+    .home-para{
+        text-align: center;
+        font-size: 18px;
+    }
+    .mobile-center{
+        text-align: center;
+    }
+}

@@ -3,7 +3,7 @@ import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/auth/Login/Login";
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/navbar/NavbarComponent";
 import Email from "./components/auth/Signup/Email";
 import Name from "./components/auth/Signup/Name";
 import Dob from "./components/auth/Signup/Dob";
@@ -11,12 +11,14 @@ import Password from "./components/auth/Signup/Password";
 import Signup from "./components/auth/Signup/Signup";
 import Loginhome from "./components/auth/Login/Loginhome";
 import Contact from "./components/auth/Signup/Contact";
+import Home from "./components/home/Home";
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
+  const pathname = window.location.pathname;
+  return (    
+    <div className="App">     
       <Switch>
+        <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Loginhome} />
         <Route path="/login/email" component={Login} />
 

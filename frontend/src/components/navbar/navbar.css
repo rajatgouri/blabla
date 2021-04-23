@@ -1,12 +1,7 @@
-.input-group-text {
-    display: flex;
-    align-items: center;
-    padding: .375rem 1rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 48px;
-    border: none;
-    color: var(--primaryColor);
-    background-color: #EDEDED;
+.navbar-toggler {
+  padding: 0 !important;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: none !important;
 }
