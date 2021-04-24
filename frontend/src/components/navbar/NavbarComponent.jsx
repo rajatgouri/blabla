@@ -48,6 +48,15 @@ function NavbarComponent() {
                 Login
               </Nav.Link>
             </NavLink>
+            <NavLink to="/signup" activeClassName="activeNav">
+              <Nav.Link
+                href="/login"
+                className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center"
+              >
+                Signup
+              </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -45,36 +45,118 @@ function Ride() {
                 </div>
               </div>
               <div
-                className="card my-4 ride-card text-primaryColor font-medium p-3 font-18"
+                className="text-muted font-18 font-medium mt-4 pl-2"
+                style={{ letterSpacing: "-0.5px" }}
+              >
+                Delhi &nbsp;<i className="fas fa-arrow-right"></i>&nbsp; Jaipur:
+                <br />2 rides available
+              </div>
+              <div
+                className="card mt-4 ride-card text-primaryColor font-medium p-3 font-18"
                 style={{ borderRadius: "10px" }}
               >
                 <div className="row">
-                  <div className="col-lg-8 col-md-8 col-sm-8 col-8">
-                    <div style={{ color: "green" }} className="font-bold">
-                      9:45 AM
-                    </div>
+                  <div className="col-lg-9 col-md-8 col-sm-8 col-8">
+                    <div className="font-bold">9:45 AM</div>
                     <hr className="my-2" />
-                    <div style={{ color: "orange" }}>
+                    <div>
                       <div className="font-bold">MONTREAL</div>
                       Metro Namur <br />
                       Autoroute 50 <br />
                     </div>
                     <hr className="my-2" />
-                    <div style={{ color: "blue" }}>
+                    <div>
                       <div className="font-bold">GATINEAU</div>
                       McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-4 col-sm-4 col-4">
-                    Autoroute 50 <br />
-                    GATINEAU <br />
-                    McDonald's, Alumettieres et Maisonneuve
+                  <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
+                    <div className="d-flex justify-content-end">Rs. 540.00</div>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>
+                    </div>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <i className="fas fa-money-bill"></i>&nbsp;
+                      <i className="fas fa-credit-card"></i>&nbsp;
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card mt-4 ride-card text-primaryColor font-medium p-3 font-18"
+                style={{ borderRadius: "10px" }}
+              >
+                <div className="row">
+                  <div className="col-lg-9 col-md-8 col-sm-8 col-8">
+                    <div className="font-bold">9:45 AM</div>
+                    <hr className="my-2" />
+                    <div>
+                      <div className="font-bold">MONTREAL</div>
+                      Metro Namur <br />
+                      Autoroute 50 <br />
+                    </div>
+                    <hr className="my-2" />
+                    <div>
+                      <div className="font-bold">GATINEAU</div>
+                      McDonald's, Alumettieres et Maisonneuve
+                    </div>
+                  </div>
+                  <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
+                    <div className="d-flex justify-content-end">Rs. 540.00</div>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>
+                    </div>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <i className="fas fa-money-bill"></i>&nbsp;
+                      <i className="fas fa-credit-card"></i>&nbsp;
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card mt-4 ride-card text-primaryColor font-medium p-3 font-18"
+                style={{ borderRadius: "10px" }}
+              >
+                <div className="row">
+                  <div className="col-lg-9 col-md-8 col-sm-8 col-8">
+                    <div className="font-bold">9:45 AM</div>
+                    <hr className="my-2" />
+                    <div>
+                      <div className="font-bold">MONTREAL</div>
+                      Metro Namur <br />
+                      Autoroute 50 <br />
+                    </div>
+                    <hr className="my-2" />
+                    <div>
+                      <div className="font-bold">GATINEAU</div>
+                      McDonald's, Alumettieres et Maisonneuve
+                    </div>
+                  </div>
+                  <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
+                    <div className="d-flex justify-content-end">Rs. 540.00</div>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>&nbsp;
+                      <i className="fas fa-chair"></i>
+                    </div>
+                    <div className="mt-2 d-flex justify-content-end">
+                      <i className="fas fa-money-bill"></i>&nbsp;
+                      <i className="fas fa-credit-card"></i>&nbsp;
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <Link to="/signup/name">
-              <div className="text-center my-4">
+              <div className="text-center my-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
                   Create a ride alert
                 </button>
