@@ -39,11 +39,15 @@ function Home() {
             </div>
             <div className="col-lg-6 col-md-7 col-sm-12 col-12 my-5">
               <div className="card bg-white py-5 px-lg-5 px-3 mx-lg-5 mx-4">
-                <h4 className="font-bold font-20 text-primaryColor pl-2 mobile-center">
+                <h4 className="font-bold font-20 text-primaryColor mobile-center">
                   Enter your location , destination and Date of travel
                 </h4>
                 <div className="mt-4">
-                  <label className="text-muted font-bold font-18">From</label>
+                  <label className="text-muted font-demi font-18">
+                    
+                    City From
+                  
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -51,7 +55,11 @@ function Home() {
                   />
                 </div>
                 <div className="mt-3">
-                  <label className="text-muted font-bold font-18">To</label>
+                  <label className="text-muted font-demi font-18">
+                    
+                    City To
+                  
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -59,7 +67,7 @@ function Home() {
                   />
                 </div>
                 <div className="mt-3">
-                  <label className="text-muted font-bold font-18">
+                  <label className="text-muted font-demi font-18">
                     Date of travel
                   </label>
                   <input
