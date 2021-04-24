@@ -12,6 +12,7 @@ import Signup from "./components/auth/Signup/Signup";
 import Loginhome from "./components/auth/Login/Loginhome";
 import Contact from "./components/auth/Signup/Contact";
 import Home from "./components/home/Home";
+import Ride from "./components/ride/Ride";
 
 function App() {
   const pathname = window.location.pathname;
@@ -29,6 +30,8 @@ function App() {
         <Route path="/signup/dob" component={Dob} />
         <Route path="/signup/password" component={Password} />
         <Route path="/signup/contact" component={Contact} />
+
+        <Route path="/ride" component={Ride} />
       </Switch>
     </div>
   );

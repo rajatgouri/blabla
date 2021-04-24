@@ -1,0 +1,17 @@
+.input-group, .input-group-text{
+    color: var(--primaryColor);
+    background-color: var(--tertiaryColor);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 10px;
+}
+.input-group-text, .ride-text{   
+    padding: 10px;
+}
+.ride-card{
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0 , 0.2);
+    transition: all 0.5s ease-in;
+}
+.ride-card:hover{
+    box-shadow: 6px 6px 15px 0px rgba(0, 0, 0 , 0.2);
+}

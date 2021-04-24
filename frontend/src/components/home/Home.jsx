@@ -68,7 +68,7 @@ function Home() {
                     placeholder="On"
                   />
                 </div>
-                <Link to="/login">
+                <Link to="/ride">
                   <div className=" mt-4 mobile-center">
                     <button className="home-button text-white font-demi py-2 px-4">
                       Check
