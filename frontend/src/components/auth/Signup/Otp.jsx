@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../navbar/NavbarComponent";
 import Footer from "../../footer/Footer";
 
-function Dob() {
+function Otp() {
   return (
     <>
       <Navbar />
@@ -12,23 +12,21 @@ function Dob() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                What's your date of birth?
+                Please enter the OTP received on your number.
               </h1>
               <form>
                 <div className="input-group mt-4">
                   <input
-                    type="date"
+                    type="number"
                     className="form-control"
-                    placeholder="Date of Birth"
+                    placeholder="Otp"
                   />
                 </div>
-                <Link to="/signup/password">
-                  <div className="text-center mt-5">
+                <div className="text-center mt-5">
                     <button className="text-white bg-secondaryColor font-demi btn-blue">
-                      Continue
+                    Continue
                     </button>
-                  </div>
-                </Link>
+                </div>
               </form>
             </div>
           </div>
@@ -39,4 +37,4 @@ function Dob() {
   );
 }
 
-export default Dob;
+export default Otp;

@@ -11,6 +11,7 @@ import Password from "./components/auth/Signup/Password";
 import Signup from "./components/auth/Signup/Signup";
 import Loginhome from "./components/auth/Login/Loginhome";
 import Contact from "./components/auth/Signup/Contact";
+import Otp from "./components/auth/Signup/Otp";
 import Home from "./components/home/Home";
 import Ride from "./components/ride/Ride";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/signup/dob" component={Dob} />
         <Route path="/signup/password" component={Password} />
         <Route path="/signup/contact" component={Contact} />
+        <Route path="/signup/otp" component={Otp} />
 
         <Route path="/ride" component={Ride} />
       </Switch>

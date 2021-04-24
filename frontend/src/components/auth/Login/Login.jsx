@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../navbar/NavbarComponent";
 import "./login.css";
+import Footer from "../../footer/Footer";
 
 function Login() {
   return (
@@ -46,6 +47,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Footer ></Footer>
     </>
   );
 }

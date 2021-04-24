@@ -1,6 +1,7 @@
 import React from "react";
 import NavbarComponent from "../navbar/NavbarComponent";
 import { Link } from "react-router-dom";
+import Footer from "../footer/Footer";
 import "./ride.css";
 
 function Ride() {
@@ -197,6 +198,7 @@ function Ride() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
