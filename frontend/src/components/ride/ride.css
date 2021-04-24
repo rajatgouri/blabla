@@ -18,9 +18,9 @@
 }
 .line-ride {
     width: 4px;
-    height: calc(40px);
     background: grey;
     margin-left: 3px;
+    height: calc(65px);
 }
 .circle-ride-from {
     box-sizing: border-box;
@@ -41,4 +41,16 @@
 
 .chair-icon{
     color: rgb(60, 170, 60);
+}
+
+@media(max-width: 991px){
+    .line-ride{
+        height: calc(65px);
+    }
+}
+
+@media( max-width: 760px){
+    .line-ride{
+        height: calc(95px);
+    }
 }

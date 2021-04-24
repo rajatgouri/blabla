@@ -23,7 +23,7 @@ function Ride() {
                     type="text"
                     className="text-primaryColor font-demi font-18 ride-text"
                   >
-                    Delhi, Centre <span className="font-regular">to </span>
+                    MONTREAL, Centre <span className="font-regular">to </span>
                     <span className="font-demi">
                       GATINEAU, City Centre
                     </span>
@@ -49,7 +49,7 @@ function Ride() {
                 className="text-muted font-18 font-medium mt-4 pl-2"
                 style={{ letterSpacing: "-0.5px" }}
               >
-                Delhi &nbsp;<i className="fas fa-arrow-right"></i>&nbsp; Jaipur:
+                Montreal &nbsp;<i className="fas fa-arrow-right"></i>&nbsp; Gatineau:
                 <br />3 rides available
               </div>
               <div
@@ -71,29 +71,23 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          MONTREAL
+                          MONTREAL 
+                          <br />
+                          <div className="font-regular">
+                            metro Namur Autoroute 50
+                          </div>
                         </div>
                         <div></div>
                         <div
                           style={{ marginTop: "18px" }}
                           className="text-blue"
                         >
-                          GATINEAU
+                          GATINEAU <br />
+                          <div className="font-regular">
+                          McDonald's, Alumettieres et Maisonneuve
+                          </div>
                         </div>                        
                       </div>
-                    </div>
-                    <hr className="my-2" />
-                    <div className="text-orange">
-                      <div className="font-bold mt-3">MONTREAL</div>
-                      <div className="font-regular">
-                        metro Namur Autoroute 50
-                      </div>
-                    </div>
-                    <hr className="my-2" />
-
-                    <div className="text-blue">
-                      <div className="font-bold">GATINEAU</div>
-                      McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
@@ -101,8 +95,6 @@ function Ride() {
                       &#36;540.00
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-red">
-                      <i className="fas fa-male"></i>&nbsp;
-                      <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>&nbsp;
@@ -134,28 +126,23 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          MONTREAL
+                          MONTREAL 
+                          <br />
+                          <div className="font-regular">
+                            metro Namur Autoroute 50
+                          </div>
                         </div>
                         <div></div>
                         <div
                           style={{ marginTop: "18px" }}
                           className="text-blue"
                         >
-                          GATINEAU
-                        </div>
+                          GATINEAU <br />
+                          <div className="font-regular">
+                          McDonald's, Alumettieres et Maisonneuve
+                          </div>
+                        </div>                        
                       </div>
-                    </div>
-                    <hr className="my-2" />
-                    <div className="text-orange">
-                      <div className="font-bold mt-3">MONTREAL</div>
-                      <div className="font-regular">
-                        metro Namur Autoroute 50
-                      </div>
-                    </div>
-                    <hr className="my-2" />
-                    <div className="text-blue">
-                      <div className="font-bold">GATINEAU</div>
-                      McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
@@ -163,8 +150,6 @@ function Ride() {
                       &#36;540.00
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-red">
-                      <i className="fas fa-male"></i>&nbsp;
-                      <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>&nbsp;
@@ -196,28 +181,23 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          MONTREAL
+                          MONTREAL 
+                          <br />
+                          <div className="font-regular">
+                            metro Namur Autoroute 50
+                          </div>
                         </div>
                         <div></div>
                         <div
                           style={{ marginTop: "18px" }}
                           className="text-blue"
                         >
-                          GATINEAU
+                          GATINEAU <br />
+                          <div className="font-regular">
+                          McDonald's, Alumettieres et Maisonneuve
+                          </div>
                         </div>                        
                       </div>
-                    </div>
-                    <hr className="my-2" />
-                    <div className="text-orange">
-                      <div className="font-bold mt-3">MONTREAL</div>
-                      <div className="font-regular">
-                        metro Namur Autoroute 50
-                      </div>
-                    </div>
-                    <hr className="my-2" />
-                    <div className="text-blue">
-                      <div className="font-bold">GATINEAU</div>
-                      McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
