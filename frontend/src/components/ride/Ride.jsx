@@ -49,7 +49,7 @@ function Ride() {
                 style={{ letterSpacing: "-0.5px" }}
               >
                 Delhi &nbsp;<i className="fas fa-arrow-right"></i>&nbsp; Jaipur:
-                <br />2 rides available
+                <br />3 rides available
               </div>
               <div
                 className="card mt-4 ride-card text-primaryColor font-medium p-3 font-18"
@@ -68,11 +68,13 @@ function Ride() {
                       <div className="col-lg-10 col-md-10 col-sm-10 col-10 px-0">
                         <div style={{ marginTop: "-6px" }}>Delhi, Center</div>
                         <div></div>
-                        <div style={{ marginTop: "18px" }}>Jaipur, Rajasthan</div>
+                        <div style={{ marginTop: "18px" }}>
+                          Jaipur, Rajasthan
+                        </div>
                       </div>
                     </div>
                     <hr className="my-2" />
-                    
+
                     <div>
                       <div className="font-bold">GATINEAU</div>
                       McDonald's, Alumettieres et Maisonneuve
@@ -110,7 +112,9 @@ function Ride() {
                       <div className="col-lg-10 col-md-10 col-sm-10 col-10 px-0">
                         <div style={{ marginTop: "-6px" }}>Delhi, Center</div>
                         <div></div>
-                        <div style={{ marginTop: "18px" }}>Jaipur, Rajasthan</div>
+                        <div style={{ marginTop: "18px" }}>
+                          Jaipur, Rajasthan
+                        </div>
                       </div>
                     </div>
                     <hr className="my-2" />
@@ -151,7 +155,9 @@ function Ride() {
                       <div className="col-lg-10 col-md-10 col-sm-10 col-10 px-0">
                         <div style={{ marginTop: "-6px" }}>Delhi, Center</div>
                         <div></div>
-                        <div style={{ marginTop: "18px" }}>Jaipur, Rajasthan</div>
+                        <div style={{ marginTop: "18px" }}>
+                          Jaipur, Rajasthan
+                        </div>
                       </div>
                     </div>
                     <hr className="my-2" />
