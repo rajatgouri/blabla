@@ -5,7 +5,7 @@ import "./login.css";
 function Login() {
   return (
     <>
-      <Navbar />
+     <Navbar />
       <div className="container my-5">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
@@ -29,9 +29,9 @@ function Login() {
                   />
                 </div>
 
-                <p className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
+                <div className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
                   Remember Me                  
-                </p>
+                </div>
 
                 <p className="text-secondaryColor font-demi grey-hover mt-4 py-3 px-3">
                   Forgot Password

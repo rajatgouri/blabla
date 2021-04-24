@@ -50,7 +50,7 @@ function Home() {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control mt-1"
                     placeholder="From"
                   />
                 </div>
@@ -62,7 +62,7 @@ function Home() {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control mt-1"
                     placeholder="To"
                   />
                 </div>
@@ -72,7 +72,7 @@ function Home() {
                   </label>
                   <input
                     type="Date"
-                    className="form-control"
+                    className="form-control mt-1"
                     placeholder="On"
                   />
                 </div>

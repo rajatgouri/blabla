@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
-import Logo from "../../images/logo.svg";
+import Logo from "../../images/logo.png";
 
 function NavbarComponent() {
   return (
@@ -16,7 +16,7 @@ function NavbarComponent() {
         variant="light"
       >
         <Navbar.Brand href="/" className="mx-0">
-          <img src={Logo} alt="logo" className="img-fluid py-0 my-0" />
+          <img src={Logo} alt="logo" className="img-fluid py-0 my-0 logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -20,6 +20,13 @@ function Contact() {
                     placeholder="Mobile Phone"
                   />
                 </div>
+                <div className="input-group mt-4">
+                <input
+                    type="number"
+                    className="form-control"
+                    placeholder="Enter your OTP"
+                  />
+                </div>
                 <div className="text-center mt-5">
                   <button className="text-white bg-secondaryColor font-demi btn-blue">
                     Continue

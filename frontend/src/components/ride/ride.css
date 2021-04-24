@@ -10,10 +10,11 @@
 }
 .ride-card{
     box-shadow: 2px 2px 10px 0px rgba(0, 0, 0 , 0.2);
-    transition: all 0.5s ease-in;
+    transition: all 0.2s;
 }
 .ride-card:hover{
     box-shadow: 6px 6px 15px 0px rgba(0, 0, 0 , 0.2);
+    transform: scale(1.1);
 }
 .line-ride {
     width: 4px;
@@ -28,4 +29,8 @@
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(5, 71, 82);
     border-radius: 50%;
+}
+
+.chair-icon{
+    color: rgb(60, 170, 60);
 }
