@@ -14,12 +14,12 @@
 }
 .ride-card:hover{
     box-shadow: 6px 6px 15px 0px rgba(0, 0, 0 , 0.2);
-    transform: scale(1.1);
+    transform: scale(1.04);
 }
 .line-ride {
     width: 4px;
     height: calc(40px);
-    background: rgb(5, 71, 82);
+    background: var(--orange);
     margin-left: 3px;
 }
 .circle-ride {
@@ -27,7 +27,7 @@
     width: 10px;
     height: 10px;
     background-color: rgb(255, 255, 255);
-    border: 2px solid rgb(5, 71, 82);
+    border: 2px solid var(--orange);
     border-radius: 50%;
 }
 

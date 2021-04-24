@@ -10,7 +10,11 @@ body {
   --primaryColor: #1e4c6b;
   --secondaryColor: #00AFF5;
   --tertiaryColor: #e0f6ff;
-  --darkBrown: #1a0f05;
+  --red: red;
+  --green: green;
+  --orange: orange;
+  --blue: blue;
+  --violet: violet;
 }
 
 /* Srollbar */
@@ -118,6 +122,21 @@ a:hover {
 }
 .text-secondaryColor{
   color: var(--secondaryColor)
+}
+.text-red{
+  color: var(--red);
+}
+.text-green{
+  color: var(--green);
+}
+.text-blue{
+  color: var(--blue);
+}
+.text-orange{
+  color: var(--orange);
+}
+.text-violet{
+  color: var(--violet);
 }
 
 /* Background color */

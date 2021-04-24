@@ -57,7 +57,7 @@ function Ride() {
               >
                 <div className="row">
                   <div className="col-lg-9 col-md-8 col-sm-8 col-8">
-                    <div className="font-bold">9:45 AM</div>
+                    <div className="font-bold text-green">9:45 AM</div>
                     <hr className="my-2" />
                     <div className="row my-3">
                       <div className="col-lg-1 col-md-1 col-sm-1 col-1">
@@ -66,30 +66,32 @@ function Ride() {
                         <div className="circle-ride"></div>
                       </div>
                       <div className="col-lg-10 col-md-10 col-sm-10 col-10 px-0">
-                        <div style={{ marginTop: "-6px" }}>Delhi, Center</div>
+                        <div style={{ marginTop: "-6px" }} className="text-orange">Delhi, Center</div>
                         <div></div>
-                        <div style={{ marginTop: "18px" }}>
+                        <div style={{ marginTop: "18px" }} className="text-orange">
                           Jaipur, Rajasthan
                         </div>
                       </div>
                     </div>
                     <hr className="my-2" />
 
-                    <div>
+                    <div className="text-blue">
                       <div className="font-bold">GATINEAU</div>
                       McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
-                    <div className="d-flex justify-content-end">Rs.540.00</div>
-                    <div className="mt-2 d-flex justify-content-end chair-icon">
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>
+                    <div className="d-flex justify-content-end text-muted">Rs.540.00</div>
+                    <div className="mt-2 d-flex justify-content-end text-red">
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>
                     </div>
-                    <div className="mt-2 d-flex justify-content-end">
-                      <i className="fas fa-money-bill" ></i>&nbsp;
+                    <div className="mt-2 d-flex justify-content-end text-violet">
+                      <i className="fas fa-dollar-sign" ></i>&nbsp;
                       <i className="fas fa-credit-card"></i>&nbsp;
                     </div>
                   </div>
@@ -101,7 +103,7 @@ function Ride() {
               >
                 <div className="row">
                   <div className="col-lg-9 col-md-8 col-sm-8 col-8">
-                    <div className="font-bold">9:45 AM</div>
+                    <div className="font-bold text-green">9:45 AM</div>
                     <hr className="my-2" />
                     <div className="row my-3">
                       <div className="col-lg-1 col-md-1 col-sm-1 col-1">
@@ -110,29 +112,31 @@ function Ride() {
                         <div className="circle-ride"></div>
                       </div>
                       <div className="col-lg-10 col-md-10 col-sm-10 col-10 px-0">
-                        <div style={{ marginTop: "-6px" }}>Delhi, Center</div>
+                        <div style={{ marginTop: "-6px" }} className="text-orange">Delhi, Center</div>
                         <div></div>
-                        <div style={{ marginTop: "18px" }}>
+                        <div style={{ marginTop: "18px" }} className="text-orange">
                           Jaipur, Rajasthan
                         </div>
                       </div>
                     </div>
                     <hr className="my-2" />
-                    <div>
+                    <div className="text-blue">
                       <div className="font-bold">GATINEAU</div>
                       McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
-                    <div className="d-flex justify-content-end">Rs.540.00</div>
-                    <div className="mt-2 d-flex justify-content-end chair-icon">
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>
+                    <div className="d-flex justify-content-end text-muted">Rs.540.00</div>
+                    <div className="mt-2 d-flex justify-content-end text-red">
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>
                     </div>
-                    <div className="mt-2 d-flex justify-content-end">
-                      <i className="fas fa-money-bill"></i>&nbsp;
+                    <div className="mt-2 d-flex justify-content-end text-violet">
+                      <i className="fas fa-dollar-sign"></i>&nbsp;
                       <i className="fas fa-credit-card"></i>&nbsp;
                     </div>
                   </div>
@@ -144,7 +148,7 @@ function Ride() {
               >
                 <div className="row">
                   <div className="col-lg-9 col-md-8 col-sm-8 col-8">
-                    <div className="font-bold">9:45 AM</div>
+                    <div className="font-bold text-green">9:45 AM</div>
                     <hr className="my-2" />
                     <div className="row my-3">
                       <div className="col-lg-1 col-md-1 col-sm-1 col-1">
@@ -153,29 +157,29 @@ function Ride() {
                         <div className="circle-ride"></div>
                       </div>
                       <div className="col-lg-10 col-md-10 col-sm-10 col-10 px-0">
-                        <div style={{ marginTop: "-6px" }}>Delhi, Center</div>
+                        <div style={{ marginTop: "-6px" }} className="text-orange">Delhi, Center</div>
                         <div></div>
-                        <div style={{ marginTop: "18px" }}>
+                        <div style={{ marginTop: "18px" }} className="text-orange">
                           Jaipur, Rajasthan
                         </div>
                       </div>
                     </div>
                     <hr className="my-2" />
-                    <div>
+                    <div className="text-blue">
                       <div className="font-bold">GATINEAU</div>
                       McDonald's, Alumettieres et Maisonneuve
                     </div>
                   </div>
                   <div className="col-lg-3 col-md-4 col-sm-4 col-4 text-primaryColor font-bold">
-                    <div className="d-flex justify-content-end">Rs.540.00</div>
-                    <div className="mt-2 d-flex justify-content-end chair-icon">
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>&nbsp;
-                      <i className="fas fa-chair"></i>
+                    <div className="d-flex justify-content-end text-muted">Rs.540.00</div>
+                    <div className="mt-2 d-flex justify-content-end text-red">
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>&nbsp;
+                      <i className="fas fa-male"></i>
                     </div>
-                    <div className="mt-2 d-flex justify-content-end">
-                      <i className="fas fa-money-bill"></i>&nbsp;
+                    <div className="mt-2 d-flex justify-content-end text-violet">
+                      <i className="fas fa-dollar-sign"></i>&nbsp;
                       <i className="fas fa-credit-card"></i>&nbsp;
                     </div>
                   </div>
