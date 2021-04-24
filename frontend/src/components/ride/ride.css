@@ -19,15 +19,23 @@
 .line-ride {
     width: 4px;
     height: calc(40px);
-    background: var(--orange);
+    background: grey;
     margin-left: 3px;
 }
-.circle-ride {
+.circle-ride-from {
     box-sizing: border-box;
     width: 10px;
     height: 10px;
     background-color: rgb(255, 255, 255);
     border: 2px solid var(--orange);
+    border-radius: 50%;
+}
+.circle-ride-to {
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid var(--blue);
     border-radius: 50%;
 }
 
