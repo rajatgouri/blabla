@@ -25,7 +25,7 @@ function Ride() {
                   >
                     Delhi, Centre <span className="font-regular">to </span>
                     <span className="font-demi">
-                      Jaipur, Rajasthan, City Centre
+                      GATINEAU, City Centre
                     </span>
                     <br />
                     <span className="text-muted font-demi font-16">
@@ -71,14 +71,14 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          Delhi, Center
+                          MONTREAL
                         </div>
                         <div></div>
                         <div
                           style={{ marginTop: "18px" }}
                           className="text-blue"
                         >
-                          Jaipur, Rajasthan
+                          GATINEAU
                         </div>                        
                       </div>
                     </div>
@@ -134,14 +134,14 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          Delhi, Center
+                          MONTREAL
                         </div>
                         <div></div>
                         <div
                           style={{ marginTop: "18px" }}
-                          className="text-orange"
+                          className="text-blue"
                         >
-                          Jaipur, Rajasthan
+                          GATINEAU
                         </div>
                       </div>
                     </div>
@@ -196,14 +196,14 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          Delhi, Center
+                          MONTREAL
                         </div>
                         <div></div>
                         <div
                           style={{ marginTop: "18px" }}
-                          className="text-orange"
+                          className="text-blue"
                         >
-                          Jaipur, Rajasthan
+                          GATINEAU
                         </div>                        
                       </div>
                     </div>
