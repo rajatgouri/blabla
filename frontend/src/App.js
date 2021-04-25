@@ -9,23 +9,25 @@ import Name from "./components/auth/Signup/Name";
 import Dob from "./components/auth/Signup/Dob";
 import Password from "./components/auth/Signup/Password";
 import Signup from "./components/auth/Signup/Signup";
-import Loginhome from "./components/auth/Login/Loginhome";
 import Contact from "./components/auth/Signup/Contact";
 import Otp from "./components/auth/Signup/Otp";
 import Home from "./components/home/Home";
 import Ride from "./components/ride/Ride";
+import Footer from "./components/footer/Footer";
+import Reserve from "./components/reserve/Reserve";
 
 function App() {
   const pathname = window.location.pathname;
   return (
     <div className="App">
       <Switch>
+        {/* Home */}
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Loginhome} />
-        <Route path="/login/email" component={Login} />
 
-        {/* Sign up */}
-        <Route exact path="/signup" component={Signup} />
+        {/* Login */}
+        <Route exact path="/login" component={Login} />
+
+        {/* Sign up */}        
         <Route path="/signup/email" component={Email} />
         <Route path="/signup/name" component={Name} />
         <Route path="/signup/dob" component={Dob} />
@@ -33,8 +35,13 @@ function App() {
         <Route path="/signup/contact" component={Contact} />
         <Route path="/signup/otp" component={Otp} />
 
+        {/* Ride */}
         <Route path="/ride" component={Ride} />
+
+        {/* Reserve */}
+        <Route path="/reserve" component={Reserve} />
       </Switch>
+      <Footer />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../navbar/NavbarComponent";
-import Footer from "../../footer/Footer";
 
 function Signup() {
   return (
@@ -37,18 +36,17 @@ function Signup() {
                 <a href="">Privacy Policy.</a>
                 <br />
                 This information is collected by COMUTO SA for the purposes of
-                creating your account, managing your booking, use and improve our
-                services and ensuring the security of our platform.
-                <br /> You have rights on your personal data and can exercise them
-                by contacting us through our <a href="">contact form.</a>
-                <br /> You can learn more about your rights and how we handle your
-                personal data in our <a href="">Privacy Policy.</a>
+                creating your account, managing your booking, use and improve
+                our services and ensuring the security of our platform.
+                <br /> You have rights on your personal data and can exercise
+                them by contacting us through our <a href="">contact form.</a>
+                <br /> You can learn more about your rights and how we handle
+                your personal data in our <a href="">Privacy Policy.</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

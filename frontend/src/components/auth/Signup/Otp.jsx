@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../navbar/NavbarComponent";
-import Footer from "../../footer/Footer";
 
 function Otp() {
   return (
@@ -23,16 +22,15 @@ function Otp() {
                   />
                 </div>
                 <div className="text-center mt-5">
-                    <button className="text-white bg-secondaryColor font-demi btn-blue">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue">
                     Continue
-                    </button>
+                  </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <Footer></Footer>
     </>
   );
 }

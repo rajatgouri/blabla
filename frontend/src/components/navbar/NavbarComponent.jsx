@@ -48,7 +48,7 @@ function NavbarComponent() {
                 Login
               </Nav.Link>
             </NavLink>
-            <NavLink to="/signup" activeClassName="activeNav">
+            <NavLink to="/signup/email" activeClassName="activeNav">
               <Nav.Link
                 href="/login"
                 className="font-demi font-17

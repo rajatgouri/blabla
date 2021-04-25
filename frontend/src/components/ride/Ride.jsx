@@ -1,7 +1,6 @@
 import React from "react";
 import NavbarComponent from "../navbar/NavbarComponent";
 import { Link } from "react-router-dom";
-import Footer from "../footer/Footer";
 import "./ride.css";
 
 function Ride() {
@@ -23,10 +22,8 @@ function Ride() {
                     type="text"
                     className="text-primaryColor font-demi font-18 ride-text"
                   >
-                    MONTREAL, Centre <span className="font-regular">to </span>
-                    <span className="font-demi">
-                      GATINEAU, City Centre
-                    </span>
+                    MONTREAL <span className="font-regular">to </span>
+                    <span className="font-demi">GATINEAU</span>
                     <br />
                     <span className="text-muted font-demi font-16">
                       Fri, 30 April
@@ -34,22 +31,12 @@ function Ride() {
                   </span>
                 </div>
               </div>
-              {/* <div
-                className="card my-2 bg-primaryColor text-white font-bold p-3 font-18"
-                style={{ borderRadius: "10px" }}
-              >
-                Rides close to you
-                <br />
-                <div className="font-medium">
-                  Now you see which drivers can pick you up and drop you off
-                  nearby.
-                </div>
-              </div> */}
               <div
                 className="text-muted font-18 font-medium mt-4 pl-2"
                 style={{ letterSpacing: "-0.5px" }}
               >
-                Montreal &nbsp;<i className="fas fa-arrow-right"></i>&nbsp; Gatineau:
+                Montreal &nbsp;<i className="fas fa-arrow-right"></i>&nbsp;
+                Gatineau:
                 <br />3 rides available
               </div>
               <div
@@ -71,7 +58,7 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          MONTREAL 
+                          MONTREAL
                           <br />
                           <div className="font-regular">
                             metro Namur Autoroute 50
@@ -84,9 +71,9 @@ function Ride() {
                         >
                           GATINEAU <br />
                           <div className="font-regular">
-                          McDonald's, Alumettieres et Maisonneuve
+                            McDonald's, Alumettieres et Maisonneuve
                           </div>
-                        </div>                        
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -101,9 +88,16 @@ function Ride() {
                       <i className="fas fa-male"></i>
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-violet">
-                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;                      
+                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
                       <i className="fas fa-credit-card"></i>
                     </div>
+                    <Link to="/reserve">
+                      <div className="text-center mt-2 d-flex justify-content-end  ">
+                        <button className="text-white bg-secondaryColor font-demi" style={{border: 'none'}}>
+                          Reserve
+                        </button>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -126,7 +120,7 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          MONTREAL 
+                          MONTREAL
                           <br />
                           <div className="font-regular">
                             metro Namur Autoroute 50
@@ -139,9 +133,9 @@ function Ride() {
                         >
                           GATINEAU <br />
                           <div className="font-regular">
-                          McDonald's, Alumettieres et Maisonneuve
+                            McDonald's, Alumettieres et Maisonneuve
                           </div>
-                        </div>                        
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -156,9 +150,16 @@ function Ride() {
                       <i className="fas fa-male"></i>
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-violet">
-                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;                      
+                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
                       <i className="fas fa-credit-card"></i>
                     </div>
+                    <Link to="/reserve">
+                      <div className="text-center mt-2 d-flex justify-content-end  ">
+                        <button className="text-white bg-secondaryColor font-demi" style={{border: 'none'}}>
+                          Reserve
+                        </button>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -181,7 +182,7 @@ function Ride() {
                           style={{ marginTop: "-6px" }}
                           className="text-orange"
                         >
-                          MONTREAL 
+                          MONTREAL
                           <br />
                           <div className="font-regular">
                             metro Namur Autoroute 50
@@ -194,9 +195,9 @@ function Ride() {
                         >
                           GATINEAU <br />
                           <div className="font-regular">
-                          McDonald's, Alumettieres et Maisonneuve
+                            McDonald's, Alumettieres et Maisonneuve
                           </div>
-                        </div>                        
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -211,25 +212,38 @@ function Ride() {
                       <i className="fas fa-male"></i>
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-violet">
-                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;                      
+                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
                       <i className="fas fa-credit-card"></i>
                     </div>
+                    <Link to="/reserve">
+                      <div className="text-center mt-2 d-flex justify-content-end  ">
+                        <button className="text-white bg-secondaryColor font-demi" style={{border: 'none'}}>
+                          Reserve
+                        </button>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            <Link to="/signup/name">
-              <div className="text-center my-5">
+            <Link to="/signup/email">
+              <div className="text-center mt-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
                   Create a ride alert
                 </button>
               </div>
             </Link>
+            <Link to="/">
+              <div className="text-center mt-4 mb-5">
+                <button className="text-white bg-secondaryColor font-demi btn-blue">
+                  Home
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
-      </div>
-      <Footer />
+      </div>      
     </>
   );
 }

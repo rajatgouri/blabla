@@ -44,9 +44,7 @@ function Home() {
                 </h4>
                 <div className="mt-4">
                   <label className="text-muted font-demi font-18">
-                    
                     City From
-                  
                   </label>
                   <input
                     type="text"
@@ -56,9 +54,7 @@ function Home() {
                 </div>
                 <div className="mt-3">
                   <label className="text-muted font-demi font-18">
-                    
                     City To
-                  
                   </label>
                   <input
                     type="text"
@@ -89,7 +85,6 @@ function Home() {
         </div>
       </div>
       <Features />
-      <Footer />
     </>
   );
 }

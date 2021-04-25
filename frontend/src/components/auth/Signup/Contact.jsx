@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../../navbar/NavbarComponent";
-import Footer from "../../footer/Footer";
 import { Link } from "react-router-dom";
 
 function Contact() {
@@ -12,11 +11,11 @@ function Contact() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-              Verify your mobile number
+                Verify your mobile number
               </h1>
               <form>
                 <div className="input-group mt-4">
-                <input
+                  <input
                     type="text"
                     className="form-control"
                     placeholder="Mobile Phone"
@@ -34,7 +33,6 @@ function Contact() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
