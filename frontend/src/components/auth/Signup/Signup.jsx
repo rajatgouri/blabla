@@ -13,7 +13,7 @@ function Signup() {
               <h1 className="text-center font-bold text-primaryColor mb-4">
                 How do you want to sign up?
               </h1>
-              <Link to="/signup/email">
+              <Link to="/signup">
                 <div className="d-flex justify-content-between grey-hover mt-4 py-3 px-3">
                   <div className="text-primaryColor font-demi font-18">
                     Continue with email

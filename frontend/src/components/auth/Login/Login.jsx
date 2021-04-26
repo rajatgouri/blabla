@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../../Navbar/NavbarComponent";
-import "./login.css";
-import Footer from "../../Footer/Footer";
+import "./Login.css";
 
 function Login() {
   return (
@@ -31,7 +30,7 @@ function Login() {
                 </div>
 
                 <div className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
-                  Remember Me                  
+                  Become a member  <a href="/signup" className="ml-2">Signup</a>
                 </div>
 
                 <p className="text-secondaryColor font-demi grey-hover mt-4 py-3 px-3">
@@ -39,7 +38,7 @@ function Login() {
                 </p>
                 <div className="text-center mt-5">
                   <button className="text-white bg-secondaryColor font-demi btn-blue">
-                    Login
+                    Signin
                   </button>
                 </div>
               </form>
@@ -47,7 +46,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <Footer ></Footer>
+      
     </>
   );
 }

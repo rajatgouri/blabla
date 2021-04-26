@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from "react-router-dom";
-import Login from "./components/auth/Login/Login";
+import Login from "./components/Auth/Login/Login";
 import Navbar from "./components/Navbar/NavbarComponent";
-import Email from "./components/auth/Signup/Email";
-import Home from "./components/home/Home";
+import Email from "./components/Auth/Signup/Email";
+import Home from "./components/Home/Home";
 import Ride from "./components/Ride/Ride";
 import Footer from "./components/Footer/Footer";
 import Reserve from "./components/Reserve/Reserve";
@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/login" component={Login} />
 
         {/* Sign up */}
-        <Route exact path="/signup/email" component={Email} />
+        <Route exact path="/signup/" component={Email} />
         
         {/* Contact */}
         <Route exact path="/contact" component={Contact} />

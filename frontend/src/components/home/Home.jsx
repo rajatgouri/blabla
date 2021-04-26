@@ -27,7 +27,7 @@ function Home() {
                   <br />
                   and book a ride within seconds.
                 </p>
-                <Link to="/login">
+                <Link to="/signup">
                   <div className="mobile-center">
                     <button className="home-button text-white font-demi py-2 px-4">
                       Become a driver &nbsp;&nbsp;&nbsp;

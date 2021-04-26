@@ -87,13 +87,11 @@ function Ride() {
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>
                     </div>
-                    <div className="mt-2 d-flex justify-content-end text-violet">
-                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
-                    </div>
+                    
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
                         <button
-                          className="text-white bg-secondaryColor font-demi"
+                          className="text-white bg-secondaryColor font-demi rounded"
                           style={{ border: "none" }}
                         >
                           Reserve
@@ -151,13 +149,11 @@ function Ride() {
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>
                     </div>
-                    <div className="mt-2 d-flex justify-content-end text-violet">
-                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
-                    </div>
+                    
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
                         <button
-                          className="text-white bg-secondaryColor font-demi"
+                          className="text-white bg-secondaryColor font-demi rounded"
                           style={{ border: "none" }}
                         >
                           Reserve
@@ -215,13 +211,11 @@ function Ride() {
                       <i className="fas fa-male"></i>&nbsp;
                       <i className="fas fa-male"></i>
                     </div>
-                    <div className="mt-2 d-flex justify-content-end text-violet">
-                      <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
-                    </div>
+                    
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
                         <button
-                          className="text-white bg-secondaryColor font-demi"
+                          className="text-white bg-secondaryColor font-demi rounded"
                           style={{ border: "none" }}
                         >
                           Reserve
