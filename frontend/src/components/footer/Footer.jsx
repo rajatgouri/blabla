@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../images/logo.png";
 
 function Footer() {
   return (
-    <div className="gradient-background">
+    <div className="">
       <div className="container py-section">
         <div className="row">
           <div className="col-lg-4 col-md-4 col-sm-12 col-12 mt-4">
@@ -82,7 +83,8 @@ function Footer() {
                 className="text-primaryColor font-bold mb-4"
                 style={{ fontSize: "30px" }}
               >
-                Carpooling
+                <img src={Logo} alt="logo" className="img-fluid mt-20 logo" />
+                
               </h3>
               <Link to="">
                 <div className="text-primaryColor font-demi font-18 mb-lg-3 mb-2">

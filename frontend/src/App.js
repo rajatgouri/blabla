@@ -3,18 +3,13 @@ import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/auth/Login/Login";
-import Navbar from "./components/navbar/NavbarComponent";
+import Navbar from "./components/Navbar/NavbarComponent";
 import Email from "./components/auth/Signup/Email";
-import Name from "./components/auth/Signup/Name";
-import Dob from "./components/auth/Signup/Dob";
-import Password from "./components/auth/Signup/Password";
-import Number from "./components/auth/Signup/Number";
-import Otp from "./components/auth/Signup/Otp";
 import Home from "./components/home/Home";
-import Ride from "./components/ride/Ride";
-import Footer from "./components/footer/Footer";
-import Reserve from "./components/reserve/Reserve";
-import Contact from "./components/contact/Contact";
+import Ride from "./components/Ride/Ride";
+import Footer from "./components/Footer/Footer";
+import Reserve from "./components/Reserve/Reserve";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   const pathname = window.location.pathname;
@@ -29,12 +24,7 @@ function App() {
 
         {/* Sign up */}
         <Route exact path="/signup/email" component={Email} />
-        <Route exact path="/signup/name" component={Name} />
-        <Route exact path="/signup/dob" component={Dob} />
-        <Route exact path="/signup/password" component={Password} />
-        <Route exact path="/signup/contact" component={Number} />
-        <Route exact path="/signup/otp" component={Otp} />
-
+        
         {/* Contact */}
         <Route exact path="/contact" component={Contact} />
 

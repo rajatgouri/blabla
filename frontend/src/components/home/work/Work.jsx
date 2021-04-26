@@ -7,34 +7,34 @@ import customerFour from "../../../images/customerFour.png";
 function Work() {
   return (
     <>
-      <div className="gradient-background">
+      <div className="">
         <div className="container py-section px-4">
           <h2 className="text-primaryColor font-bold sub-heading text-center">
             Our Happy Customers
           </h2>
           <div className="row">
-            <div className="col-lg-3 col-md-3 col-sm-12 col-12 px-5 center">
+            <div className="col-lg-3 col-md-3 col-sm-6 col-12 px-5 center">
               <img
                 src={customerOne}
                 alt="customer"
                 className="img-fluid px-5 py-5"
               />
             </div>
-            <div className="col-lg-3 col-md-3 col-sm-12 col-12 px-5 center">
+            <div className="col-lg-3 col-md-3 col-sm-6 col-12 px-5 center">
               <img
                 src={customerTwo}
                 alt="customer"
                 className="img-fluid px-5 py-5"
               />
             </div>
-            <div className="col-lg-3 col-md-3 col-sm-12 col-12 px-5 center">
+            <div className="col-lg-3 col-md-3 col-sm-6 col-12 px-5 center">
               <img
                 src={customerThree}
                 alt="customer"
                 className="img-fluid px-5 py-5"
               />
             </div>
-            <div className="col-lg-3 col-md-3 col-sm-12 col-12 px-5 center">
+            <div className="col-lg-3 col-md-3 col-sm-6 col-12 px-5 center">
               <img
                 src={customerFour}
                 alt="customer"
@@ -45,12 +45,12 @@ function Work() {
         </div>
       </div>
       <div>
-        <div className="container py-section px-4">
+        <div className="container  px-4 mb-5" >
           <h2 className="text-primaryColor font-bold sub-heading text-center mb-5">
             How it works
           </h2>
-          <div className="row">
-            <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div className="row how-it-works pt-5">
+            <div className="col-lg-4 mt-2 col-md-4 col-sm-12 col-12">
               <div className="d-flex justify-content-center">
                 <div
                   className="work-number text-primaryColor font-bold center"
@@ -59,7 +59,7 @@ function Work() {
                   1
                 </div>
               </div>
-              <h4 className="text-primaryColor font-20 mt-3 font-bold text-center">
+              <h4 className="text-primaryColor font-20 mt-5 font-bold text-center">
                 Select a type of copy
               </h4>
               <p className="text-muted text-center font-demi mb-3 mt-2 font-16">
@@ -67,7 +67,7 @@ function Work() {
                 much more.
               </p>
             </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div className="col-lg-4 mt-2 col-md-4 col-sm-12 col-12">
               <div className="d-flex justify-content-center">
                 <div
                   className="work-number text-primaryColor font-bold center"
@@ -76,7 +76,7 @@ function Work() {
                   2
                 </div>
               </div>
-              <h4 className="text-primaryColor font-20 mt-3 font-bold text-center">
+              <h4 className="text-primaryColor font-20 mt-5 font-bold text-center">
                 Describe your product
               </h4>
               <p className="text-muted text-center font-demi mb-3 mt-2 font-16">
@@ -84,7 +84,7 @@ function Work() {
                 you do.
               </p>
             </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div className="col-lg-4 mt-2 col-md-4 col-sm-12 col-12">
               <div className="d-flex justify-content-center">
                 <div
                   className="work-number text-primaryColor font-bold center"
@@ -93,7 +93,7 @@ function Work() {
                   3
                 </div>
               </div>
-              <h4 className="text-primaryColor font-20 mt-3 font-bold text-center">
+              <h4 className="text-primaryColor font-20 mt-5 font-bold text-center">
                 Get your results and edit
               </h4>
               <p className="text-muted text-center font-demi mb-3 mt-2 font-16">

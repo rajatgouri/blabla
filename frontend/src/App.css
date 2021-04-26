@@ -36,6 +36,23 @@ body {
   background: var(--darkOrange);
 }
 
+.how-it-works {
+  background-image: url(./images/background-line-1.png), url(./images/background-line-2.png);
+    background-position: 75% 0%, 25% 50%;
+    background-size: auto, auto;
+    background-repeat: no-repeat, no-repeat
+}
+
+@media screen and (max-width: 991px) {
+  .how-it-works {
+    background-image:none
+  }
+}
+
+.mt-20 {
+  margin-top: -20px;
+}
+
 /* Placeholder */
 ::placeholder{
   font-family: Avenir-demi;

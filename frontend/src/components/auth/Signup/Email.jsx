@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../navbar/NavbarComponent";
+import Navbar from "../../Navbar/NavbarComponent";
 
 function Email() {
   return (
@@ -11,7 +11,7 @@ function Email() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                Signup Form 
+                Welcome to RideSharing, Signup here...  
               </h1>
               <form>
                 <div className="input-group mt-4">

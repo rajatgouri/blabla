@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarComponent from "../navbar/NavbarComponent";
+import NavbarComponent from "../Navbar/NavbarComponent";
 import { Link } from "react-router-dom";
 import "./reserve.css";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../navbar/NavbarComponent";
-import "./home.css";
+import Navbar from "../Navbar/NavbarComponent";
+import "./Home.css";
 import { Link } from "react-router-dom";
-import Features from "./features/Features";
-import Work from "./work/Work";
+import Features from "./Features/Features";
+import Work from "./Work/Work";
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
       <div id="home">
         <Navbar />
         <div className="container">
-          <div className="row py-section">
+          <div className="row pt-5">
             <div className="col-lg-6 col-md-5 col-sm-12 col-12">
               <div className="card px-4">
                 <h1 className="text-primaryColor font-bold main-heading">
@@ -84,8 +84,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <Features />
       <Work />
+      <Features />
+
     </>
   );
 }
