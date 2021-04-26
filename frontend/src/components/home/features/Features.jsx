@@ -2,7 +2,7 @@ import React from "react";
 
 function Features() {
   return (
-    <div className="container my-5">
+    <div className="container py-section px-4">
       <h2
         className="font-bold text-primaryColor mb-4 mobile-center"
         style={{ fontSize: "30px" }}

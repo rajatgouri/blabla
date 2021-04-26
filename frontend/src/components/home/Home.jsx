@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../navbar/NavbarComponent";
 import "./home.css";
 import { Link } from "react-router-dom";
-import Features from "./Features/Features";
-import Footer from "../footer/Footer";
+import Features from "./features/Features";
+import Work from "./work/Work";
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
         <Navbar />
         <div className="container">
           <div className="row py-section">
-            <div className="col-lg-6 col-md-5 col-sm-12 col-12 mt-5">
+            <div className="col-lg-6 col-md-5 col-sm-12 col-12">
               <div className="card px-4">
                 <h1 className="text-primaryColor font-bold main-heading">
                   Carpooling <br />
@@ -37,7 +37,7 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-6 col-md-7 col-sm-12 col-12 my-5">
+            <div className="col-lg-6 col-md-7 col-sm-12 col-12 mb-5 mt-lg-0 mt-5">
               <div className="card bg-white py-5 px-lg-5 px-3 mx-lg-5 mx-4">
                 <h4 className="font-bold font-20 text-primaryColor mobile-center">
                   Enter your location , destination and Date of travel
@@ -85,6 +85,7 @@ function Home() {
         </div>
       </div>
       <Features />
+      <Work />
     </>
   );
 }

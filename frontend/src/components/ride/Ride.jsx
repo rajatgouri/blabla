@@ -93,7 +93,10 @@ function Ride() {
                     </div>
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
-                        <button className="text-white bg-secondaryColor font-demi" style={{border: 'none'}}>
+                        <button
+                          className="text-white bg-secondaryColor font-demi"
+                          style={{ border: "none" }}
+                        >
                           Reserve
                         </button>
                       </div>
@@ -155,7 +158,10 @@ function Ride() {
                     </div>
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
-                        <button className="text-white bg-secondaryColor font-demi" style={{border: 'none'}}>
+                        <button
+                          className="text-white bg-secondaryColor font-demi"
+                          style={{ border: "none" }}
+                        >
                           Reserve
                         </button>
                       </div>
@@ -217,7 +223,10 @@ function Ride() {
                     </div>
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
-                        <button className="text-white bg-secondaryColor font-demi" style={{border: 'none'}}>
+                        <button
+                          className="text-white bg-secondaryColor font-demi"
+                          style={{ border: "none" }}
+                        >
                           Reserve
                         </button>
                       </div>
@@ -237,13 +246,13 @@ function Ride() {
             <Link to="/">
               <div className="text-center mt-4 mb-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
-                  Home
+                  Change your ride
                 </button>
               </div>
             </Link>
           </div>
         </div>
-      </div>      
+      </div>
     </>
   );
 }

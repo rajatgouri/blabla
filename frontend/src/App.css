@@ -146,3 +146,6 @@ a:hover {
 .bg-secondaryColor{
   background: var(--secondaryColor);
 }
+.gradient-background{
+  background-image: linear-gradient(130deg, #eff7fa 20%,#e3e8eb 40%, #dbe3e9 50%, #e3eaf0 60% )
+}

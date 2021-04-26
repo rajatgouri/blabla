@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../navbar/NavbarComponent";
 import { Link } from "react-router-dom";
 
-function Contact() {
+function Number() {
   return (
     <>
       <Navbar />
@@ -37,4 +37,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Number;

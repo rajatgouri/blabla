@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../../images/logo.png";
 
 function NavbarComponent() {
@@ -32,7 +32,8 @@ function NavbarComponent() {
             </NavLink>
             <NavLink to="/contact" activeClassName="activeNav">
               <Nav.Link
-                href="/contact"
+                as={Link}
+                to="/contact"
                 className="font-demi font-17
                   px-3 navbar-item text-primaryColor text-center"
               >

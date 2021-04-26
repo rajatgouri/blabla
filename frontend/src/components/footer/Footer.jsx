@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./footer.css";
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="gradient-background">
       <div className="container py-section">
         <div className="row">
           <div className="col-lg-4 col-md-4 col-sm-12 col-12 mt-4">
