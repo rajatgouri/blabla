@@ -13,7 +13,7 @@ function Contact() {
               <h1 className="text-center font-bold text-primaryColor">
                 Contact Us
               </h1>
-              <div className="text-muted font-medium font-16 text-center mb-4">
+              <div className="text-muted font-medium font-16 text-center mb-4 mt-4">
                 How can we help you out? If you fill out the form below, we will
                 try to get back to you ASAP!
               </div>

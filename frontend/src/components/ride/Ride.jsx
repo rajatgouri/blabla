@@ -89,7 +89,6 @@ function Ride() {
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-violet">
                       <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
-                      <i className="fas fa-credit-card"></i>
                     </div>
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
@@ -154,7 +153,6 @@ function Ride() {
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-violet">
                       <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
-                      <i className="fas fa-credit-card"></i>
                     </div>
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
@@ -219,7 +217,6 @@ function Ride() {
                     </div>
                     <div className="mt-2 d-flex justify-content-end text-violet">
                       <i className="fas fa-dollar-sign"></i>&nbsp;&nbsp;
-                      <i className="fas fa-credit-card"></i>
                     </div>
                     <Link to="/reserve">
                       <div className="text-center mt-2 d-flex justify-content-end  ">
@@ -236,13 +233,6 @@ function Ride() {
               </div>
             </div>
 
-            <Link to="/signup/email">
-              <div className="text-center mt-5">
-                <button className="text-white bg-secondaryColor font-demi btn-blue">
-                  Create a ride alert
-                </button>
-              </div>
-            </Link>
             <Link to="/">
               <div className="text-center mt-4 mb-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
