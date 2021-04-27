@@ -45,8 +45,8 @@ function Work() {
         </div>
       </div>
       <div>
-        <div className="container  px-4 mb-5" >
-          <h2 className="text-primaryColor font-bold sub-heading text-center mb-5">
+        <div className="container px-4 mb-5">
+          <h2 className="text-primaryColor font-bold sub-heading text-center mb-lg-5 mb-0">
             How it works
           </h2>
           <div className="row how-it-works pt-5">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../navbar/NavbarComponent";
+import Navbar from "../../Navbar/NavbarComponent";
 
 function Signup() {
   return (
@@ -11,38 +11,53 @@ function Signup() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                How do you want to sign up?
+                Welcome to RideSharing, Signup here...
               </h1>
-              <Link to="/signup">
-                <div className="d-flex justify-content-between grey-hover mt-4 py-3 px-3">
-                  <div className="text-primaryColor font-demi font-18">
-                    Continue with email
-                  </div>
-                  <i className="text-muted fas fa-chevron-right"></i>
+              <form>
+                <div className="input-group mt-4">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email"
+                  />
                 </div>
-              </Link>
-              <hr />
-              <div className="text-primaryColor px-3 font-16 font-demi mt-3 d-flex">
-                Already a member?&nbsp;&nbsp;
-                <Link to="/login">
-                  <div className="text-secondaryColor">Sign in</div>
+                <div className="input-group mt-4">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Full Name"
+                  />
+                </div>
+                <div className="input-group mt-4">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div className="input-group mt-4">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Password"
+                  />
+                </div>
+
+                <div className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
+                  Already a member?{" "}
+                  <a href="/login" className="ml-2">
+                    Signin
+                  </a>
+                </div>
+
+                <Link to="/otp">
+                  <div className="text-center mt-4">
+                    <button className="text-white bg-secondaryColor font-demi btn-blue">
+                      Signup
+                    </button>
+                  </div>
                 </Link>
-              </div>
-              <div
-                className="text-muted px-3 font-demi mt-3"
-                style={{ fontSize: "11px" }}
-              >
-                By continuing, you accept our <a href="">ToS</a> and{" "}
-                <a href="">Privacy Policy.</a>
-                <br />
-                This information is collected by COMUTO SA for the purposes of
-                creating your account, managing your booking, use and improve
-                our services and ensuring the security of our platform.
-                <br /> You have rights on your personal data and can exercise
-                them by contacting us through our <a href="">contact form.</a>
-                <br /> You can learn more about your rights and how we handle
-                your personal data in our <a href="">Privacy Policy.</a>
-              </div>
+              </form>
             </div>
           </div>
         </div>

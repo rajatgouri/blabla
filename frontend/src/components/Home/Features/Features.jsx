@@ -19,8 +19,8 @@ function Features() {
               <div className="image-container text-center mt-5 mb-3 custom-rounded-circle ">
                   <i className="text-primaryColor fas fa-map-signs fa-3x mb-2"></i>
               </div>
-              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold">Choice</h4>
-              <div className="text-container  mb-3">
+              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold text-center">Choice</h4>
+              <div className="text-container font-demi text-muted text-center  mb-3">
                   We go everywhere. Literally thousands of destinations. No station
                   required.
               </div>
@@ -34,10 +34,10 @@ function Features() {
               <div className="image-container text-center mt-5 mb-3 custom-rounded-circle ">
               <i className="text-primaryColor fas fa-map-marker-alt fa-3x mb-2"></i>
               </div>
-              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold">
+              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold text-center">
                 Carpool with confidence
               </h4>
-              <div className="text-container  mb-3">
+              <div className="text-container font-demi text-muted text-center  mb-3">
                   Government ID verification adds another level of security to member
                   profiles.
               </div>
@@ -51,10 +51,10 @@ function Features() {
               <div className="image-container text-center mt-5 mb-3 custom-rounded-circle ">
                 <i className="text-primaryColor fas fa-car fa-3x mb-2"></i>
               </div>
-              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold">
+              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold text-center">
                 Get going faster
               </h4>
-              <div className="text-container  mb-3">
+              <div className="text-container font-demi text-muted text-center  mb-3">
                 No need to travel across town, catch a ride leaving near you. 
               </div>
             </div>
@@ -67,8 +67,8 @@ function Features() {
               <div className="image-container text-center mt-5 mb-3 custom-rounded-circle ">
                   <i className="text-primaryColor fas fa-map-signs fa-3x mb-2"></i>
               </div>
-              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold">Choice</h4>
-              <div className="text-container  mb-3">
+              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold text-center">Choice</h4>
+              <div className="text-container font-demi text-muted text-center  mb-3">
                   We go everywhere. Literally thousands of destinations. No station
                   required.
               </div>
@@ -82,10 +82,10 @@ function Features() {
               <div className="image-container text-center mt-5 mb-3 custom-rounded-circle ">
               <i className="text-primaryColor fas fa-map-marker-alt fa-3x mb-2"></i>
               </div>
-              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold">
+              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold text-center">
                 Carpool with confidence
               </h4>
-              <div className="text-container  mb-3">
+              <div className="text-container font-demi text-muted text-center  mb-3">
                   Government ID verification adds another level of security to member
                   profiles.
               </div>
@@ -99,10 +99,10 @@ function Features() {
               <div className="image-container text-center mt-5 mb-3 custom-rounded-circle ">
                 <i className="text-primaryColor fas fa-car fa-3x mb-2"></i>
               </div>
-              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold">
+              <h4 className="text-primaryColor mt-4 mb-3 font-18 font-bold text-center">
                 Get going faster
               </h4>
-              <div className="text-container  mb-3">
+              <div className="text-container font-demi text-muted text-center  mb-3">
                 No need to travel across town, catch a ride leaving near you. 
               </div>
             </div>
