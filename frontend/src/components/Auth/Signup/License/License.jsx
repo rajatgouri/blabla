@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import "./License.css";
 import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
+import { Modal } from "react-bootstrap";
 
 function License() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [fileOne, setFileOne] = useState("");
   const [fileTwo, setFileTwo] = useState("");
   const [value, setValue] = useState(false);
@@ -12,9 +18,9 @@ function License() {
   function handleTakePhoto(dataUri) {
     dataUri && setValue(false);
     setPhoto(dataUri);
-  }  
+  }
   return (
-    <>    
+    <>
       <div className="container my-5">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-10 col-sm-12 col-12">
@@ -30,14 +36,31 @@ function License() {
                         Front side of the ID
                       </p>
                       <div className="input-group file-container">
-                      {fileOne ? <div className="image-container"><img src={fileOne} className="img-fluid w-100 h-100 p-4" style={{background: '#e0f6ff', borderRadius: '10px'}}/> </div> : <input
-                          type="file"
-                          value=""
-                          onChange={(e) => setFileOne(URL.createObjectURL(e.target.files[0]))}
-                          className="form-control-upload custom-file-input"
-                          style={{ height: "200px" , width: "220px" }}
-                        />}
-                        
+                        {fileOne ? (
+                          <div>
+                            <img
+                              src={fileOne}
+                              className="img-fluid w-100 h-100 p-4"
+                              style={{
+                                background: "#e0f6ff",
+                                borderRadius: "10px",
+                              }}
+                            />{" "}
+                          </div>
+                        ) : (
+                          <input
+                            type="file"
+                            value=""
+                            onChange={(e) =>
+                              setFileOne(URL.createObjectURL(e.target.files[0]))
+                            }
+                            className="form-control-upload custom-file-input mx-5 my-4"
+                            style={{ height: "250px" }}
+                          />
+                        )}
+                        <div className="text-center w-100">
+                          <i className="fas fa-3x fa-upload"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -47,14 +70,31 @@ function License() {
                         Back side of the ID
                       </p>
                       <div className="input-group file-container">
-                      {fileTwo ? <div className="image-container"><img src={fileTwo} className="img-fluid w-100 h-100 p-4" style={{background: '#e0f6ff', borderRadius: '10px'}}/></div> : <input
-                          type="file"
-                          value=""
-                          onChange={(e) => setFileTwo(URL.createObjectURL(e.target.files[0]))}
-                          className="form-control-upload custom-file-input"
-                          style={{ height: "200px" , width: "220px" }}
-                        />}
-                        <i className="fa fa-upload"></i>
+                        {fileTwo ? (
+                          <div>
+                            <img
+                              src={fileTwo}
+                              className="img-fluid w-100 h-100 p-4"
+                              style={{
+                                background: "#e0f6ff",
+                                borderRadius: "10px",
+                              }}
+                            />
+                          </div>
+                        ) : (
+                          <input
+                            type="file"
+                            value=""
+                            onChange={(e) =>
+                              setFileTwo(URL.createObjectURL(e.target.files[0]))
+                            }
+                            className="form-control-upload custom-file-input mx-5 mt-4"
+                            style={{ height: "250px" }}
+                          />
+                        )}
+                        <div className="text-center w-100">
+                          <i className="fas fa-3x fa-upload"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -63,6 +103,7 @@ function License() {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
+                      handleShow();
                       setValue(!value);
                     }}
                     className="text-white bg-secondaryColor font-demi btn-blue mt-4"
@@ -85,14 +126,27 @@ function License() {
                 ) : (
                   ""
                 )}
+
                 {value ? (
-                  <div className="mt-4 d-flex justify-content-center">
-                    <Camera
-                      onTakePhoto={(dataUri) => {
-                        handleTakePhoto(dataUri);
-                      }}
-                    />
-                  </div>
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>
+                        <div className="font-bold text-primaryColor">
+                          Click your picture
+                        </div>
+                      </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <div className="w-100 h-100">
+                      <Camera
+                        onTakePhoto={(dataUri) => {
+                          handleTakePhoto(dataUri);
+                        }}
+                      />
+                      </div>
+                      
+                    </Modal.Body>                    
+                  </Modal>
                 ) : (
                   ""
                 )}
