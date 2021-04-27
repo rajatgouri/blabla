@@ -62,7 +62,7 @@ input[type="file"] {
   margin: 20px auto;
 }
 .custom-file-input::before {
-  content: "Upload";
+  content: "";
   height: 100%;
   color: var(--primaryColor);
   display: inline-block;
