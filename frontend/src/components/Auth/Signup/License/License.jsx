@@ -32,7 +32,7 @@ function License() {
                       <div className="input-group">
                         <input
                           type="file"
-                          className="form-control-upload"
+                          className="form-control-upload custom-file-input"
                           style={{ height: "200px" }}
                         />
                       </div>
@@ -46,7 +46,7 @@ function License() {
                       <div className="input-group">
                         <input
                           type="file"
-                          className="form-control-upload"
+                          className="form-control-upload custom-file-input"
                           style={{ height: "200px" }}
                         />
                       </div>
