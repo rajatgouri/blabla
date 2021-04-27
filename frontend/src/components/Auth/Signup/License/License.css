@@ -5,11 +5,12 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+  margin-top: 50px;
   color: var(--primaryColor);
   background-color: var(--tertiaryColor);
   background-clip: padding-box;
   border: none;
-  border-radius: 10px;
+  margin: 20px auto;
 }
 
 input#form-upload-button {
@@ -27,6 +28,12 @@ input[type="file"] {
   outline: none !important;
 }
 
+.file-container {
+  background-color: var(--tertiaryColor);
+  height: 400px;
+  width: 400px;
+}
+
 .custom-file-input {
   display: block;
   width: 100%;
@@ -35,10 +42,9 @@ input[type="file"] {
   font-weight: 400;
   line-height: 1.5;
   color: var(--primaryColor);
-  background-color: var(--tertiaryColor) !important;
+  background-color: white !important;
   background-clip: padding-box;
   border: none;
-  border-radius: 10px;
   opacity: 1;
   display: flex;
   justify-content: center;
@@ -49,8 +55,14 @@ input[type="file"] {
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
+
+.image-container{
+  height: 200px;
+  width: 220px;
+  margin: 20px auto;
+}
 .custom-file-input::before {
-  content: "Select document";
+  content: "Upload";
   height: 100%;
   color: var(--primaryColor);
   display: inline-block;

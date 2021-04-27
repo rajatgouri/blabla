@@ -29,13 +29,13 @@ function License() {
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Front side of the License
                       </p>
-                      <div className="input-group">
-                      {fileOne ? <img src={fileOne} className="img-fluid w-100 h-100 p-4" style={{background: '#e0f6ff', borderRadius: '10px'}}/> : <input
+                      <div className="input-group file-container">
+                      {fileOne ? <div className="image-container"><img src={fileOne} className="img-fluid w-100 h-100 p-4" style={{background: '#e0f6ff', borderRadius: '10px'}}/> </div> : <input
                           type="file"
                           value=""
                           onChange={(e) => setFileOne(URL.createObjectURL(e.target.files[0]))}
                           className="form-control-upload custom-file-input"
-                          style={{ height: "200px" }}
+                          style={{ height: "200px" , width: "220px" }}
                         />}
                         
                       </div>
@@ -46,14 +46,15 @@ function License() {
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Back side of the License
                       </p>
-                      <div className="input-group">
-                      {fileTwo ? <img src={fileTwo} className="img-fluid w-100 h-100 p-4" style={{background: '#e0f6ff', borderRadius: '10px'}}/> : <input
+                      <div className="input-group file-container">
+                      {fileTwo ? <div className="image-container"><img src={fileTwo} className="img-fluid w-100 h-100 p-4" style={{background: '#e0f6ff', borderRadius: '10px'}}/></div> : <input
                           type="file"
                           value=""
                           onChange={(e) => setFileTwo(URL.createObjectURL(e.target.files[0]))}
                           className="form-control-upload custom-file-input"
-                          style={{ height: "200px" }}
+                          style={{ height: "200px" , width: "220px" }}
                         />}
+                        <i className="fa fa-upload"></i>
                       </div>
                     </div>
                   </div>
