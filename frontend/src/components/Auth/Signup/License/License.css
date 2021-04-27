@@ -50,7 +50,11 @@ input[type="file"] {
   flex-direction: column;
   align-items: center;
 }
-
+.custom-upload-button{
+  background: transparent;
+  border: none;
+  outline: none;
+}
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }

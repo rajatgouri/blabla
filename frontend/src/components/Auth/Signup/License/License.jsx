@@ -19,8 +19,13 @@ function License() {
     dataUri && setValue(false);
     setPhoto(dataUri);
   }
+  const handleIcon = (e) => {
+    e.preventDefault();
+    document.getElementById("upload").click();
+  };
   return (
     <>
+      <input type="file" />
       <div className="container my-5">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-10 col-sm-12 col-12">
@@ -50,6 +55,7 @@ function License() {
                         ) : (
                           <input
                             type="file"
+                            id="front-upload"
                             value=""
                             onChange={(e) =>
                               setFileOne(URL.createObjectURL(e.target.files[0]))
@@ -58,9 +64,15 @@ function License() {
                             style={{ height: "250px" }}
                           />
                         )}
-                        <div className="text-center w-100">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById("front-upload").click();
+                          }}
+                          className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
+                        >
                           <i className="fas fa-3x fa-upload"></i>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -84,6 +96,7 @@ function License() {
                         ) : (
                           <input
                             type="file"
+                            id="back-upload"
                             value=""
                             onChange={(e) =>
                               setFileTwo(URL.createObjectURL(e.target.files[0]))
@@ -92,9 +105,15 @@ function License() {
                             style={{ height: "250px" }}
                           />
                         )}
-                        <div className="text-center w-100">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById("back-upload")?.click();
+                          }}
+                          className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
+                        >
                           <i className="fas fa-3x fa-upload"></i>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -107,6 +126,7 @@ function License() {
                       setValue(!value);
                     }}
                     className="text-white bg-secondaryColor font-demi btn-blue mt-4"
+                    style={{outline: 'none'}}
                   >
                     Take your photo
                   </button>
@@ -138,14 +158,13 @@ function License() {
                     </Modal.Header>
                     <Modal.Body>
                       <div className="w-100 h-100">
-                      <Camera
-                        onTakePhoto={(dataUri) => {
-                          handleTakePhoto(dataUri);
-                        }}
-                      />
+                        <Camera
+                          onTakePhoto={(dataUri) => {
+                            handleTakePhoto(dataUri);
+                          }}
+                        />
                       </div>
-                      
-                    </Modal.Body>                    
+                    </Modal.Body>
                   </Modal>
                 ) : (
                   ""
