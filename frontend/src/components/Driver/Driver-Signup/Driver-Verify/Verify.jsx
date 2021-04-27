@@ -42,7 +42,7 @@ function Verify() {
                       </p>
                       <div className="input-group file-container">
                         {fileOne ? (
-                          <div className="image-container">
+                          <div className="verify-image-container">
                             <img
                               src={fileOne}
                               className="img-fluid w-100 h-100 p-4"
@@ -83,7 +83,7 @@ function Verify() {
                       </p>
                       <div className="input-group file-container">
                         {fileTwo ? (
-                          <div className="image-container">
+                          <div className="verify-image-container">
                             <img
                               src={fileTwo}
                               className="img-fluid w-100 h-100 p-4"
@@ -118,9 +118,12 @@ function Verify() {
                     </div>
                   </div>
                 </div>
-                <div className="text-center"
-                  style={{marginLeft : "35%" , borderRadius: "10px"}}>
-                  <div className="file-container col-6 pt-1 mt-5" style={{borderRadius: "10px"}}> 
+                <div className="row">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6">
+                    <div className="text-center"
+                  style={{ borderRadius: "10px"}}>
+                  <div className="file-container  pt-1 mt-5" style={{borderRadius: "10px"}}> 
                     {photo ? (
                       <div className="mt-4 text-center">
                         <img
@@ -143,12 +146,17 @@ function Verify() {
                       setValue(!value);
                     }}
                     className="text-white bg-secondaryColor font-demi btn-blue mt-4"
-                    style={{outline: 'none',width: "40%"}}
+                    style={{outline: 'none' ,width: "40%"}}
                   >
                     <i class="fa fa-camera" aria-hidden="true"></i>
                   </button>
                   </div>
                 </div>
+                    </div>
+                    <div className="col-md-3"></div>
+
+                </div>
+                
 
                 {value ? (
                   <Modal show={show} onHide={handleClose}>

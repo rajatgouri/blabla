@@ -9,7 +9,7 @@ function AddVehicle() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                Add Vehicle
+                Add Vehicle Info
               </h1>
               <form>
                 <div className="input-group mt-4 font-medium">
