@@ -4,6 +4,7 @@ import "./License.css";
 import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
+import Navbar from "../../../Navbar/NavbarComponent";
 
 function License() {
   const [show, setShow] = useState(false);
@@ -21,11 +22,11 @@ function License() {
   }
   const handleIcon = (e) => {
     e.preventDefault();
-    document.getElementById("upload").click();
+    document.getElementById("upload")?.click();
   };
   return (
     <>
-      <input type="file" />
+    <Navbar />
       <div className="container my-5">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-10 col-sm-12 col-12">
@@ -42,7 +43,7 @@ function License() {
                       </p>
                       <div className="input-group file-container">
                         {fileOne ? (
-                          <div>
+                          <div className="image-container">
                             <img
                               src={fileOne}
                               className="img-fluid w-100 h-100 p-4"
@@ -67,7 +68,7 @@ function License() {
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            document.getElementById("front-upload").click();
+                            document.getElementById("front-upload")?.click();
                           }}
                           className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
                         >
@@ -83,7 +84,7 @@ function License() {
                       </p>
                       <div className="input-group file-container">
                         {fileTwo ? (
-                          <div>
+                          <div className="image-container">
                             <img
                               src={fileTwo}
                               className="img-fluid w-100 h-100 p-4"

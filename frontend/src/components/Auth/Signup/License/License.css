@@ -33,6 +33,12 @@ input[type="file"] {
   height: 400px;
 }
 
+.image-container {
+  height: 285px;
+  width: 350px;
+  margin: 10px auto;
+}
+
 .custom-file-input {
   display: block;
   width: 100%;
