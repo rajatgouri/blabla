@@ -87,7 +87,7 @@ function License() {
                   ""
                 )}
                 
-                <Link to="/vehicleinfo">
+                <Link to="/">
                   <div className="text-center mt-5">
                     <button className="text-white bg-secondaryColor font-demi btn-blue">
                       Submit
