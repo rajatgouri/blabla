@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/NavbarComponent";
 import OtpInput from "react-otp-input";
+import { Link } from "react-router-dom";
 
 function Email() {
   const [otp, setOtp] = useState("");
@@ -34,11 +35,13 @@ function Email() {
                     }}
                   />
                 </div>
-                <div className="text-center mt-5">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue">
-                    Continue
-                  </button>
-                </div>
+                <Link to="/otp">
+                  <div className="text-center mt-5">
+                    <button className="text-white bg-secondaryColor font-demi btn-blue">
+                      Continue
+                    </button>
+                  </div>
+                </Link>
               </form>
             </div>
           </div>

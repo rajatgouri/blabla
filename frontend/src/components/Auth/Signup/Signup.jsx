@@ -50,7 +50,7 @@ function Signup() {
                   </a>
                 </div>
 
-                <Link to="/otp">
+                <Link to="/email">
                   <div className="text-center mt-4">
                     <button className="text-white bg-secondaryColor font-demi btn-blue">
                       Signup

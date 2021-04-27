@@ -43,9 +43,11 @@ function Home() {
                   Enter your location , destination and Date of travel
                 </h4>
                 <div className="mt-4">
-                  <label className="text-muted font-demi font-18">
-                    City From
-                  </label>
+                  <div>
+                    <label className="text-muted font-demi font-18">
+                      City From
+                    </label>
+                  </div>
                   <input
                     type="text"
                     className="form-control mt-1"

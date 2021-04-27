@@ -12,6 +12,7 @@ import Contact from "./components/Contact/Contact";
 import Otp from "./components/Auth/Signup/Otp";
 import Signup from "./components/Auth/Signup/Signup";
 import MyRide from "./components/MyRide/MyRide";
+import License from './components/Auth/Signup/License/License';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/otp" component={Otp} />
         <Route exact path="/email" component={Email} />
+        <Route exact path="/license" component={License} />
 
         {/* Contact */}
         <Route exact path="/contact" component={Contact} />
