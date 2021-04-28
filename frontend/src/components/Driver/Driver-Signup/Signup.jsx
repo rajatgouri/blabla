@@ -14,6 +14,7 @@ function Signup() {
                 { label: "Step 2" },
                 { label: "Step 3" },
                 { label: "Step 4" },
+                { label: "Step 5" },
               ]}
               connectorStateColors={true}
               className="text-primaryColor"
@@ -79,7 +80,7 @@ function Signup() {
                   </a>
                 </div>
 
-                <Link to="/client/email">
+                <Link to="/driver/email">
                   <div className="text-center mt-4">
                     <button className="text-white bg-secondaryColor font-demi btn-blue">
                       Signup

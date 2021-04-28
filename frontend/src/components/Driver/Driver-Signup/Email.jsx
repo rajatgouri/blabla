@@ -16,6 +16,7 @@ function Email() {
                 { label: "Step 2" },
                 { label: "Step 3" },
                 { label: "Step 4" },
+                { label: "Step 5" }
               ]}
               connectorStateColors={true}
               className="text-primaryColor"

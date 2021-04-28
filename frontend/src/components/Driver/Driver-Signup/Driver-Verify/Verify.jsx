@@ -49,6 +49,7 @@ function Verify() {
                 { label: "Step 2" },
                 { label: "Step 3" },
                 { label: "Step 4" },
+                { label: "Step 5" }
               ]}
               connectorStateColors={true}
               className="text-primaryColor"
@@ -75,21 +76,21 @@ function Verify() {
           <div className="col-lg-10 col-md-10 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                Please upload your ID and Photograph
+                Please upload your License and Photograph
               </h1>
               <form>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div className="card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
-                        Front side of the ID
+                        Front side of the License
                       </p>
                       <div className="input-group file-container">
                         {fileOneValue ? (
                           <Modal
                             show={showFileOne}
                             onHide={() => {
-                              showFileOne(false);
+                              setShowFileOne(false);
                             }}
                           >
                             <Modal.Header closeButton>
@@ -151,14 +152,14 @@ function Verify() {
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div className="card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
-                        Back side of the ID
+                        License side of the License
                       </p>
                       <div className="input-group file-container">
                         {fileTwoValue ? (
                           <Modal
                             show={showFileTwo}
                             onHide={() => {
-                              showFileTwo(false);
+                              setShowFileTwo(false);
                             }}
                           >
                             <Modal.Header closeButton>
@@ -284,7 +285,7 @@ function Verify() {
                   ""
                 )}
 
-                <Link to="/">
+                <Link to="/driver/add-vehicle">
                   <div className="text-center mt-5">
                     <button className="text-white bg-secondaryColor font-demi btn-blue">
                       Submit
