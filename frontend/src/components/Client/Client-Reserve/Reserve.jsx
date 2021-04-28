@@ -25,7 +25,7 @@ function ClientReserve() {
                     <div className="line-ride"></div>
                     <div className="circle-ride-to"></div>
                   </div>
-                  <div className="col-lg-11 col-md-11 col-sm-11 col-11 px-0">
+                  <div className="col-lg-11 col-md-11 col-sm-10 col-10 px-0">
                     <div style={{ marginTop: "-6px" }} className="text-orange">
                       MONTREAL
                       <br />
