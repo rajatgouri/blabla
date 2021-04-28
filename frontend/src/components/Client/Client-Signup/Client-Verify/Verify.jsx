@@ -49,7 +49,6 @@ function ClientVerify() {
                 { label: "Step 1" },
                 { label: "Step 2" },
                 { label: "Step 3" },
-                { label: "Step 4" },
               ]}
               connectorStateColors={true}
               className="text-primaryColor"
@@ -68,7 +67,7 @@ function ClientVerify() {
                 size: "3em",
                 fontWeight: 900,
               }}
-              activeStep={3}
+              activeStep={2}
             />
           </div>
         </div>

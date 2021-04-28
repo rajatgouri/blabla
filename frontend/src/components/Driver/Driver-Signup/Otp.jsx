@@ -14,9 +14,7 @@ function Otp() {
               steps={[
                 { label: "Step 1" },
                 { label: "Step 2" },
-                { label: "Step 3" },
-                { label: "Step 4" },
-                { label: "Step 5" }
+                { label: "Step 3" }
               ]}
               connectorStateColors={true}
               className="text-primaryColor"
@@ -35,7 +33,7 @@ function Otp() {
                 size: "3em",
                 fontWeight: 900,
               }}
-              activeStep={2}
+              activeStep={1}
             />
           </div>
         </div>
