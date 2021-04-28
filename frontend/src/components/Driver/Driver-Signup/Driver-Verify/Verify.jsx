@@ -5,42 +5,113 @@ import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
 import Profile from "../../../../images/profile_avatar.png";
+import { Stepper } from "react-form-stepper";
 
 function Verify() {
-  const [show, setShow] = useState(false);
+  const [showFileOne, setShowFileOne] = useState(false);
+  const [showFileTwo, setShowFileTwo] = useState(false);
+  const [showPhoto, setShowPhoto] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShowPhoto(false);
+  const handleShow = () => setShowPhoto(true);
 
   const [fileOne, setFileOne] = useState("");
   const [fileTwo, setFileTwo] = useState("");
-  const [value, setValue] = useState(false);
   const [photo, setPhoto] = useState(Profile);
+
+  const [value, setValue] = useState(false);
+  const [fileOneValue, setFileOneValue] = useState(false);
+  const [fileTwoValue, setFileTwoValue] = useState(false);
+
   function handleTakePhoto(dataUri) {
     dataUri && setValue(false);
     setPhoto(dataUri);
   }
-  const handleIcon = (e) => {
-    e.preventDefault();
-    document.getElementById("upload")?.click();
-  };
+
+  function handleDocumentFront(dataUri) {
+    dataUri && setFileOneValue(false);
+    setFileOne(dataUri);
+  }
+
+  function handleDocumentBack(dataUri) {
+    dataUri && setFileTwoValue(false);
+    setFileTwo(dataUri);
+  }
+
   return (
     <>
-      <div className="container my-5">
+      <div className="verify container my-5">
+        <div className="row d-flex justify-content-center mb-4">
+          <div className="col-lg-10 col-sm-12 col-md-12 col-12 font-regular px-0">
+            <Stepper
+              steps={[
+                { label: "Step 1" },
+                { label: "Step 2" },
+                { label: "Step 3" },
+                { label: "Step 4" },
+              ]}
+              connectorStateColors={true}
+              className="text-primaryColor"
+              connectorStyleConfig={{
+                activeColor: "#1e4c6b",
+                completedColor: "#1e4c6b",
+                disabledColor: "#bdbdbd",
+                size: 1,
+                stepSize: "0em",
+              }}
+              styleConfig={{
+                activeBgColor: "#00AFF5",
+                completedBgColor: "#1e4c6b",
+                labelFontSize: "1rem",
+                circleFontSize: "1rem",
+                size: "3em",
+                fontWeight: 900,
+              }}
+              activeStep={3}
+            />
+          </div>
+        </div>
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-10 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                Please upload your License and Photograph
+                Please upload your ID and Photograph
               </h1>
               <form>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div className="card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
-                        Front side of the License
+                        Front side of the ID
                       </p>
                       <div className="input-group file-container">
+                        {fileOneValue ? (
+                          <Modal
+                            show={showFileOne}
+                            onHide={() => {
+                              showFileOne(false);
+                            }}
+                          >
+                            <Modal.Header closeButton>
+                              <Modal.Title>
+                                <div className="font-bold text-primaryColor">
+                                  Click your picture
+                                </div>
+                              </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                              <div className="w-100 h-100">
+                                <Camera
+                                  onTakePhoto={(dataUri) => {
+                                    handleDocumentFront(dataUri);
+                                  }}
+                                />
+                              </div>
+                            </Modal.Body>
+                          </Modal>
+                        ) : (
+                          ""
+                        )}
                         {fileOne ? (
                           <div className="verify-image-container">
                             <img
@@ -50,38 +121,66 @@ function Verify() {
                                 background: "#e0f6ff",
                                 borderRadius: "10px",
                               }}
-                            />{" "}
+                            />
                           </div>
                         ) : (
-                          <input
-                            type="file"
-                            id="front-upload"
-                            value=""
-                            onChange={(e) =>
-                              setFileOne(URL.createObjectURL(e.target.files[0]))
-                            }
+                          <div
                             className="form-control-upload custom-file-input mx-5 my-4"
                             style={{ height: "250px" }}
-                          />
+                          ></div>
                         )}
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById("front-upload")?.click();
-                          }}
-                          className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
-                        >
-                          <i className="fas fa-3x fa-upload"></i>
-                        </button>
+                        <div className="w-100 h-100">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setFileOneValue(!fileTwoValue);
+                              setFileOne("");
+                              setShowFileOne(true);
+                            }}
+                            className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
+                          >
+                            <i
+                              class="fas fa-3x fa-camera"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div className="card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
-                        Back side of the License
+                        Back side of the ID
                       </p>
                       <div className="input-group file-container">
+                        {fileTwoValue ? (
+                          <Modal
+                            show={showFileTwo}
+                            onHide={() => {
+                              showFileTwo(false);
+                            }}
+                          >
+                            <Modal.Header closeButton>
+                              <Modal.Title>
+                                <div className="font-bold text-primaryColor">
+                                  Click your picture
+                                </div>
+                              </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                              <div className="w-100 h-100">
+                                <Camera
+                                  onTakePhoto={(dataUri) => {
+                                    handleDocumentBack(dataUri);
+                                  }}
+                                />
+                              </div>
+                            </Modal.Body>
+                          </Modal>
+                        ) : (
+                          ""
+                        )}
                         {fileTwo ? (
                           <div className="verify-image-container">
                             <img
@@ -94,72 +193,76 @@ function Verify() {
                             />
                           </div>
                         ) : (
-                          <input
-                            type="file"
-                            id="back-upload"
-                            value=""
-                            onChange={(e) =>
-                              setFileTwo(URL.createObjectURL(e.target.files[0]))
-                            }
-                            className="form-control-upload custom-file-input mx-5 mt-4"
+                          <div
+                            className="form-control-upload custom-file-input mx-5 my-4"
                             style={{ height: "250px" }}
-                          />
+                          ></div>
                         )}
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById("back-upload")?.click();
-                          }}
-                          className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
-                        >
-                          <i className="fas fa-3x fa-upload"></i>
-                        </button>
+                        <div className="w-100 h-100">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setFileTwoValue(!fileTwoValue);
+                              setFileTwo("");
+                              setShowFileTwo(true);
+                            }}
+                            className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
+                          >
+                            <i
+                              class="fas fa-3x fa-camera"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                    <div className="text-center"
-                  style={{ borderRadius: "10px"}}>
-                  <div className="file-container  pt-1 mt-5" style={{borderRadius: "10px"}}> 
-                    {photo ? (
-                      <div className="mt-4 text-center">
-                        <img
-                          src={photo}
-                          className="img-fluid"
-                          style={{
-                            borderRadius: "50%",
-                            height: "250px",
-                            width: "250px",
+                  <div className="col-md-3"></div>
+                  <div className="col-md-6">
+                    <div
+                      className="text-center"
+                      style={{ borderRadius: "10px" }}
+                    >
+                      <div
+                        className="file-container  pt-1 mt-5"
+                        style={{ borderRadius: "10px" }}
+                      >
+                        {photo ? (
+                          <div className="mt-4 text-center">
+                            <img
+                              src={photo}
+                              className="img-fluid"
+                              style={{
+                                borderRadius: "50%",
+                                height: "250px",
+                                width: "250px",
+                              }}
+                            />
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleShow();
+                            setValue(!value);
                           }}
-                        />
+                          className="text-white bg-secondaryColor font-demi btn-blue mt-4"
+                          style={{ outline: "none", width: "40%" }}
+                        >
+                          <i class="fa fa-camera" aria-hidden="true"></i>
+                        </button>
                       </div>
-                      ) : (
-                        ""
-                      )}
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleShow();
-                      setValue(!value);
-                    }}
-                    className="text-white bg-secondaryColor font-demi btn-blue mt-4"
-                    style={{outline: 'none' ,width: "40%"}}
-                  >
-                    <i class="fa fa-camera" aria-hidden="true"></i>
-                  </button>
-                  </div>
-                </div>
                     </div>
-                    <div className="col-md-3"></div>
-
+                  </div>
+                  <div className="col-md-3"></div>
                 </div>
-                
 
                 {value ? (
-                  <Modal show={show} onHide={handleClose}>
+                  <Modal show={showPhoto} onHide={handleClose}>
                     <Modal.Header closeButton>
                       <Modal.Title>
                         <div className="font-bold text-primaryColor">
@@ -181,7 +284,7 @@ function Verify() {
                   ""
                 )}
 
-                <Link to="/driver/add-vehicle">
+                <Link to="/">
                   <div className="text-center mt-5">
                     <button className="text-white bg-secondaryColor font-demi btn-blue">
                       Submit

@@ -1,12 +1,43 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { Link } from "react-router-dom";
+import { Stepper } from "react-form-stepper";
 
 function Email() {
   const [otp, setOtp] = useState("");
   return (
     <>
       <div className="container my-5">
+        <div className="row d-flex justify-content-center mb-4">
+          <div className="col-lg-10 col-sm-12 col-md-12 col-12 mb-4 font-regular px-0">
+            <Stepper
+              steps={[
+                { label: "Step 1" },
+                { label: "Step 2" },
+                { label: "Step 3" },
+                { label: "Step 4" },
+              ]}
+              connectorStateColors={true}
+              className="text-primaryColor"
+              connectorStyleConfig={{
+                activeColor: "#1e4c6b",
+                completedColor: "#1e4c6b",
+                disabledColor: "#bdbdbd",
+                size: 1,
+                stepSize: "0em",
+              }}
+              styleConfig={{
+                activeBgColor: "#00AFF5",
+                completedBgColor: "#1e4c6b",
+                labelFontSize: "1rem",
+                circleFontSize: "1rem",
+                size: "3em",
+                fontWeight: 900,
+              }}
+              activeStep={1}
+            />
+          </div>
+        </div>
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">

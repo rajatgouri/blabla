@@ -9,10 +9,12 @@ import { Stepper } from "react-form-stepper";
 import "../Signup.css";
 
 function ClientVerify() {
-  const [show, setShow] = useState(false);
+  const [showFileOne, setShowFileOne] = useState(false);
+  const [showFileTwo, setShowFileTwo] = useState(false);
+  const [showPhoto, setShowPhoto] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShowPhoto(false);
+  const handleShow = () => setShowPhoto(true);
 
   const [fileOne, setFileOne] = useState("");
   const [fileTwo, setFileTwo] = useState("");
@@ -85,11 +87,29 @@ function ClientVerify() {
                       </p>
                       <div className="input-group file-container">
                         {fileOneValue ? (
-                          <Camera
-                            onTakePhoto={(dataUri) => {
-                              handleDocumentFront(dataUri);
+                          <Modal
+                            show={showFileOne}
+                            onHide={() => {
+                              showFileOne(false);
                             }}
-                          />
+                          >
+                            <Modal.Header closeButton>
+                              <Modal.Title>
+                                <div className="font-bold text-primaryColor">
+                                  Click your picture
+                                </div>
+                              </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                              <div className="w-100 h-100">
+                                <Camera
+                                  onTakePhoto={(dataUri) => {
+                                    handleDocumentFront(dataUri);
+                                  }}
+                                />
+                              </div>
+                            </Modal.Body>
+                          </Modal>
                         ) : (
                           ""
                         )}
@@ -105,7 +125,10 @@ function ClientVerify() {
                             />
                           </div>
                         ) : (
-                          ""
+                          <div
+                            className="form-control-upload custom-file-input mx-5 my-4"
+                            style={{ height: "250px" }}
+                          ></div>
                         )}
                         <div className="w-100 h-100">
                           <button
@@ -113,6 +136,7 @@ function ClientVerify() {
                               e.preventDefault();
                               setFileOneValue(!fileTwoValue);
                               setFileOne("");
+                              setShowFileOne(true);
                             }}
                             className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
                           >
@@ -132,11 +156,29 @@ function ClientVerify() {
                       </p>
                       <div className="input-group file-container">
                         {fileTwoValue ? (
-                          <Camera
-                            onTakePhoto={(dataUri) => {
-                              handleDocumentBack(dataUri);
+                          <Modal
+                            show={showFileTwo}
+                            onHide={() => {
+                              showFileTwo(false);
                             }}
-                          />
+                          >
+                            <Modal.Header closeButton>
+                              <Modal.Title>
+                                <div className="font-bold text-primaryColor">
+                                  Click your picture
+                                </div>
+                              </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                              <div className="w-100 h-100">
+                                <Camera
+                                  onTakePhoto={(dataUri) => {
+                                    handleDocumentBack(dataUri);
+                                  }}
+                                />
+                              </div>
+                            </Modal.Body>
+                          </Modal>
                         ) : (
                           ""
                         )}
@@ -152,7 +194,10 @@ function ClientVerify() {
                             />
                           </div>
                         ) : (
-                          ""
+                          <div
+                            className="form-control-upload custom-file-input mx-5 my-4"
+                            style={{ height: "250px" }}
+                          ></div>
                         )}
                         <div className="w-100 h-100">
                           <button
@@ -160,6 +205,7 @@ function ClientVerify() {
                               e.preventDefault();
                               setFileTwoValue(!fileTwoValue);
                               setFileTwo("");
+                              setShowFileTwo(true);
                             }}
                             className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
                           >
@@ -217,7 +263,7 @@ function ClientVerify() {
                 </div>
 
                 {value ? (
-                  <Modal show={show} onHide={handleClose}>
+                  <Modal show={showPhoto} onHide={handleClose}>
                     <Modal.Header closeButton>
                       <Modal.Title>
                         <div className="font-bold text-primaryColor">

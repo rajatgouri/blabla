@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import "./Login.css";
 
 function Login() {
@@ -27,15 +28,17 @@ function Login() {
                   />
                 </div>
 
-                <div className="font-demi  text-primaryColor mt-4 pt-3 pb-3">
-                  <div className="clear-fix">
-                    <span className="float-left">
-                      Don't have an account?<a href="/client/signup" className="ml-2">Signup here</a>
-                    </span>
-                    <span className="float-right"> 
-                      Forgot Password?
-                    </span>
+                <div className="d-flex justify-content-between">
+                <Link to="/signup">
+                  {" "}
+                  <div className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
+                    Become a member{" "}                   
+                    <span className="ml-2 text-secondaryColor">Signup</span>
                   </div>
+                </Link>
+                <p className="text-secondaryColor font-demi grey-hover mt-4 py-3 px-3">
+                  Forgot Password
+                </p>
                 </div>
 
                 <div className="text-center mt-5">
