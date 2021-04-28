@@ -90,7 +90,7 @@ function ClientVerify() {
                           <Modal
                             show={showFileOne}
                             onHide={() => {
-                              showFileOne(false);
+                              setShowFileOne(false);
                             }}
                           >
                             <Modal.Header closeButton>
@@ -159,7 +159,7 @@ function ClientVerify() {
                           <Modal
                             show={showFileTwo}
                             onHide={() => {
-                              showFileTwo(false);
+                              setShowFileTwo(false);
                             }}
                           >
                             <Modal.Header closeButton>

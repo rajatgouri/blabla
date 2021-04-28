@@ -67,6 +67,10 @@ input[type="file"] {
 
 .modal{
   padding-right: 0px;
+  
+}
+.modal-body{
+  height: 80vh;
 }
 .custom-file-input::before {
   content: "";
