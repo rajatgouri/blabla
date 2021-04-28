@@ -5,6 +5,8 @@ import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
 import Profile from "../../../../images/profile_avatar.png";
+import { Stepper } from "react-form-stepper";
+import "../Signup.css";
 
 function ClientVerify() {
   const [show, setShow] = useState(false);
@@ -14,19 +16,60 @@ function ClientVerify() {
 
   const [fileOne, setFileOne] = useState("");
   const [fileTwo, setFileTwo] = useState("");
-  const [value, setValue] = useState(false);
   const [photo, setPhoto] = useState(Profile);
+
+  const [value, setValue] = useState(false);
+  const [fileOneValue, setFileOneValue] = useState(false);
+  const [fileTwoValue, setFileTwoValue] = useState(false);
+
   function handleTakePhoto(dataUri) {
     dataUri && setValue(false);
     setPhoto(dataUri);
   }
-  const handleIcon = (e) => {
-    e.preventDefault();
-    document.getElementById("upload")?.click();
-  };
+
+  function handleDocumentFront(dataUri) {
+    dataUri && setFileOneValue(false);
+    setFileOne(dataUri);
+  }
+
+  function handleDocumentBack(dataUri) {
+    dataUri && setFileTwoValue(false);
+    setFileTwo(dataUri);
+  }
+
   return (
     <>
       <div className="verify container my-5">
+        <div className="row d-flex justify-content-center mb-4">
+          <div className="col-lg-10 col-sm-12 col-md-12 col-12 font-regular px-0">
+            <Stepper
+              steps={[
+                { label: "Step 1" },
+                { label: "Step 2" },
+                { label: "Step 3" },
+                { label: "Step 4" },
+              ]}
+              connectorStateColors={true}
+              className="text-primaryColor"
+              connectorStyleConfig={{
+                activeColor: "#1e4c6b",
+                completedColor: "#1e4c6b",
+                disabledColor: "#bdbdbd",
+                size: 1,
+                stepSize: "0em",
+              }}
+              styleConfig={{
+                activeBgColor: "#00AFF5",
+                completedBgColor: "#1e4c6b",
+                labelFontSize: "1rem",
+                circleFontSize: "1rem",
+                size: "3em",
+                fontWeight: 900,
+              }}
+              activeStep={3}
+            />
+          </div>
+        </div>
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-10 col-sm-12 col-12">
             <div className="card">
@@ -41,6 +84,15 @@ function ClientVerify() {
                         Front side of the ID
                       </p>
                       <div className="input-group file-container">
+                        {fileOneValue ? (
+                          <Camera
+                            onTakePhoto={(dataUri) => {
+                              handleDocumentFront(dataUri);
+                            }}
+                          />
+                        ) : (
+                          ""
+                        )}
                         {fileOne ? (
                           <div className="verify-image-container">
                             <img
@@ -50,29 +102,26 @@ function ClientVerify() {
                                 background: "#e0f6ff",
                                 borderRadius: "10px",
                               }}
-                            />{" "}
+                            />
                           </div>
                         ) : (
-                          <input
-                            type="file"
-                            id="front-upload"
-                            value=""
-                            onChange={(e) =>
-                              setFileOne(URL.createObjectURL(e.target.files[0]))
-                            }
-                            className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
-                          />
+                          ""
                         )}
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById("front-upload")?.click();
-                          }}
-                          className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
-                        >
-                          <i className="fas fa-3x fa-upload"></i>
-                        </button>
+                        <div className="w-100 h-100">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setFileOneValue(!fileTwoValue);
+                              setFileOne("");
+                            }}
+                            className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
+                          >
+                            <i
+                              class="fas fa-3x fa-camera"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -82,6 +131,15 @@ function ClientVerify() {
                         Back side of the ID
                       </p>
                       <div className="input-group file-container">
+                        {fileTwoValue ? (
+                          <Camera
+                            onTakePhoto={(dataUri) => {
+                              handleDocumentBack(dataUri);
+                            }}
+                          />
+                        ) : (
+                          ""
+                        )}
                         {fileTwo ? (
                           <div className="verify-image-container">
                             <img
@@ -94,69 +152,69 @@ function ClientVerify() {
                             />
                           </div>
                         ) : (
-                          <input
-                            type="file"
-                            id="back-upload"
-                            value=""
-                            onChange={(e) =>
-                              setFileTwo(URL.createObjectURL(e.target.files[0]))
-                            }
-                            className="form-control-upload custom-file-input mx-5 mt-4"
-                            style={{ height: "250px" }}
-                          />
+                          ""
                         )}
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById("back-upload")?.click();
-                          }}
-                          className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
-                        >
-                          <i className="fas fa-3x fa-upload"></i>
-                        </button>
+                        <div className="w-100 h-100">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setFileTwoValue(!fileTwoValue);
+                              setFileTwo("");
+                            }}
+                            className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
+                          >
+                            <i
+                              class="fas fa-3x fa-camera"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                    <div className="text-center"
-                  style={{ borderRadius: "10px"}}>
-                  <div className="file-container  pt-1 mt-5" style={{borderRadius: "10px"}}> 
-                    {photo ? (
-                      <div className="mt-4 text-center">
-                        <img
-                          src={photo}
-                          className="img-fluid"
-                          style={{
-                            borderRadius: "50%",
-                            height: "250px",
-                            width: "250px",
+                  <div className="col-md-3"></div>
+                  <div className="col-md-6">
+                    <div
+                      className="text-center"
+                      style={{ borderRadius: "10px" }}
+                    >
+                      <div
+                        className="file-container  pt-1 mt-5"
+                        style={{ borderRadius: "10px" }}
+                      >
+                        {photo ? (
+                          <div className="mt-4 text-center">
+                            <img
+                              src={photo}
+                              className="img-fluid"
+                              style={{
+                                borderRadius: "50%",
+                                height: "250px",
+                                width: "250px",
+                              }}
+                            />
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleShow();
+                            setValue(!value);
                           }}
-                        />
+                          className="text-white bg-secondaryColor font-demi btn-blue mt-4"
+                          style={{ outline: "none", width: "40%" }}
+                        >
+                          <i class="fa fa-camera" aria-hidden="true"></i>
+                        </button>
                       </div>
-                      ) : (
-                        ""
-                      )}
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleShow();
-                      setValue(!value);
-                    }}
-                    className="text-white bg-secondaryColor font-demi btn-blue mt-4"
-                    style={{outline: 'none' ,width: "40%"}}
-                  >
-                    <i class="fa fa-camera" aria-hidden="true"></i>
-                  </button>
-                  </div>
-                </div>
                     </div>
-                    <div className="col-md-3"></div>
-
+                  </div>
+                  <div className="col-md-3"></div>
                 </div>
-                
 
                 {value ? (
                   <Modal show={show} onHide={handleClose}>
