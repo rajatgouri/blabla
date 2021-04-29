@@ -25,6 +25,10 @@ import DriverOtp from "./components/Driver/Driver-Signup/Otp";
 import DriverEmail from "./components/Driver/Driver-Signup/Email";
 import DriverVerify from './components/Driver/Driver-Signup/Driver-Verify/Verify';
 import DriverAddVehicle from './components/Driver/Driver-Signup/AddVehicle';
+import DriverAddRide from './components/Driver/Add-Ride/Add-Ride';
+import DriverHome from './components/Driver/Driver-Home/Home';
+import DriverRideDetails from './components/Driver/Driver-Ride-Details/RideDetails';
+import DriverAllRides from './components/Driver/All-Rides/AllRides';
 
 function App() {
   return (
@@ -44,11 +48,15 @@ function App() {
         <Route exact path="/client/verify" component={ClientVerify} />
 
         {/* Driver Sign up */}
+        <Route exact path="/driver/home" component={DriverHome} />
         <Route exact path="/driver/signup" component={DriverSignup} />
         <Route exact path="/driver/otp" component={DriverOtp} />
         <Route exact path="/driver/email" component={DriverEmail} />
         <Route exact path="/driver/verify" component={DriverVerify} />
         <Route exact path="/driver/add-vehicle" component={DriverAddVehicle} />
+        <Route exact path="/driver/add-ride" component={DriverAddRide} />
+        <Route exact path="/driver/ride-details" component={DriverRideDetails} />
+        <Route exact path="/driver/all-ride" component={DriverAllRides} />
 
         {/* Contact */}
         <Route exact path="/client/contact" component={ClientContact} />

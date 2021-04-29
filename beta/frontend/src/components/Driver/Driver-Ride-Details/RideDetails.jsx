@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./reserve.css";
+import "./RideDetails.css";
 
-function ClientReserve() {
+function DriverRideDetails() {
   return (
     <>
       <div className="container">
@@ -53,23 +53,72 @@ function ClientReserve() {
                 </div>
               <hr className="grey-hr" />
               <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18 mt-2">
+                  Started at
+                </div>
+                <div className="text-primaryColor font-bold font-18 mt-2">
+                  9:45 AM
+                </div>
+              </div>
+              <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18 mt-2">
+                  Ended at
+                </div>
+                <div className="text-primaryColor font-bold font-18 mt-2">
+                  4:45 PM
+                </div>
+              </div>
+              <hr className="grey-hr" />
+              <div className="d-flex justify-content-between px-3">
                 <div className="text-muted font-demi font-18">
-                  Total price for 1 passenger
+                  Price per seat
                 </div>
                 <div className="text-primaryColor font-bold font-18">
                   &#36;540.00
                 </div>
               </div>
-              <hr className="grey-hr" />
-            </div>
-
-            <Link to="/">
-              <div className="text-center mt-4 mb-5">
-                <button className="text-white bg-secondaryColor font-demi btn-blue">
-                  Continue
-                </button>
+              <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18">
+                  Total seats Provided
+                </div>
+                <div className="text-primaryColor font-bold font-18">
+                  4
+                </div>
               </div>
-            </Link>
+              <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18">
+                  Seats Booked
+                </div>
+                <div className="text-primary font-bold font-18">
+                  3
+                </div>
+              </div>
+              <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18">
+                  Seats that were vacant
+                </div>
+                <div className="text-danger font-bold font-18">
+                  1
+                </div>
+              </div>
+              <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18">
+                  Total Earnings
+                </div>
+                <div className="text-green font-bold font-18">
+                &#36;1620.00
+                </div>
+              </div>
+              <hr className="grey-hr" />
+              <div className="d-flex justify-content-between px-3 mb-5">
+                <div className="text-muted font-demi font-18">
+                  Feedback
+                </div>
+                <div className="text-green font-bold font-18">
+                4.5 <i class="fas fa-star text-green"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -77,4 +126,4 @@ function ClientReserve() {
   );
 }
 
-export default ClientReserve;
+export default DriverRideDetails;
