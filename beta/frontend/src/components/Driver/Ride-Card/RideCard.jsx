@@ -7,17 +7,17 @@ function RideCard() {
     <>
       <div className="container mb-2">
         <div className="row d-flex justify-content-center">
-          <div>
+          <div className="w-100">
             <div className="card">
               <div
                 className="card mt-4 ride-card text-primaryColor font-medium p-3 font-18"
                 style={{ borderRadius: "10px" }}
               >
-                <div className="row">
+                <div className="row ">
                   <div className="col-lg-9 col-md-8 col-sm-8 col-8">
                     <div className="font-bold text-green">12 Aug 2020 9:45 AM</div>
                     <hr className="my-2" />
-                    <div className="row my-3">
+                    <div className="row ">
                       <div className="col-lg-1 col-md-1 col-sm-1 col-1">
                         <div className="circle-ride-from"></div>
                         <div className="line-ride"></div>

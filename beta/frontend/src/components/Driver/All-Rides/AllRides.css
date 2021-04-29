@@ -64,13 +64,7 @@
   color: rgb(8, 0, 0);
 }
 
-.recent {
-    margin-left: 12%;
-}
 
-.btn-blue {
-    margin-right: 11%;
-}
 
 @media(max-width: 991px){
     .line-ride{
