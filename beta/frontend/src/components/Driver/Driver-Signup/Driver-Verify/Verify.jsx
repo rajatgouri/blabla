@@ -126,7 +126,7 @@ function Verify() {
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
+                            style={{ height: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -195,7 +195,7 @@ function Verify() {
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
+                            style={{ height: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -236,8 +236,8 @@ function Verify() {
                               className="img-fluid"
                               style={{
                                 borderRadius: "50%",
-                                height: "250px",
-                                width: "250px",
+                                height: "175px",
+                                width: "175px",
                               }}
                             />
                           </div>
