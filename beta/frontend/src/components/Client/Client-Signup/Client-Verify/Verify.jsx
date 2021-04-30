@@ -72,7 +72,7 @@ function ClientVerify() {
           </div>
         </div>
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-10 col-md-10 col-sm-12 col-12">
+          <div className="col-lg-8 col-md-10 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
                 Please upload your ID and Photograph

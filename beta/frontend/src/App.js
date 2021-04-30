@@ -33,7 +33,7 @@ import DriverRideDetails from './components/Driver/Driver-Ride-Details/RideDetai
 import DriverAllRides from './components/Driver/All-Rides/AllRides';
 
 //Admin Imports
-import Dashboard from "./components/Admin/Dashboard/Dashboard";
+// import Dashboard from "./components/Admin/Dashboard/Dashboard";
 import AdminRides from "./components/Admin/Admin-Rides/AllRides";
 import OngoingRides from "./components/Admin/Ongoing-Rides/Ongoing";
 import RideDetails from "./components/Admin/Admin-Ride-Details/RideDetails";
@@ -64,11 +64,15 @@ function App() {
         <Route exact path="/driver/verify" component={DriverVerify} />
         <Route exact path="/driver/add-vehicle" component={DriverAddVehicle} />
         <Route exact path="/driver/add-ride" component={DriverAddRide} />
-        <Route exact path="/driver/ride-details" component={DriverRideDetails} />
+        <Route
+          exact
+          path="/driver/ride-details"
+          component={DriverRideDetails}
+        />
         <Route exact path="/driver/all-ride" component={DriverAllRides} />
 
-        {/* Admin */ }
-        <Route exact path="/admin/dashboard" component={Dashboard} />
+        {/* Admin */}
+        {/* <Route exact path="/admin/dashboard" component={Dashboard} /> */}
         <Route exact path="/admin/all-rides" component={AdminRides} />
         <Route exact path="/admin/ongoing-rides" component={OngoingRides} />
         <Route exact path="/admin/ride-details" component={RideDetails} />
@@ -80,8 +84,8 @@ function App() {
         {/* Ride */}
         <Route exact path="/client/ride" component={ClientRide} />
 
-         {/* My Ride */}
-         <Route exact path="/client/myride" component={ClientMyRide} />
+        {/* My Ride */}
+        <Route exact path="/client/myride" component={ClientMyRide} />
 
         {/* Reserve */}
         <Route path="/client/reserve" component={ClientReserve} />
