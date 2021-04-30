@@ -1,0 +1,28 @@
+.dropdown-icon {
+    cursor: pointer;
+}
+.category-card{
+    transition: all 0.2s;
+}
+.category-card:hover{
+    box-shadow: 6px 6px 15px 0px rgba(0, 0, 0 , 0.2);
+    transform: scale(1.04); 
+}
+
+.all-hr{
+    border: none;
+    height: 10px;
+    background-color: rgb(156, 214, 248);
+}
+
+.ongoing-hr{
+    border: none;
+    height: 10px;
+    background-color: rgb(175, 240, 202);
+}
+
+.cancelled-hr{
+    border: none;
+    height: 10px;
+    background-color: rgb(240, 175, 175);
+}

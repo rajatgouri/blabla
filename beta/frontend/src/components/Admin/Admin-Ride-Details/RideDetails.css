@@ -1,0 +1,34 @@
+.grey-hr{
+    border: none;
+    background-color: rgb(237, 237, 237);
+    height: 10px;
+}
+
+.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:600px;}
+
+.mapouter{position:relative;text-align:right;height:300px;width:600px;}
+
+#gmap_canvas{
+    height: 400px;
+    width: 630px;
+    margin-left: 30px;
+}
+
+
+@media(max-width: 991px){
+    #gmap_canvas{
+        height: 100%;
+        width: 75%;
+        margin-right:25%;
+        margin-left: 0px;
+    }
+}
+
+@media( max-width: 760px){
+    #gmap_canvas{
+        height: 1000%;
+        width: 57%;
+        margin-right:45%;
+        margin-left: 0px;
+    }
+}

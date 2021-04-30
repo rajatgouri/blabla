@@ -46,13 +46,6 @@ function AddRide() {
                 </div>
                 <div className="input-group mt-4">
                   <input
-                    type="number"
-                    className="form-control"
-                    placeholder="Number of Places"
-                  />
-                </div>
-                <div className="input-group mt-4">
-                  <input
                     type="text"
                     className="form-control"
                     placeholder="Price Per Seat"

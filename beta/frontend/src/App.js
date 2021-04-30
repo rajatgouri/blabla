@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from "react-router-dom";
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
 
 //Shared Imports
 import Login from "./components/Shared/Login/Login";
@@ -30,6 +32,13 @@ import DriverHome from './components/Driver/Driver-Home/Home';
 import DriverRideDetails from './components/Driver/Driver-Ride-Details/RideDetails';
 import DriverAllRides from './components/Driver/All-Rides/AllRides';
 
+//Admin Imports
+import Dashboard from "./components/Admin/Dashboard/Dashboard";
+import AdminRides from "./components/Admin/Admin-Rides/AllRides";
+import OngoingRides from "./components/Admin/Ongoing-Rides/Ongoing";
+import RideDetails from "./components/Admin/Admin-Ride-Details/RideDetails";
+import AdminUsers from "./components/Admin/User/User";
+
 function App() {
   return (
     <div className="App">
@@ -57,6 +66,13 @@ function App() {
         <Route exact path="/driver/add-ride" component={DriverAddRide} />
         <Route exact path="/driver/ride-details" component={DriverRideDetails} />
         <Route exact path="/driver/all-ride" component={DriverAllRides} />
+
+        {/* Admin */ }
+        <Route exact path="/admin/dashboard" component={Dashboard} />
+        <Route exact path="/admin/all-rides" component={AdminRides} />
+        <Route exact path="/admin/ongoing-rides" component={OngoingRides} />
+        <Route exact path="/admin/ride-details" component={RideDetails} />
+        <Route exact path="/admin/users" component={AdminUsers} />
 
         {/* Contact */}
         <Route exact path="/client/contact" component={ClientContact} />
