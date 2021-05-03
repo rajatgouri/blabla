@@ -17,6 +17,6 @@ app.use('/', route.init());
 app.listen(8080,()=>{
 
     console.log("Server is running on port : 8080");
-    // run this to create a admin only once
+    // run this to create a admin only once on the first run
     // createAdmin.createAdmin();
 })
