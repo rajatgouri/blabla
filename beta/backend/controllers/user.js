@@ -1,5 +1,5 @@
 const { createToken } = require('../utils/auth');
-const User = require('../models/user');
+const User = require("../models/User");
 
 exports.registerUser = (req, res) => {
   if (
