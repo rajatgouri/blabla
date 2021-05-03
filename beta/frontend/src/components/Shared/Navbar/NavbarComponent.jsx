@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./Navbar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link ,useHistory } from "react-router-dom";
 import Logo from "../../../images/logo.png";
 import { useLocation } from 'react-router-dom'
 
@@ -11,6 +11,13 @@ function NavbarComponent() {
   const isDriver = location.pathname.includes("/driver")
   const signup = isDriver ? "/driver/signup" : "/client/signup";
   const home = isDriver ? "/driver/home" : "";
+  let history = useHistory();
+  const isLoggedIn = localStorage.getItem("token");
+  console.log(isLoggedIn);
+  const logout = () => {
+    localStorage.clear();
+    history.push("/");
+  }
   return (
     <React.Fragment>
       <Navbar
@@ -66,7 +73,7 @@ function NavbarComponent() {
                 Contact Us
               </Nav.Link>
             </NavLink>
-            <NavLink to="/login" activeClassName="activeNav">
+            {!isLoggedIn? <NavLink to="/login" activeClassName="activeNav">
               <Nav.Link
                 href="/login"
                 className="font-demi font-17
@@ -74,8 +81,8 @@ function NavbarComponent() {
               >
                 Login
               </Nav.Link>
-            </NavLink>
-            <NavLink to={signup} activeClassName="activeNav">
+            </NavLink> : '' }
+            {!isLoggedIn? <NavLink to={signup} activeClassName="activeNav">
               <Nav.Link
                 href={signup}
                 className="font-demi font-17
@@ -83,7 +90,15 @@ function NavbarComponent() {
               >
                 Signup
               </Nav.Link>
-            </NavLink>
+            </NavLink> : '' }
+            {isLoggedIn?
+              <Nav
+                className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center pt-2"
+                  onClick={logout}
+              >
+                Logout
+            </Nav> : '' }
           </Nav>
         </Navbar.Collapse>
       </Navbar>

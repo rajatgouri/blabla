@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -98,6 +99,11 @@ export default function MiniDrawer(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  let history = useHistory();
+  const logout = () => {
+    localStorage.clear();
+    history.push("/");
+  }
 
   return (
     <div className={classes.root}>
@@ -181,11 +187,11 @@ export default function MiniDrawer(props) {
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-            <Link to="/logout">
-            <strong><i class="fas fa-sign-out-alt text-20"></i></strong>
+            <Link>
+            <strong><i class="fas fa-sign-out-alt text-20" onClick={logout}></i></strong>
             </Link>
             </ListItemIcon>
-            <Link to="/logout">
+            <Link>
             <ListItemText primary="Logout" />
             </Link>
           </ListItem>          

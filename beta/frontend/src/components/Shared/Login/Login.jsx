@@ -61,7 +61,7 @@ function Login() {
                   />
                 </div>
                 <div className="d-flex justify-content-between">
-                  <Link to="/signup">
+                  <Link to="/client/signup">
                     {" "}
                     <div className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
                       Become a member{" "}

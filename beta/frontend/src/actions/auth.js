@@ -6,8 +6,19 @@ export const signIn = (formData, history) => async (dispatch) => {
   try {
     const { data } = await api.signIn(formData);
     dispatch({ type: SIGN_IN, data });
-    console.log(jwt(data.token));
-    history.push("/");
+    const role = jwt(data.token).role;
+    console.log(role);
+    switch(role) {
+      case 'admin':
+        history.push("/admin/all-rides");
+        break;
+      case 'user':  
+        history.push("/");
+        break;
+      case 'driver':  
+        history.push("/driver/home");
+        break;
+    }
   } catch (e) {
     console.log(e.message);
   }
