@@ -86,7 +86,7 @@ function ClientSignup() {
                     }}
                     required
                     name="password"
-                    type="text"
+                    type="password"
                     className="form-control"
                     placeholder="Password"
                   />
