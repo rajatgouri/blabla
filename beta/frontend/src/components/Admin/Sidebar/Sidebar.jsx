@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -168,16 +168,7 @@ export default function MiniDrawer() {
             <ListItemText primary="All Rides" />
             </Link>
           </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-            <Link to="/admin/ongoing-rides">
-            <strong><i class="fa fa-car text-green text-20"></i></strong>
-            </Link>
-            </ListItemIcon>
-            <Link to="/admin/ongoing-rides">
-            <ListItemText primary="Ongoing Rides" />
-            </Link>
-          </ListItem>
+          
           <ListItem button>
             <ListItemIcon>
             <Link to="/admin/users">
@@ -201,7 +192,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+        {props.children}
       </main>
     </div>
   );

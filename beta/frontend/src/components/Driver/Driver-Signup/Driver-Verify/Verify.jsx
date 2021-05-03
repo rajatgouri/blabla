@@ -42,7 +42,7 @@ function Verify() {
     <>
       <div className="verify container my-5">
         <div className="row d-flex justify-content-center mb-4">
-          <div className="col-lg-10 col-sm-12 col-md-12 col-12 font-regular px-0">
+          <div className="col-lg-8 col-sm-12 col-md-12 col-12 font-regular px-0">
             <Stepper
               steps={[
                 { label: "Step 1" },
@@ -126,7 +126,7 @@ function Verify() {
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
+                            style={{ height: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -195,7 +195,7 @@ function Verify() {
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
+                            style={{ height: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -236,8 +236,8 @@ function Verify() {
                               className="img-fluid"
                               style={{
                                 borderRadius: "50%",
-                                height: "250px",
-                                width: "250px",
+                                height: "175px",
+                                width: "175px",
                               }}
                             />
                           </div>

@@ -9,7 +9,7 @@ function DriverRideDetails() {
     const handleClose = () => setShowModal(false);
   return (
     <>
-    <Sidebar></Sidebar>
+    <Sidebar>
     {showModal ? (
         <Modal className="mt-5" show={showModal} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -261,6 +261,8 @@ function DriverRideDetails() {
           </div>
         </div>
       </div>
+    </Sidebar>
+    
     </>
   );
 }

@@ -30,11 +30,11 @@ input[type="file"] {
 
 .file-container {
   background-color: var(--tertiaryColor);
-  height: 400px;
+  height: 290px;
 }
 
 .verify-image-container {
-  height: 285px;
+  height: 200px;
   width: 350px;
   margin: 10px auto;
 }
@@ -106,6 +106,10 @@ input[type="file"] {
 #outer-circle {
   position: absolute;
   border-radius: 50%;
+}
+
+.photo-card {
+  height: 340px;
 }
 #inner-circle {
   left: 50%;

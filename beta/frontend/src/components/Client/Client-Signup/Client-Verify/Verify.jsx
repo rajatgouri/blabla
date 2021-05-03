@@ -72,7 +72,7 @@ function ClientVerify() {
           </div>
         </div>
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-10 col-md-10 col-sm-12 col-12">
+          <div className="col-lg-8 col-md-10 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
                 Please upload your ID and Photograph
@@ -80,7 +80,7 @@ function ClientVerify() {
               <form>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div className="card">
+                    <div className="card photo-card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Front side of the ID
                       </p>
@@ -126,7 +126,7 @@ function ClientVerify() {
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
+                            style={{ height: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -149,7 +149,7 @@ function ClientVerify() {
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div className="card">
+                    <div className="card photo-card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Back side of the ID
                       </p>
@@ -195,7 +195,7 @@ function ClientVerify() {
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "250px" }}
+                            style={{ height: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -236,8 +236,8 @@ function ClientVerify() {
                               className="img-fluid"
                               style={{
                                 borderRadius: "50%",
-                                height: "250px",
-                                width: "250px",
+                                height: "175px",
+                                width: "175px",
                               }}
                             />
                           </div>

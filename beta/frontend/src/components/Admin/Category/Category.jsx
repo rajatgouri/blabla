@@ -19,7 +19,7 @@ function Category() {
   const classes = useStyles();
   return (
     <div>
-      <Sidebar />
+      <Sidebar >
       {showModal ? (
         <Modal className="mt-5" show={showModal} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -104,6 +104,7 @@ function Category() {
           </div>
         </div>
       </main>
+      </Sidebar>
     </div>
   );
 }
