@@ -45,6 +45,12 @@ const ClientSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  emailOtp :{
+    type: String,
+  },
+  phoneOtp :{
+    type: String,
+  },
   isNumberVerified: {
     type: Boolean,
     required: true,
