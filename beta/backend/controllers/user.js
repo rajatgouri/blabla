@@ -1,4 +1,7 @@
 const { createToken } = require('../utils/auth');
+require('dotenv').config();
+const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID } = process.env;
+const twilio = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 const User = require("../models/User");
 const nodemailer = require('nodemailer');
 const config = require('../config/config');
@@ -190,27 +193,61 @@ exports.verifyEmail = (req, res) => {
   })
 };
 
-exports.phoneOtpSend = (req, res) => {
-  if (!req.query.email || !req.query.phone) {
-    return res.status(400).send({ msg: 'You need to send email and phone' });
+exports.phoneOtpSend = async (req, res) => {
+  const channel = 'sms';
+  let verificationRequest;
+  console.log(req.query.phone);
+  try {
+    verificationRequest = await twilio.verify.services(VERIFICATION_SID)
+      .verifications
+      .create({ to: '+'+ req.query.phone, channel });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).send(e);
   }
 
-  // generate a 6 digit random otp
-  const otp = Math.floor(100000 + Math.random() * 900000);
-  const welcomeMessage = `Welcome to Carpooling! Your verification code is ${otp}`;
+  console.log(verificationRequest);
 
-  User.findOne({ email: req.query.email }, (err, user) => {
-    if (err) {
-      return res.status(400).send({ msg: err });
-    }
+  return res.status(200).send({msg:"Verify otp sent"});
+};
 
-    if (!user) {
-      return res.status(400).json({ msg: 'The user does not exist' });
-    }
-    user.phoneOtp = otp;
-    return user.save();
-  }).then(result=>{
-    sendSms(req.query.phone, welcomeMessage);
-    res.status(200).send({message: "Otp sent successfully"})
-  })
+exports.phoneOtpCheck = async (req, res) => {
+  const { verificationCode: code } = req.body;
+  let verificationResult;
+  const errors = { wasValidated: true };
+
+  try {
+    verificationResult = await twilio.verify.services(VERIFICATION_SID)
+      .verificationChecks
+      .create({ code, to: '+'+ req.query.phone });
+  } catch (e) {
+    logger.error(e);
+    return res.status(500).send(e);
+  }
+
+  console.log(verificationResult);
+
+  if (verificationResult.status === 'approved') {
+    User.findOne({ email: req.query.email }, (err, user) => {
+      if (err) {
+        return res.status(400).send({ msg: err });
+      }
+  
+      if (!user) {
+        return res.status(400).json({ msg: 'The user does not exist' });
+      }
+      if (user.emailOtp == req.body.otp) {
+        user.isPhoneVerified = true;
+        user.save()
+        .then(result=>{
+          res.status(200).send({message: "Phone verified successfully"})
+        })
+        .catch(err => {
+          res.status(400).send({message: "Some error occured , please try again"})
+        });
+      } else {
+        res.status(400).send({message: `Unable to verify code. status: ${verificationResult.status}`})
+      }
+    })
+  }
 };
