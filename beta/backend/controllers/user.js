@@ -3,9 +3,9 @@ require('dotenv').config();
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID } = process.env;
 const twilio = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 const User = require("../models/User");
-const nodemailer = require('nodemailer');
-const config = require('../config/config');
 const sendSms = require('../twilio');
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 exports.registerUser = (req, res) => {
   if (
@@ -124,17 +124,17 @@ exports.emailOtpSend = (req, res) => {
 
   // generate a 6 digit random otp
   const otp = Math.floor(100000 + Math.random() * 900000);
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: config.transport.email,
-        pass: config.transport.password
-    },
-    tls: {
-        // do not fail on invalid certs
-        rejectUnauthorized: false
-    },
-  });
+  // const transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //       user: config.transport.email,
+  //       pass: config.transport.password
+  //   },
+  //   tls: {
+  //       // do not fail on invalid certs
+  //       rejectUnauthorized: false
+  //   },
+  // });
 
   User.findOne({ email: req.query.email }, (err, user) => {
     if (err) {
@@ -147,14 +147,23 @@ exports.emailOtpSend = (req, res) => {
     user.emailOtp = otp;
     return user.save();
   }).then(result=>{
-    const mailOptions = {
-      from: config.transport.email,
+    const msg = {
       to: req.query.email,
-      subject: 'Reset Passowrd Otp!',
+      from: process.env.SENDGRID_EMAIL, // Change to your verified sender
+      subject: 'Carpooling OTP',
+      text: 'Reset Passowrd Otp!',
       html: `<h1 style = "text-align:center; color: red;">Password Reset Otp</h1>
-              <pre>The otp to reset your password is ${otp} </pre>`,
-    };
-    transporter.sendMail(mailOptions)
+             <pre>The otp to reset your password is ${otp} </pre>`,
+    }
+    // const mailOptions = {
+    //   from: config.email,
+    //   to: req.query.email,
+    //   subject: 'Reset Passowrd Otp!',
+    //   html: `<h1 style = "text-align:center; color: red;">Password Reset Otp</h1>
+    //           <pre>The otp to reset your password is ${otp} </pre>`,
+    // };
+    // transporter.sendMail(mailOptions)
+    sgMail.send(msg)
     .then(info => {
         res.status(200).send({message: "Otp sent successfully"})
     })
