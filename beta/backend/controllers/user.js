@@ -221,7 +221,7 @@ exports.phoneOtpCheck = async (req, res) => {
       .verificationChecks
       .create({ code, to: '+'+ req.query.phone });
   } catch (e) {
-    logger.error(e);
+    console.log(e);
     return res.status(500).send(e);
   }
 
