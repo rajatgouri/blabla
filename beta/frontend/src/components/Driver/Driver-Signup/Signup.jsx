@@ -13,6 +13,7 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(driverSignUp(formData, history));
+    localStorage.setItem("userProfile", JSON.stringify(formData));
     setformData(initialState);
   };
   return (

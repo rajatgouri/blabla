@@ -1,11 +1,31 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
-import { Link } from "react-router-dom";
 import { Stepper } from "react-form-stepper";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { verifyDriverEmailOtp } from "../../../actions/auth";
 import "./Signup.css";
+import swal from "sweetalert";
 
 function ClientEmail() {
   const [otp, setOtp] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (otp) {
+      dispatch(verifyDriverEmailOtp(otp, history));
+    } else {
+      swal({
+        text: "Please enter otp",
+        icon: "info",
+      });
+    }
+  };
+  const handleChange = (otp) => {
+    setOtp(otp);
+  };
   return (
     <>
       <div className="container my-5">
@@ -44,14 +64,15 @@ function ClientEmail() {
               <h1 className="text-center font-bold text-primaryColor mb-4">
                 Please enter the verification code on your email.
               </h1>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="d-flex justify-content-center">
                   <OtpInput
                     value={otp}
-                    numInputs={5}
+                    numInputs={6}
                     separator={<span>&nbsp;&nbsp;</span>}
+                    onChange={handleChange}
                     inputStyle={{
-                      margin: "10px",
+                      margin: "5px",
                       height: "2.5rem",
                       width: "2.5rem",
                       backgrounColor: "#fffff",
@@ -64,13 +85,15 @@ function ClientEmail() {
                     }}
                   />
                 </div>
-                <Link to="/client/otp">
-                  <div className="text-center mt-5">
-                    <button className="text-white bg-secondaryColor font-demi btn-blue">
-                      Continue
-                    </button>
-                  </div>
-                </Link>
+
+                <div className="text-center mt-5">
+                  <button
+                    className="text-white bg-secondaryColor font-demi btn-blue"
+                    type="submit"
+                  >
+                    Continue
+                  </button>
+                </div>
               </form>
             </div>
           </div>

@@ -14,6 +14,7 @@ function ClientSignup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clientSignUp(formData, history));
+    localStorage.setItem("userProfile", JSON.stringify(formData));
     setformData(initialState);
   };
 
