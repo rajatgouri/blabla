@@ -2,22 +2,26 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./Navbar.css";
-import { NavLink, Link ,useHistory } from "react-router-dom";
+import { NavLink, Link, useHistory, useLocation } from "react-router-dom";
 import Logo from "../../../images/logo.png";
-import { useLocation } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { LOGOUT } from "../../../constants";
+
 
 function NavbarComponent() {
   const location = useLocation();
-  const isDriver = location.pathname.includes("/driver")
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const isDriver = location.pathname.includes("/driver");
+  const isLoggedIn = localStorage.getItem("token");
   const signup = isDriver ? "/driver/signup" : "/client/signup";
   const home = isDriver ? "/driver/home" : "";
-  let history = useHistory();
-  const isLoggedIn = localStorage.getItem("token");
-  console.log(isLoggedIn);
+
   const logout = () => {
-    localStorage.clear();
+    dispatch({ type: LOGOUT });    
     history.push("/");
-  }
+  };
   return (
     <React.Fragment>
       <Navbar
@@ -33,36 +37,45 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-          {!isDriver? ( <NavLink exact to="/" activeClassName="activeNav">
-            <Nav.Link
-              href="/"
-              className="font-demi font-17 px-3 navbar-item
+            {!isDriver ? (
+              <NavLink exact to="/" activeClassName="activeNav">
+                <Nav.Link
+                  href="/"
+                  className="font-demi font-17 px-3 navbar-item
                 text-primaryColor text-center"
-            >
-              Company
-            </Nav.Link>
-          </NavLink>
-          ) : ''}
-           {isDriver? ( <NavLink exact to="/driver/add-ride" activeClassName="activeNav">
-            <Nav.Link
-              href="/driver/add-ride"
-              className="font-demi font-17 px-3 navbar-item
+                >
+                  Company
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            {isDriver ? (
+              <NavLink exact to="/driver/add-ride" activeClassName="activeNav">
+                <Nav.Link
+                  href="/driver/add-ride"
+                  className="font-demi font-17 px-3 navbar-item
                 text-primaryColor text-center"
-            >
-              Add Ride
-            </Nav.Link>
-          </NavLink>
-          ) : ''}
-           {isDriver? ( <NavLink exact to="/driver/all-ride" activeClassName="activeNav">
-            <Nav.Link
-              href="/driver/all-ride"
-              className="font-demi font-17 px-3 navbar-item
+                >
+                  Add Ride
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            {isDriver ? (
+              <NavLink exact to="/driver/all-ride" activeClassName="activeNav">
+                <Nav.Link
+                  href="/driver/all-ride"
+                  className="font-demi font-17 px-3 navbar-item
                 text-primaryColor text-center"
-            >
-              All Rides
-            </Nav.Link>
-          </NavLink>
-          ) : ''}
+                >
+                  All Rides
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
             <NavLink to="/client/contact" activeClassName="activeNav">
               <Nav.Link
                 as={Link}
@@ -73,32 +86,43 @@ function NavbarComponent() {
                 Contact Us
               </Nav.Link>
             </NavLink>
-            {!isLoggedIn? <NavLink to="/login" activeClassName="activeNav">
-              <Nav.Link
-                href="/login"
-                className="font-demi font-17
+            {!isLoggedIn ? (
+              <NavLink to="/login" activeClassName="activeNav">
+                <Nav.Link
+                  href="/login"
+                  className="font-demi font-17
                   px-3 navbar-item text-primaryColor text-center"
-              >
-                Login
-              </Nav.Link>
-            </NavLink> : '' }
-            {!isLoggedIn? <NavLink to={signup} activeClassName="activeNav">
-              <Nav.Link
-                href={signup}
-                className="font-demi font-17
+                >
+                  Login
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            {!isLoggedIn ? (
+              <NavLink to={signup} activeClassName="activeNav">
+                <Nav.Link
+                  href={signup}
+                  className="font-demi font-17
                   px-3 navbar-item text-primaryColor text-center"
-              >
-                Signup
-              </Nav.Link>
-            </NavLink> : '' }
-            {isLoggedIn?
+                >
+                  Signup
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            {isLoggedIn ? (
               <Nav
                 className="font-demi font-17
-                  px-3 navbar-item text-primaryColor text-center pt-2"
-                  onClick={logout}
+                  px-3 navbar-item text-white text-center pt-1 home-button"
+                onClick={logout}
               >
                 Logout
-            </Nav> : '' }
+              </Nav>
+            ) : (
+              ""
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

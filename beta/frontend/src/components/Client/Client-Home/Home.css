@@ -47,6 +47,7 @@
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
     font-size: 18px;
     line-height: 35px;
+    cursor: pointer;
 }
 
 .input-bg{

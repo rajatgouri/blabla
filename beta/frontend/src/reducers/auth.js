@@ -1,4 +1,4 @@
-import { SIGN_IN, CLIENT_SIGN_UP, DRIVER_SIGN_UP } from "../constants";
+import { SIGN_IN, CLIENT_SIGN_UP, DRIVER_SIGN_UP, LOGOUT } from "../constants";
 
 export default (state = { authData: null }, action) => {
   switch (action.type) {
@@ -12,7 +12,7 @@ export default (state = { authData: null }, action) => {
     case DRIVER_SIGN_UP:
       console.log(action?.data);
       return { ...state, authData: action?.data };
-    case "LOGOUT":
+    case LOGOUT:
       localStorage.clear();
       return { ...state, authData: null };
     default:
