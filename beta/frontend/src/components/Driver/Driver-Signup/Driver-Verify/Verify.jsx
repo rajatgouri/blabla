@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Verify.css";
 import Camera from "react-html5-camera-photo";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { verifyDriverId } from "../../../../actions/auth";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
 import Profile from "../../../../images/profile_avatar.png";
 import { Stepper } from "react-form-stepper";
+import swal from "sweetalert";
 
 function Verify() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const initialState = { profilePicture: "", frontId: "", backId: ""};
+  const [formData, setformData] = useState(initialState);
+  
   const [showFileOne, setShowFileOne] = useState(false);
   const [showFileTwo, setShowFileTwo] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
@@ -37,6 +47,18 @@ function Verify() {
     dataUri && setFileTwoValue(false);
     setFileTwo(dataUri);
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.backId && formData.frontId && formData.profilePicture) {
+      dispatch(verifyDriverId(formData,history));
+    } else {
+      swal({
+        text: "Please enter all photos",
+        icon: "info",
+      });
+    }
+  };
 
   return (
     <>
@@ -103,6 +125,10 @@ function Verify() {
                               <div className="w-100 h-100">
                                 <Camera
                                   onTakePhoto={(dataUri) => {
+                                    setformData({
+                                      ...formData,
+                                      ["frontId"]: dataUri,
+                                    });
                                     handleDocumentFront(dataUri);
                                   }}
                                 />
@@ -172,6 +198,10 @@ function Verify() {
                               <div className="w-100 h-100">
                                 <Camera
                                   onTakePhoto={(dataUri) => {
+                                    setformData({
+                                      ...formData,
+                                      ["backId"]: dataUri,
+                                    });
                                     handleDocumentBack(dataUri);
                                   }}
                                 />
@@ -274,6 +304,10 @@ function Verify() {
                       <div className="w-100 h-100">
                         <Camera
                           onTakePhoto={(dataUri) => {
+                            setformData({
+                              ...formData,
+                              ["profilePicture"]: dataUri,
+                            });
                             handleTakePhoto(dataUri);
                           }}
                         />
@@ -284,13 +318,11 @@ function Verify() {
                   ""
                 )}
 
-                <Link to="/driver/add-vehicle">
-                  <div className="text-center mt-5">
-                    <button className="text-white bg-secondaryColor font-demi btn-blue">
-                      Submit
-                    </button>
-                  </div>
-                </Link>
+                <div className="text-center mt-5">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue" onClick={handleSubmit}>
+                    Submit
+                  </button>
+                </div>
               </form>
             </div>
           </div>

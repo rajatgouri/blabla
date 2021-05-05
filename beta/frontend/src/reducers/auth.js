@@ -5,6 +5,8 @@ import {
   LOGOUT,
   VERIFY_EMAIL,
   VERIFY_PHONE,
+  VERIFY_ID,
+  ADD_VEHICLE
 } from "../constants";
 
 export default (state = { authData: null }, action) => {
@@ -23,6 +25,12 @@ export default (state = { authData: null }, action) => {
       console.log(action?.data);
       return { ...state, authData: action?.data };
     case VERIFY_PHONE:
+      console.log(action?.data);
+      return { ...state, authData: action?.data };
+    case VERIFY_ID:
+      console.log(action?.data);
+      return { ...state, authData: action?.data };
+    case ADD_VEHICLE:
       console.log(action?.data);
       return { ...state, authData: action?.data };
     case LOGOUT:

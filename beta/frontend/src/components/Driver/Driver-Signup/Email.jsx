@@ -3,7 +3,7 @@ import OtpInput from "react-otp-input";
 import { Stepper } from "react-form-stepper";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyEmailOtp } from "../../../actions/auth";
+import { verifyDriverEmailOtp } from "../../../actions/auth";
 import swal from "sweetalert";
 
 function Email() {
@@ -14,7 +14,7 @@ function Email() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (otp) {
-      dispatch(verifyEmailOtp(otp, history));
+      dispatch(verifyDriverEmailOtp(otp, history));
     } else {
       swal({
         text: "Please enter otp",

@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Verify.css";
 import Camera from "react-html5-camera-photo";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { verifyClientId } from "../../../../actions/auth";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
 import Profile from "../../../../images/profile_avatar.png";
 import { Stepper } from "react-form-stepper";
+import swal from "sweetalert";
 import "../Signup.css";
 
 function ClientVerify() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const initialState = { profilePicture: "", frontId: "", backId: ""};
+  const [formData, setformData] = useState(initialState);
+
   const [showFileOne, setShowFileOne] = useState(false);
   const [showFileTwo, setShowFileTwo] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
@@ -38,6 +47,18 @@ function ClientVerify() {
     dataUri && setFileTwoValue(false);
     setFileTwo(dataUri);
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.backId && formData.frontId && formData.profilePicture) {
+      dispatch(verifyClientId(formData,history));
+    } else {
+      swal({
+        text: "Please enter all photos",
+        icon: "info",
+      });
+    }
+  };
 
   return (
     <>
@@ -103,6 +124,10 @@ function ClientVerify() {
                               <div className="w-100 h-100">
                                 <Camera
                                   onTakePhoto={(dataUri) => {
+                                    setformData({
+                                      ...formData,
+                                      ["frontId"]: dataUri,
+                                    });
                                     handleDocumentFront(dataUri);
                                   }}
                                 />
@@ -140,7 +165,7 @@ function ClientVerify() {
                             className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
                           >
                             <i
-                              class="fas fa-3x fa-camera"
+                              className="fas fa-3x fa-camera"
                               aria-hidden="true"
                             ></i>
                           </button>
@@ -171,7 +196,11 @@ function ClientVerify() {
                             <Modal.Body>
                               <div className="w-100 h-100">
                                 <Camera
-                                  onTakePhoto={(dataUri) => {
+                                  onTakePhoto={(dataUri,e) => {
+                                    setformData({
+                                      ...formData,
+                                      ["backId"]: dataUri,
+                                    });
                                     handleDocumentBack(dataUri);
                                   }}
                                 />
@@ -253,7 +282,7 @@ function ClientVerify() {
                           className="text-white bg-secondaryColor font-demi btn-blue mt-4"
                           style={{ outline: "none", width: "40%" }}
                         >
-                          <i class="fa fa-camera" aria-hidden="true"></i>
+                          <i className="fa fa-camera" aria-hidden="true"></i>
                         </button>
                       </div>
                     </div>
@@ -274,6 +303,10 @@ function ClientVerify() {
                       <div className="w-100 h-100">
                         <Camera
                           onTakePhoto={(dataUri) => {
+                            setformData({
+                              ...formData,
+                              ["profilePicture"]: dataUri,
+                            });
                             handleTakePhoto(dataUri);
                           }}
                         />
@@ -284,13 +317,11 @@ function ClientVerify() {
                   ""
                 )}
 
-                <Link to="/">
-                  <div className="text-center mt-5">
-                    <button className="text-white bg-secondaryColor font-demi btn-blue">
-                      Submit
-                    </button>
-                  </div>
-                </Link>
+                <div className="text-center mt-5">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue" onClick={handleSubmit}>
+                    Submit
+                  </button>
+                </div>
               </form>
             </div>
           </div>

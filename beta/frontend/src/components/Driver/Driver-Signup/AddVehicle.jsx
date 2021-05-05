@@ -1,8 +1,22 @@
-import React from "react";
+import React , {useState} from "react";
 import { Link } from "react-router-dom";
 import { Stepper } from "react-form-stepper";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { addVehicle } from "../../../actions/auth";
 
 function AddVehicle() {
+  const initialState = { vehicleType: "", places: "", modelYear: "", color: "" };
+  const [formData, setformData] = useState(initialState);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addVehicle(formData, history));
+    setformData(initialState);
+  };
   return (
     <>
       <div className="container my-5">
@@ -46,6 +60,14 @@ function AddVehicle() {
                     type="text"
                     className=""
                     placeholder="Vehicle Type"
+                    name="vehicleType"
+                    value={formData.vehicleType}
+                    onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   >
                     <option selected disabled>Vehicle type</option>
                     <option value="Bus">Bus</option>
@@ -57,6 +79,14 @@ function AddVehicle() {
                     type="number"
                     className="form-control"
                     placeholder="Number of Places"
+                    name="places"
+                    value={formData.places}
+                    onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </div>
                 <div className="input-group mt-4">
@@ -64,6 +94,14 @@ function AddVehicle() {
                     type="text"
                     className="form-control"
                     placeholder="Model Year"
+                    name="modelYear"
+                    value={formData.modelYear}
+                    onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </div>
                 <div className="input-group mt-4">
@@ -71,15 +109,21 @@ function AddVehicle() {
                     type="text"
                     className="form-control"
                     placeholder="Vehicle Color"
+                    value={formData.color}
+                    name="color"
+                    onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </div>              
-                <Link to="/driver/home">
-                  <div className="text-center mt-4">
-                    <button className="text-white bg-secondaryColor font-demi btn-blue">
-                      Add Vehicle
-                    </button>
-                  </div>
-                </Link>
+                <div className="text-center mt-4">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue" onClick={handleSubmit}>
+                    Add Vehicle
+                  </button>
+                </div>
               </form>
             </div>
           </div>

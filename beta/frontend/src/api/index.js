@@ -17,3 +17,7 @@ export const verifyPhoneOtp = (otp, email, phone) =>
   axios.post(`${url}/verify-phone-otp?phone=${phone}&email=${email}`, {
     verificationCode: otp,
   });
+export const verifyId = ( email, body) =>
+  axios.post(`${url}/verify-id?email=${email}`, body);
+export const addVehicle = ( email, body) =>
+  axios.post(`${url}/add-vehicle?email=${email}`, body);

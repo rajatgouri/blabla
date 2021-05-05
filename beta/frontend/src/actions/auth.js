@@ -5,6 +5,8 @@ import {
   DRIVER_SIGN_UP,
   VERIFY_EMAIL,
   VERIFY_PHONE,
+  VERIFY_ID,
+  ADD_VEHICLE
 } from "../constants";
 import jwt from "jwt-decode";
 import swal from "sweetalert";
@@ -65,7 +67,7 @@ export const verifyEmailOtp = (otp, history) => async (dispatch) => {
     const formData = JSON.parse(localStorage.getItem("userProfile"));
     const { data } = await api.verifyEmailOtp(otp, formData.email);
     dispatch({ type: VERIFY_EMAIL, data });
-    await api.getPhoneOtp(`91${formData.phone}`);
+    await api.getPhoneOtp(`${formData.phone}`);
     swal({
       text: "Email is Verified and otp on phone number is send",
       icon: "success",
@@ -85,7 +87,7 @@ export const verifyPhoneOtp = (otp, history) => async (dispatch) => {
     const { data } = await api.verifyPhoneOtp(
       otp,
       formData.email,
-      `91${formData.phone}`
+      `${formData.phone}`
     );
     dispatch({ type: VERIFY_PHONE, data });
     swal({
@@ -128,7 +130,7 @@ export const verifyDriverEmailOtp = (otp, history) => async (dispatch) => {
     const formData = JSON.parse(localStorage.getItem("userProfile"));
     const { data } = await api.verifyEmailOtp(otp, formData.email);
     dispatch({ type: VERIFY_EMAIL, data });
-    await api.getPhoneOtp(`91${formData.phone}`);
+    await api.getPhoneOtp(`${formData.phone}`);
     swal({
       text: "Email is Verified and otp on phone number is send",
       icon: "success",
@@ -148,7 +150,7 @@ export const verifyDriverPhoneOtp = (otp, history) => async (dispatch) => {
     const { data } = await api.verifyPhoneOtp(
       otp,
       formData.email,
-      `91${formData.phone}`
+      `${formData.phone}`
     );
     dispatch({ type: VERIFY_PHONE, data });
     swal({
@@ -156,6 +158,69 @@ export const verifyDriverPhoneOtp = (otp, history) => async (dispatch) => {
       icon: "success",
     });
     history.push("/driver/verify");
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+};
+
+export const verifyClientId = (body, history) => async (dispatch) => {
+  try {
+    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const { data } = await api.verifyId(
+      formData.email,
+      body
+    );
+    dispatch({ type: VERIFY_ID, data });
+    swal({
+      text: "All Documents Submitted",
+      icon: "success",
+    });
+    history.push("/");
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+};
+
+export const verifyDriverId = (body, history) => async (dispatch) => {
+  try {
+    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const { data } = await api.verifyId(
+      formData.email,
+      body
+    );
+    dispatch({ type: VERIFY_ID, data });
+    swal({
+      text: "All Documents Submitted",
+      icon: "success",
+    });
+    history.push("/driver/add-vehicle");
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+};
+
+export const addVehicle = (body, history) => async (dispatch) => {
+  try {
+    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const { data } = await api.addVehicle(
+      formData.email,
+      body
+    );
+    dispatch({ type: ADD_VEHICLE, data });
+    swal({
+      text: "Vehicle added",
+      icon: "success",
+    });
+    history.push("/driver/home");
   } catch (e) {
     swal({
       text: e.message,

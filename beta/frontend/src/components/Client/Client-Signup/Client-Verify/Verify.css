@@ -30,11 +30,11 @@ input[type="file"] {
 
 .file-container {
   background-color: var(--tertiaryColor);
-  height: 290px;
+  height: 400px;
 }
 
 .verify-image-container {
-  height: 200px;
+  height: 285px;
   width: 350px;
   margin: 10px auto;
 }
@@ -67,9 +67,7 @@ input[type="file"] {
 
 .modal{
   padding-right: 0px;
-  
 }
-
 .custom-file-input::before {
   content: "";
   height: 100%;
@@ -106,10 +104,6 @@ input[type="file"] {
 #outer-circle {
   position: absolute;
   border-radius: 50%;
-}
-
-.photo-card {
-  height: 340px;
 }
 #inner-circle {
   left: 50%;
