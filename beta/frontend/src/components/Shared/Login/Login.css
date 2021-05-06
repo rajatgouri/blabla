@@ -109,3 +109,9 @@
 input[type=checkbox]{
     border-radius: 50% !important ;
 }
+
+@media (max-width: 768px) {
+    .submit-button{
+      margin: 0 0 0 0 !important;
+    }
+}

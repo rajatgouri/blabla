@@ -74,7 +74,7 @@ function Login() {
                 </div>
                 <div className="text-center mt-5">
                   <button
-                    className="text-white bg-secondaryColor font-demi btn-blue"
+                    className="text-white bg-secondaryColor font-demi btn-blue submit-button"
                     type="submit"
                   >
                     Signin

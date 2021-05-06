@@ -120,7 +120,7 @@ function AddVehicle() {
                   />
                 </div>              
                 <div className="text-center mt-4">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue" onClick={handleSubmit}>
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={handleSubmit}>
                     Add Vehicle
                   </button>
                 </div>
