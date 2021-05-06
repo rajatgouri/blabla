@@ -205,7 +205,7 @@ exports.verifyEmail = (req, res) => {
         res.status(200).send({message: "Some error occured , please try again"})
       });
     } else {
-      res.status(200).send({message: "Wrong OTP"})
+      res.status(400).send({message: "Wrong OTP"})
     }
   })
 };
