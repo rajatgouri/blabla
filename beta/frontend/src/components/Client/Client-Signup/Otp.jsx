@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyDriverPhoneOtp } from "../../../redux/actions/auth";
+import { verifyPhoneOtp } from "../../../redux/actions/auth";
 import { Stepper } from "react-form-stepper";
 import swal from "sweetalert";
 import "./Signup.css";
@@ -14,7 +14,7 @@ function ClientOtp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (otp) {
-      dispatch(verifyDriverPhoneOtp(otp, history));
+      dispatch(verifyPhoneOtp(otp, history));
     } else {
       swal({
         text: "Please enter otp",
