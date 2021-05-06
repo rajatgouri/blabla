@@ -39,7 +39,7 @@ function Login() {
                       });
                     }}
                     name="email"
-                    type="email"
+                    type="text"
                     className="form-control"
                     placeholder="Email/Number"
                   />
