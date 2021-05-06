@@ -18,6 +18,6 @@ export const verifyPhoneOtp = (otp, email, phone) =>
     verificationCode: otp,
   });
 export const verifyId = ( email, body) =>
-  axios.post(`${url}/verify-id?email=${email}`, body);
+  axios.post(`${url}/upload-id?email=${email}`, body);
 export const addVehicle = ( email, body) =>
   axios.post(`${url}/add-vehicle?email=${email}`, body);

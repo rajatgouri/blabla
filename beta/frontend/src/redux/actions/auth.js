@@ -33,7 +33,7 @@ export const signIn = (formData, history) => async (dispatch) => {
     }
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
     
@@ -56,7 +56,7 @@ export const clientSignUp = (formData, history) => async (dispatch) => {
     history.push("/client/email");    
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -75,7 +75,7 @@ export const verifyEmailOtp = (otp, history) => async (dispatch) => {
     history.push("/client/otp");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -97,7 +97,7 @@ export const verifyPhoneOtp = (otp, history) => async (dispatch) => {
     history.push("/client/verify");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -119,7 +119,7 @@ export const driverSignUp = (formData, history) => async (dispatch) => {
     history.push("/driver/email");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -138,7 +138,7 @@ export const verifyDriverEmailOtp = (otp, history) => async (dispatch) => {
     history.push("/driver/otp");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -160,7 +160,7 @@ export const verifyDriverPhoneOtp = (otp, history) => async (dispatch) => {
     history.push("/driver/verify");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -181,7 +181,7 @@ export const verifyClientId = (body, history) => async (dispatch) => {
     history.push("/");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -202,7 +202,7 @@ export const verifyDriverId = (body, history) => async (dispatch) => {
     history.push("/driver/add-vehicle");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
@@ -223,7 +223,7 @@ export const addVehicle = (body, history) => async (dispatch) => {
     history.push("/driver/home");
   } catch (e) {
     swal({
-      text: e.message,
+      text: e.response.data.msg,
       icon: "error",
     });
   }
