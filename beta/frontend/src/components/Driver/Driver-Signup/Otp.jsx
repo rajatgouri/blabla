@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyPhoneOtp } from "../../../actions/auth";
+import { verifyPhoneOtp } from "../../../redux/actions/auth";
 import { Stepper } from "react-form-stepper";
 import swal from "sweetalert";
 

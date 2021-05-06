@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Stepper } from "react-form-stepper";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addVehicle } from "../../../actions/auth";
+import { addVehicle } from "../../../redux/actions/auth";
 
 function AddVehicle() {
   const initialState = { vehicleType: "", places: "", modelYear: "", color: "" };

@@ -16,6 +16,10 @@
 input#form-upload-button {
   display: none !important;
 }
+
+.verify-image-container{
+  height: 175px;
+}
 @media (max-width: 400px) {
   .mobile-center {
     text-align: center;
@@ -30,11 +34,11 @@ input[type="file"] {
 
 .file-container {
   background-color: var(--tertiaryColor);
-  height: 400px;
+  height: 290px;
 }
 
 .verify-image-container {
-  height: 285px;
+  height: 200px;
   width: 350px;
   margin: 10px auto;
 }
@@ -67,7 +71,9 @@ input[type="file"] {
 
 .modal{
   padding-right: 0px;
+  
 }
+
 .custom-file-input::before {
   content: "";
   height: 100%;
@@ -104,6 +110,10 @@ input[type="file"] {
 #outer-circle {
   position: absolute;
   border-radius: 50%;
+}
+
+.photo-card {
+  height: 340px;
 }
 #inner-circle {
   left: 50%;
@@ -149,6 +159,12 @@ input[type="file"] {
   margin: 0 auto;
 }
 @media (max-width: 768px) {
+  .submit-button{
+    margin: 0 0 0 0 !important;
+  }
+  .click-button{
+    margin: 50px 0 0 0 !important;
+  }
   .react-html5-camera-photo > .display-error,
   .react-html5-camera-photo > img,
   .react-html5-camera-photo > video {

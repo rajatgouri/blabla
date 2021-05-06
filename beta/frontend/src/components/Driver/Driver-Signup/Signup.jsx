@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { driverSignUp } from "../../../actions/auth";
+import { driverSignUp } from "../../../redux/actions/auth";
 
 function Signup() {
   const initialState = { fullName: "", email: "", password: "", phone: "" };

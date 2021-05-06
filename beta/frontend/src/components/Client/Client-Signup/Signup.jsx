@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { clientSignUp } from "../../../actions/auth";
+import { clientSignUp } from "../../../redux/actions/auth";
 import "./Signup.css";
 
 function ClientSignup() {

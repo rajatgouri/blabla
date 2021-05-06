@@ -3,7 +3,7 @@ import "./Verify.css";
 import Camera from "react-html5-camera-photo";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyClientId } from "../../../../actions/auth";
+import { verifyClientId } from "../../../../redux/actions/auth";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
 import Profile from "../../../../images/profile_avatar.png";
@@ -138,16 +138,15 @@ function ClientVerify() {
                           ""
                         )}
                         {fileOne ? (
-                          <div className="verify-image-container">
                             <img
                               src={fileOne}
-                              className="img-fluid w-100 h-100 p-4"
+                              className="mx-5 my-4"
                               style={{
                                 background: "#e0f6ff",
-                                borderRadius: "10px",
+                                borderRadius: "5px",
+                                height: "175px"
                               }}
                             />
-                          </div>
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
@@ -211,16 +210,15 @@ function ClientVerify() {
                           ""
                         )}
                         {fileTwo ? (
-                          <div className="verify-image-container">
                             <img
                               src={fileTwo}
-                              className="img-fluid w-100 h-100 p-4"
+                              className="mx-5 my-4"
                               style={{
                                 background: "#e0f6ff",
-                                borderRadius: "10px",
+                                borderRadius: "5px",
+                                height: "175px"
                               }}
                             />
-                          </div>
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
@@ -279,7 +277,7 @@ function ClientVerify() {
                             handleShow();
                             setValue(!value);
                           }}
-                          className="text-white bg-secondaryColor font-demi btn-blue mt-4"
+                          className="text-white bg-secondaryColor font-demi btn-blue mt-4 click-button"
                           style={{ outline: "none", width: "40%" }}
                         >
                           <i className="fa fa-camera" aria-hidden="true"></i>
@@ -318,7 +316,7 @@ function ClientVerify() {
                 )}
 
                 <div className="text-center mt-5">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue" onClick={handleSubmit}>
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={handleSubmit}>
                     Submit
                   </button>
                 </div>

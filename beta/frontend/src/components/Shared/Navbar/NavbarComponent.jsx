@@ -5,7 +5,7 @@ import "./Navbar.css";
 import { NavLink, Link, useHistory, useLocation } from "react-router-dom";
 import Logo from "../../../images/logo.png";
 import { useDispatch } from "react-redux";
-import { LOGOUT } from "../../../constants";
+import { LOGOUT } from "../../../redux/constants";
 
 
 function NavbarComponent() {

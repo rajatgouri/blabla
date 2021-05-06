@@ -3,7 +3,7 @@ import OtpInput from "react-otp-input";
 import { Stepper } from "react-form-stepper";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyDriverEmailOtp } from "../../../actions/auth";
+import { verifyDriverEmailOtp } from "../../../redux/actions/auth";
 import "./Signup.css";
 import swal from "sweetalert";
 

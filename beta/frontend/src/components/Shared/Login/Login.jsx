@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { signIn } from "../../../actions/auth";
+import { signIn } from "../../../redux/actions/auth";
 import { Link } from "react-router-dom";
 
 import "./Login.css";

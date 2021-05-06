@@ -4,7 +4,7 @@ import "./Verify.css";
 import Camera from "react-html5-camera-photo";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyDriverId } from "../../../../actions/auth";
+import { verifyDriverId } from "../../../../redux/actions/auth";
 import "react-html5-camera-photo/build/css/index.css";
 import { Modal } from "react-bootstrap";
 import Profile from "../../../../images/profile_avatar.png";
@@ -17,7 +17,7 @@ function Verify() {
 
   const initialState = { profilePicture: "", frontId: "", backId: ""};
   const [formData, setformData] = useState(initialState);
-  
+
   const [showFileOne, setShowFileOne] = useState(false);
   const [showFileTwo, setShowFileTwo] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
@@ -64,7 +64,7 @@ function Verify() {
     <>
       <div className="verify container my-5">
         <div className="row d-flex justify-content-center mb-4">
-          <div className="col-lg-8 col-sm-12 col-md-12 col-12 font-regular px-0">
+          <div className="col-lg-10 col-sm-12 col-md-12 col-12 font-regular px-0">
             <Stepper
               steps={[
                 { label: "Step 1" },
@@ -94,15 +94,15 @@ function Verify() {
           </div>
         </div>
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-10 col-md-10 col-sm-12 col-12">
+          <div className="col-lg-8 col-md-10 col-sm-12 col-12">
             <div className="card">
               <h1 className="text-center font-bold text-primaryColor mb-4">
-                Please upload your License and Photograph
+                Please upload your Driver License and Photograph
               </h1>
               <form>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div className="card">
+                    <div className="card photo-card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Front side of the License
                       </p>
@@ -139,16 +139,15 @@ function Verify() {
                           ""
                         )}
                         {fileOne ? (
-                          <div className="verify-image-container">
                             <img
                               src={fileOne}
-                              className="img-fluid w-100 h-100 p-4"
+                              className="mx-5 my-4"
                               style={{
                                 background: "#e0f6ff",
-                                borderRadius: "10px",
+                                borderRadius: "5px",
+                                height: "175px"
                               }}
                             />
-                          </div>
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
@@ -166,7 +165,7 @@ function Verify() {
                             className="d-flex justify-content-center w-100 text-primaryColor custom-upload-button"
                           >
                             <i
-                              class="fas fa-3x fa-camera"
+                              className="fas fa-3x fa-camera"
                               aria-hidden="true"
                             ></i>
                           </button>
@@ -175,9 +174,9 @@ function Verify() {
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div className="card">
+                    <div className="card photo-card">
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
-                        License side of the License
+                        Back side of the License
                       </p>
                       <div className="input-group file-container">
                         {fileTwoValue ? (
@@ -197,7 +196,7 @@ function Verify() {
                             <Modal.Body>
                               <div className="w-100 h-100">
                                 <Camera
-                                  onTakePhoto={(dataUri) => {
+                                  onTakePhoto={(dataUri,e) => {
                                     setformData({
                                       ...formData,
                                       ["backId"]: dataUri,
@@ -212,16 +211,15 @@ function Verify() {
                           ""
                         )}
                         {fileTwo ? (
-                          <div className="verify-image-container">
                             <img
                               src={fileTwo}
-                              className="img-fluid w-100 h-100 p-4"
+                              className="mx-5 my-4"
                               style={{
                                 background: "#e0f6ff",
-                                borderRadius: "10px",
+                                borderRadius: "5px",
+                                height: "175px"
                               }}
                             />
-                          </div>
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
@@ -280,10 +278,10 @@ function Verify() {
                             handleShow();
                             setValue(!value);
                           }}
-                          className="text-white bg-secondaryColor font-demi btn-blue mt-4"
+                          className="text-white bg-secondaryColor font-demi btn-blue mt-4 click-button"
                           style={{ outline: "none", width: "40%" }}
                         >
-                          <i class="fa fa-camera" aria-hidden="true"></i>
+                          <i className="fa fa-camera" aria-hidden="true"></i>
                         </button>
                       </div>
                     </div>
@@ -319,7 +317,7 @@ function Verify() {
                 )}
 
                 <div className="text-center mt-5">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue" onClick={handleSubmit}>
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={handleSubmit}>
                     Submit
                   </button>
                 </div>
