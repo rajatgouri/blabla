@@ -12,7 +12,7 @@ import {
 export default (state = { authData: null }, action) => {
   switch (action.type) {
     case SIGN_IN:
-      localStorage.setItem("token", JSON.stringify({ ...action?.data }));
+      localStorage.setItem("token",action?.data.token);
       console.log(action?.data);
       return { ...state, authData: action?.data };
     case CLIENT_SIGN_UP:

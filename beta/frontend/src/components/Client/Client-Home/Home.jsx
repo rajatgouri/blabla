@@ -3,6 +3,7 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import Features from "./Features/Features";
 import Work from "./Work/Work";
+import { isAuthenticated } from "../../../redux/actions/auth";
 
 function ClientHome() {
   return (
@@ -25,14 +26,16 @@ function ClientHome() {
                   <br />
                   and book a ride within seconds.
                 </p>
-                <Link to="/driver/signup">
-                  <div className="mobile-center">
-                    <button className="home-button text-white font-demi py-2 px-4">
-                      Become a driver &nbsp;&nbsp;&nbsp;
-                      <i className="fas fa-arrow-right text-white"></i>
-                    </button>
-                  </div>
-                </Link>
+                {!isAuthenticated() ? (
+                  <Link to="/driver/signup">
+                    <div className="mobile-center">
+                      <button className="home-button text-white font-demi py-2 px-4">
+                        Become a driver &nbsp;&nbsp;&nbsp;
+                                      <i className="fas fa-arrow-right text-white"></i>
+                      </button>
+                    </div>
+                  </Link>
+                ) : ''}
               </div>
             </div>
             <div className="col-lg-6 col-md-7 col-sm-12 col-12 mb-5 mt-lg-0 mt-5">
@@ -84,7 +87,7 @@ function ClientHome() {
           </div>
         </div>
       </div>
-      
+
       <Features />
 
       <Work />

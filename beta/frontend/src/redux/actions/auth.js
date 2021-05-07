@@ -228,3 +228,41 @@ export const addVehicle = (body, history) => async (dispatch) => {
     });
   }
 };
+
+export const isAuthenticated = () => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return false;
+    } else {
+      const decoded = jwt(token)
+      if (decoded?.email) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+}
+
+export const userRole = () => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return ''
+    } else {
+      const decoded = jwt(token)?.role
+      return decoded;
+    }
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+}

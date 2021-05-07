@@ -10,6 +10,13 @@ import Login from "./components/Shared/Login/Login";
 import NavbarComponent from './components/Shared/Navbar/NavbarComponent';
 import Footer from "./components/Shared/Footer/Footer";
 
+//Auth Guard Import 
+import AdminGuard from "./components/Guards/AdminGuard";
+import ClientGuard from "./components/Guards/ClientGuard";
+import DriverGuard from "./components/Guards/DriverGuard";
+import AuthGuard from "./components/Guards/AuthGuard";
+import HomeGuard from './components/Guards/HomeGuard';
+
 //Client Imports
 import ClientEmail from "./components/Client/Client-Signup/Email";
 import ClientHome from "./components/Client/Client-Home/Home";
@@ -45,50 +52,38 @@ function App() {
       <NavbarComponent />
       <Switch>
         {/* Home */}
-        <Route exact path="/" component={ClientHome} />
+        <HomeGuard exact path="/" component={ClientHome} />
 
         {/* Login */}
-        <Route exact path="/login" component={Login} />
+        <AuthGuard exact path="/login" component={Login} />
 
-        {/*  Client Sign up */}
-        <Route exact path="/client/signup" component={ClientSignup} />
-        <Route exact path="/client/otp" component={ClientOtp} />
-        <Route exact path="/client/email" component={ClientEmail} />
-        <Route exact path="/client/verify" component={ClientVerify} />
+        {/*  Client */}
+        <AuthGuard exact path="/client/signup" component={ClientSignup}/>
+        <AuthGuard exact path="/client/otp" component={ClientOtp} />
+        <AuthGuard exact path="/client/email" component={ClientEmail} />
+        <AuthGuard exact path="/client/verify" component={ClientVerify} />
+        <ClientGuard exact path="/client/contact" component={ClientContact} />
+        <ClientGuard exact path="/client/myride" component={ClientMyRide} />
+        <ClientGuard exact path="/client/ride" component={ClientRide} />
+        <ClientGuard path="/client/reserve" component={ClientReserve} />
 
-        {/* Driver Sign up */}
-        <Route exact path="/driver/home" component={DriverHome} />
-        <Route exact path="/driver/signup" component={DriverSignup} />
-        <Route exact path="/driver/otp" component={DriverOtp} />
-        <Route exact path="/driver/email" component={DriverEmail} />
-        <Route exact path="/driver/verify" component={DriverVerify} />
-        <Route exact path="/driver/add-vehicle" component={DriverAddVehicle} />
-        <Route exact path="/driver/add-ride" component={DriverAddRide} />
-        <Route
-          exact
-          path="/driver/ride-details"
-          component={DriverRideDetails}
-        />
-        <Route exact path="/driver/all-ride" component={DriverAllRides} />
+        {/* Driver */}
+        <DriverGuard exact path="/driver/home" component={DriverHome} />
+        <AuthGuard exact path="/driver/signup" component={DriverSignup} />
+        <AuthGuard exact path="/driver/otp" component={DriverOtp} />
+        <AuthGuard exact path="/driver/email" component={DriverEmail} />
+        <AuthGuard exact path="/driver/verify" component={DriverVerify} />
+        <DriverGuard exact path="/driver/add-vehicle" component={DriverAddVehicle} />
+        <DriverGuard exact path="/driver/add-ride" component={DriverAddRide} />
+        <DriverGuard exact path="/driver/ride-details" component={DriverRideDetails} />
+        <DriverGuard exact path="/driver/all-ride" component={DriverAllRides} />
 
         {/* Admin */}
-        {/* <Route exact path="/admin/dashboard" component={Dashboard} /> */}
-        <Route exact path="/admin/all-rides" component={AdminRides} />
-        <Route exact path="/admin/ongoing-rides" component={OngoingRides} />
-        <Route exact path="/admin/ride-details" component={RideDetails} />
-        <Route exact path="/admin/users" component={AdminUsers} />
+        <AdminGuard exact path="/admin/all-rides" component={AdminRides} />
+        <AdminGuard exact path="/admin/ongoing-rides" component={OngoingRides} />
+        <AdminGuard exact path="/admin/ride-details" component={RideDetails} />
+        <AdminGuard exact path="/admin/users" component={AdminUsers} />
 
-        {/* Contact */}
-        <Route exact path="/client/contact" component={ClientContact} />
-
-        {/* Ride */}
-        <Route exact path="/client/ride" component={ClientRide} />
-
-        {/* My Ride */}
-        <Route exact path="/client/myride" component={ClientMyRide} />
-
-        {/* Reserve */}
-        <Route path="/client/reserve" component={ClientReserve} />
       </Switch>
       <Footer />
     </div>

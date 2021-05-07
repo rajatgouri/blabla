@@ -1,19 +1,3 @@
-/*const jwt = require("jsonwebtoken");
-const config = require('../config/config');
-const ExtractJwt = require('passport-jwt').ExtractJwt;
-
-module.exports = (req, res, next) => {
-  try {
-    console.log(req.headers);
-    const token = req.headers.authorization.split(" ")[1];
-    console.log(token);
-    jwt.verify(token, config.jwtSecret);
-    next();
-  } catch (error) {
-    res.status(401).json({ message: "Auth failed!" });
-  }
-};*/
-
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 var winston = require('../config/winston');
