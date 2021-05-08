@@ -105,7 +105,7 @@ function ClientVerify() {
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Front side of the ID
                       </p>
-                      <div className="input-group file-container">
+                      <div className="input-group file-container pb-3" style={{height: 'auto'}}>
                         {fileOneValue ? (
                           <Modal
                             show={showFileOne}
@@ -138,19 +138,18 @@ function ClientVerify() {
                           ""
                         )}
                         {fileOne ? (
-                            <img
-                              src={fileOne}
-                              className="mx-5 my-4"
-                              style={{
-                                background: "#e0f6ff",
-                                borderRadius: "5px",
-                                height: "175px"
-                              }}
-                            />
+                          <img
+                            src={fileOne}
+                            className="px-5 py-4 img-fluid"
+                            style={{
+                              background: "#e0f6ff",
+                              borderRadius: "5px",
+                            }}
+                          />
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
-                            style={{ height: "175px" }}
+                            style={{ minHeight: "175px" }}
                           ></div>
                         )}
                         <div className="w-100 h-100">
@@ -177,7 +176,7 @@ function ClientVerify() {
                       <p className="font-demi text-muted mt-4 font-20 mobile-center">
                         Back side of the ID
                       </p>
-                      <div className="input-group file-container">
+                      <div className="input-group file-container pb-3 mb-3" style={{height: 'auto'}}>
                         {fileTwoValue ? (
                           <Modal
                             show={showFileTwo}
@@ -195,7 +194,7 @@ function ClientVerify() {
                             <Modal.Body>
                               <div className="w-100 h-100">
                                 <Camera
-                                  onTakePhoto={(dataUri,e) => {
+                                  onTakePhoto={(dataUri, e) => {
                                     setformData({
                                       ...formData,
                                       ["backId"]: dataUri,
@@ -210,15 +209,14 @@ function ClientVerify() {
                           ""
                         )}
                         {fileTwo ? (
-                            <img
-                              src={fileTwo}
-                              className="mx-5 my-4"
-                              style={{
-                                background: "#e0f6ff",
-                                borderRadius: "5px",
-                                height: "175px"
-                              }}
-                            />
+                          <img
+                            src={fileTwo}
+                            className="px-5 py-4 img-fluid"
+                            style={{
+                              background: "#e0f6ff",
+                              borderRadius: "5px",                              
+                            }}
+                          />
                         ) : (
                           <div
                             className="form-control-upload custom-file-input mx-5 my-4"
@@ -316,7 +314,10 @@ function ClientVerify() {
                 )}
 
                 <div className="text-center mt-5">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={handleSubmit}>
+                  <button
+                    className="text-white bg-secondaryColor font-demi btn-blue submit-button"
+                    onClick={handleSubmit}
+                  >
                     Submit
                   </button>
                 </div>

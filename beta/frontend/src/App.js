@@ -27,6 +27,7 @@ import ClientOtp from "./components/Client/Client-Signup/Otp";
 import ClientSignup from "./components/Client/Client-Signup/Signup";
 import ClientMyRide from "./components/Client/Client-MyRide/MyRide";
 import ClientVerify from './components/Client/Client-Signup/Client-Verify/Verify';
+import UserProfile from "./components/Client/Client-UserProfile/UserProfile";
 
 //Driver Imports
 import DriverSignup from "./components/Driver/Driver-Signup/Signup";
@@ -38,6 +39,7 @@ import DriverAddRide from './components/Driver/Add-Ride/Add-Ride';
 import DriverHome from './components/Driver/Driver-Home/Home';
 import DriverRideDetails from './components/Driver/Driver-Ride-Details/RideDetails';
 import DriverAllRides from './components/Driver/All-Rides/AllRides';
+import DriverUserProfile from "./components/Driver/Driver-UserProfile/UserProfile";
 
 //Admin Imports
 // import Dashboard from "./components/Admin/Dashboard/Dashboard";
@@ -45,6 +47,7 @@ import AdminRides from "./components/Admin/Admin-Rides/AllRides";
 import OngoingRides from "./components/Admin/Ongoing-Rides/Ongoing";
 import RideDetails from "./components/Admin/Admin-Ride-Details/RideDetails";
 import AdminUsers from "./components/Admin/User/User";
+
 
 function App() {
   return (
@@ -57,8 +60,11 @@ function App() {
         {/* Login */}
         <AuthGuard exact path="/login" component={Login} />
 
+        {/* User Profile */}
+        
+
         {/*  Client */}
-        <AuthGuard exact path="/client/signup" component={ClientSignup}/>
+        <AuthGuard exact path="/client/signup" component={ClientSignup} />
         <AuthGuard exact path="/client/otp" component={ClientOtp} />
         <AuthGuard exact path="/client/email" component={ClientEmail} />
         <AuthGuard exact path="/client/verify" component={ClientVerify} />
@@ -66,6 +72,7 @@ function App() {
         <ClientGuard exact path="/client/myride" component={ClientMyRide} />
         <ClientGuard exact path="/client/ride" component={ClientRide} />
         <ClientGuard path="/client/reserve" component={ClientReserve} />
+        <Route exact path="/client/userprofile" component={UserProfile} />
 
         {/* Driver */}
         <DriverGuard exact path="/driver/home" component={DriverHome} />
@@ -73,17 +80,30 @@ function App() {
         <AuthGuard exact path="/driver/otp" component={DriverOtp} />
         <AuthGuard exact path="/driver/email" component={DriverEmail} />
         <AuthGuard exact path="/driver/verify" component={DriverVerify} />
-        <DriverGuard exact path="/driver/add-vehicle" component={DriverAddVehicle} />
+        <Route
+          exact
+          path="/driver/add-vehicle"
+          component={DriverAddVehicle}
+        />
         <DriverGuard exact path="/driver/add-ride" component={DriverAddRide} />
-        <DriverGuard exact path="/driver/ride-details" component={DriverRideDetails} />
+        <DriverGuard
+          exact
+          path="/driver/ride-details"
+          component={DriverRideDetails}
+        />
         <DriverGuard exact path="/driver/all-ride" component={DriverAllRides} />
+        <Route exact path="/driver/userProfile" component={DriverUserProfile}/>
+
 
         {/* Admin */}
         <AdminGuard exact path="/admin/all-rides" component={AdminRides} />
-        <AdminGuard exact path="/admin/ongoing-rides" component={OngoingRides} />
+        <AdminGuard
+          exact
+          path="/admin/ongoing-rides"
+          component={OngoingRides}
+        />
         <AdminGuard exact path="/admin/ride-details" component={RideDetails} />
         <AdminGuard exact path="/admin/users" component={AdminUsers} />
-
       </Switch>
       <Footer />
     </div>

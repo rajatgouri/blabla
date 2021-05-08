@@ -85,8 +85,12 @@ function ClientEmail() {
                     }}
                   />
                 </div>
-
                 <div className="text-center mt-5">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button">
+                    Resend OTP
+                  </button>
+                </div>
+                <div className="text-center mt-3">
                   <button
                     className="text-white bg-secondaryColor font-demi btn-blue submit-button"
                     type="submit"
