@@ -32,6 +32,7 @@ export const signIn = (formData, history) => async (dispatch) => {
         break;
     }
   } catch (e) {
+    console.log(e.response);
     swal({
       text: e.response.data.msg,
       icon: "error",

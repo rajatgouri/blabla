@@ -49,7 +49,7 @@ exports.registerDriver = (req,res) => {
     !req.body.phone ||
     !req.body.password
   ) {
-    return res.status(200).json({ msg: 'Invalid data' });
+    return res.status(400).json({ msg: 'Invalid data' });
   }
   const incomingUser = {
     email : req.body.email,
@@ -76,7 +76,7 @@ exports.registerDriver = (req,res) => {
     let newUser = User(incomingUser);
     newUser.save((err, user) => {
       if (err) {
-        return res.status(200).json({ msg: err });
+        return res.status(400).json({ msg: err });
       }
       return res.status(201).json(user);
     });
@@ -91,11 +91,11 @@ exports.loginUser = (req, res) => {
   if (req.body.email.includes('@')) {
     User.findOne({ email: req.body.email }, (err, user) => {
       if (err) {
-        return res.status(200).send({ msg: err });
+        return res.status(400).send({ msg: err });
       }
   
       if (!user) {
-        return res.status(200).json({ msg: 'The user does not exist' });
+        return res.status(400).json({ msg: 'The user does not exist' });
       }
   
       user.comparePassword(req.body.password, (err, isMatch) => {
@@ -105,7 +105,7 @@ exports.loginUser = (req, res) => {
           });
         } else {
           return res
-            .status(200)
+            .status(400)
             .json({ msg: "The email and password don't match." });
         }
       });
@@ -113,11 +113,11 @@ exports.loginUser = (req, res) => {
   } else {
     User.findOne({ phone: req.body.email }, (err, user) => {
       if (err) {
-        return res.status(200).send({ msg: err });
+        return res.status(400).send({ msg: err });
       }
   
       if (!user) {
-        return res.status(200).json({ msg: 'The user does not exist' });
+        return res.status(400).json({ msg: 'The user does not exist' });
       }
   
       user.comparePassword(req.body.password, (err, isMatch) => {
@@ -127,7 +127,7 @@ exports.loginUser = (req, res) => {
           });
         } else {
           return res
-            .status(200)
+            .status(400)
             .json({ msg: "The phone and password don't match." });
         }
       });
@@ -146,7 +146,7 @@ exports.addVehicle = (req, res) => {
     }
 
     if (!user) {
-      return res.status(200).json({ msg: 'The user does not exist' });
+      return res.status(400).json({ msg: 'The user does not exist' });
     }
     user.vehicles.push(req.body)
     user.save()
@@ -154,7 +154,7 @@ exports.addVehicle = (req, res) => {
       res.status(200).send({msg: "Vehicle Added successfully", data: result})
     })
     .catch(err => {
-      res.status(200).send({msg: "Some error occured , please try again"})
+      res.status(400).send({msg: "Some error occured , please try again"})
     });
   })
 };

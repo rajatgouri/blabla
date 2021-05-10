@@ -11,7 +11,7 @@ exports.addVehicle = (req, res) => {
       }
   
       if (!user) {
-        return res.status(200).json({ msg: 'The user does not exist' });
+        return res.status(400).json({ msg: 'The user does not exist' });
       }
       user.vehicles.push(req.body)
       user.save()
@@ -19,7 +19,7 @@ exports.addVehicle = (req, res) => {
         res.status(200).send({message: "Vehicle Added successfully", data: result})
       })
       .catch(err => {
-        res.status(200).send({message: "Some error occured , please try again"})
+        res.status(400).send({message: "Some error occured , please try again"})
       });
     })
   };
