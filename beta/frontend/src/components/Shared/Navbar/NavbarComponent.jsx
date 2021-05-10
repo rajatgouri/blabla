@@ -50,7 +50,7 @@ function NavbarComponent() {
             ) : (
               ""
             )}
-            {isDriver ? (
+            {isDriver && isLoggedIn ? (
               <NavLink exact to="/driver/add-ride" activeClassName="activeNav">
                 <Nav.Link
                   href="/driver/add-ride"
@@ -63,7 +63,7 @@ function NavbarComponent() {
             ) : (
               ""
             )}
-            {isDriver ? (
+            {isDriver && isLoggedIn ? (
               <NavLink exact to="/driver/all-ride" activeClassName="activeNav">
                 <Nav.Link
                   href="/driver/all-ride"

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyPhoneOtp } from "../../../redux/actions/auth";
+import { verifyPhoneOtp , phoneOtp} from "../../../redux/actions/auth";
 import { Stepper } from "react-form-stepper";
 import swal from "sweetalert";
 
@@ -23,6 +23,11 @@ function Otp() {
   };
   const handleChange = (otp) => {
     setOtp(otp);
+  };
+
+  const resendOtp = (e) => {
+    e.preventDefault();
+    dispatch(phoneOtp());
   };
   return (
     <>
@@ -85,11 +90,6 @@ function Otp() {
                     }}
                   />
                 </div>
-                <div className="text-center mt-5">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button">
-                    Resend OTP
-                  </button>
-                </div>
                 <div className="text-center mt-3">
                   <button
                     className="text-white bg-secondaryColor font-demi btn-blue submit-button"
@@ -99,6 +99,9 @@ function Otp() {
                   </button>
                 </div>
               </form>
+              <div className="text-center mt-5">
+                Did not recieve the OTP yet ? <span onClick={resendOtp} class="text-secondaryColor hoverable"> Send Again</span>
+              </div>
             </div>
           </div>
         </div>

@@ -15,13 +15,14 @@ function ClientSignup() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log(formData)
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clientSignUp(formData, history));
     localStorage.setItem("userProfile", JSON.stringify(formData));
     setformData(initialState);
   };
+
+  const countries = ['IN','CA' ,'SN'];
 
   return (
     <>
@@ -70,6 +71,7 @@ function ClientSignup() {
                     placeholder="Phone number"
                     value={phone}                    
                     onChange={setPhone}
+                    countries={countries}
                     className="form-control"
                   />
                   {/* <input

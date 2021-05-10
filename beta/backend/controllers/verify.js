@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID } = process.env;
 const twilio = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+const { createToken } = require('../utils/auth');
 const User = require("../models/User");
 const sendSms = require('../twilio');
 const sgMail = require('@sendgrid/mail');
@@ -57,7 +58,7 @@ exports.verifyEmail = (req, res) => {
     }
 
     if (!user) {
-      return res.status(200).json({ msg: 'The user does not exist' });
+      return res.status(400).json({ msg: 'The user does not exist' });
     }
     if (user.emailOtp == req.body.otp) {
       user.emailOtp = null;
@@ -67,7 +68,7 @@ exports.verifyEmail = (req, res) => {
         res.status(200).send({msg: "Email verified successfully"})
       })
       .catch(err => {
-        res.status(200).send({msg: "Some error occured , please try again"})
+        res.status(400).send({msg: "Some error occured , please try again"})
       });
     } else {
       res.status(400).send({msg: "Wrong OTP , Please enter correct OTP!"})
@@ -78,7 +79,6 @@ exports.verifyEmail = (req, res) => {
 exports.phoneOtpSend = async (req, res) => {
   const channel = 'sms';
   let verificationRequest;
-  console.log(req.query.phone);
   try {
     verificationRequest = await twilio.verify.services(VERIFICATION_SID)
       .verifications
@@ -87,8 +87,6 @@ exports.phoneOtpSend = async (req, res) => {
     console.log(e);
     return res.status(500).send({msg: e});
   }
-
-  console.log(verificationRequest);
 
   return res.status(200).send({msg:"Verify otp sent"});
 };
@@ -114,7 +112,7 @@ exports.phoneOtpCheck = async (req, res) => {
       }
   
       if (!user) {
-        return res.status(200).json({ msg: 'The user does not exist' });
+        return res.status(400).json({ msg: 'The user does not exist' });
       }
       user.isNumberVerified = true;
       user.save()
@@ -128,6 +126,34 @@ exports.phoneOtpCheck = async (req, res) => {
   } else {
     res.status(400).send({msg: `Unable to verify code. status: ${verificationResult.status}`})
   }
+};
+
+exports.forgotOtpCheck = async (req, res) => {
+  if (!req.body.email || !req.body.otp) {
+    return res.status(400).send({ msg: 'You need to send email and otp' });
+  }
+
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (err) {
+      return res.status(400).send({ msg: err });
+    }
+
+    if (!user) {
+      return res.status(400).json({ msg: 'The user does not exist' });
+    }
+    if (user.emailOtp == req.body.otp) {
+      user.emailOtp = null;
+      user.save()
+      .then(result=>{
+        res.status(200).send({msg: "Email verified successfully",token: createToken(result)})
+      })
+      .catch(err => {
+        res.status(200).send({msg: "Some error occured , please try again",})
+      });
+    } else {
+      res.status(400).send({msg: "Wrong OTP , Please enter correct OTP!"})
+    }
+  })
 };
 
 exports.uploadId = async (req, res) => {

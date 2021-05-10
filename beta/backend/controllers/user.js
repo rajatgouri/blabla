@@ -83,6 +83,29 @@ exports.registerDriver = (req,res) => {
   });
 }
 
+exports.changePassword = (req,res) => {
+  console.log(req.body);
+  if (
+    !req.body.email ||
+    !req.body.token ||
+    !req.body.pass
+  ) {
+    return res.status(400).json({ msg: 'Invalid data' });
+  }
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (err) {
+      return res.status(400).json({ msg: err });
+    }
+    user.password = req.body.pass;
+    user.save((err, user) => {
+      if (err) {
+        return res.status(400).json({ msg: err });
+      }
+      return res.status(201).json(user);
+    });
+  });
+}
+
 exports.loginUser = (req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({ msg: 'You need to send email/number and password' });

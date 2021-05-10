@@ -3,7 +3,7 @@ import OtpInput from "react-otp-input";
 import { Stepper } from "react-form-stepper";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { verifyDriverEmailOtp } from "../../../redux/actions/auth";
+import { verifyDriverEmailOtp , emailOtp } from "../../../redux/actions/auth";
 import swal from "sweetalert";
 
 function Email() {
@@ -25,6 +25,10 @@ function Email() {
   const handleChange = (otp) => {
     setOtp(otp);
   };
+  const resendOtp = (e) => {
+    e.preventDefault();
+    dispatch(emailOtp());
+  };
   return (
     <>
       <div className="container my-5">
@@ -34,6 +38,7 @@ function Email() {
               steps={[
                 { label: "Step 1" },
                 { label: "Step 2" },
+                { label: "Step 3" },
                 { label: "Step 3" },
               ]}
               connectorStateColors={true}
@@ -84,11 +89,6 @@ function Email() {
                     }}
                   />
                 </div>
-                <div className="text-center mt-5">
-                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button">
-                    Resend OTP
-                  </button>
-                </div>
                 <div className="text-center mt-3">
                   <button
                     className="text-white bg-secondaryColor font-demi btn-blue submit-button"
@@ -98,6 +98,9 @@ function Email() {
                   </button>
                 </div>
               </form>
+              <div className="text-center mt-5">
+                Did not recieve the OTP yet ? <span onClick={resendOtp} class="text-secondaryColor hoverable"> Send Again</span>
+              </div>
             </div>
           </div>
         </div>

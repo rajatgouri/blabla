@@ -6,7 +6,11 @@ import {
   VERIFY_EMAIL,
   VERIFY_PHONE,
   VERIFY_ID,
-  ADD_VEHICLE
+  ADD_VEHICLE,
+  EMAIL_OTP,
+  PHONE_OTP,
+  VERIFY_FORGOT,
+  CHANGE_PASSWORD
 } from "../constants";
 
 export default (state = { authData: null }, action) => {
@@ -33,7 +37,20 @@ export default (state = { authData: null }, action) => {
     case ADD_VEHICLE:
       console.log(action?.data);
       return { ...state, authData: action?.data };
+    case EMAIL_OTP:
+      console.log(action?.data);
+      return { ...state, authData: action?.data };
     case LOGOUT:
+      localStorage.clear();
+      return { ...state, authData: null };
+    case PHONE_OTP:
+      console.log(action?.data);
+      return { ...state, authData: action?.data };
+    case VERIFY_FORGOT:
+      console.log(action?.data);
+      action.data.token && localStorage.setItem("forgotToken", action?.data.token);
+      return { ...state, authData: action?.data };
+    case CHANGE_PASSWORD:
       localStorage.clear();
       return { ...state, authData: null };
     default:

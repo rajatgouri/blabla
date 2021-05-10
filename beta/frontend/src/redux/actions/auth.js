@@ -6,7 +6,11 @@ import {
   VERIFY_EMAIL,
   VERIFY_PHONE,
   VERIFY_ID,
-  ADD_VEHICLE
+  ADD_VEHICLE,
+  EMAIL_OTP,
+  PHONE_OTP,
+  VERIFY_FORGOT,
+  CHANGE_PASSWORD
 } from "../constants";
 import jwt from "jwt-decode";
 import swal from "sweetalert";
@@ -50,10 +54,6 @@ export const clientSignUp = (formData, history) => async (dispatch) => {
       icon: "success",
     });
     await api.getEmailOtp(formData.email);
-    swal({
-      text: "Code is send to your email successfully",
-      icon: "success",
-    });
     history.push("/client/email");    
   } catch (e) {
     swal({
@@ -74,6 +74,49 @@ export const verifyEmailOtp = (otp, history) => async (dispatch) => {
       icon: "success",
     });
     history.push("/client/otp");
+  } catch (e) {
+    swal({
+      text: e.response.data.msg,
+      icon: "error",
+    });
+  }
+};
+
+export const verifyForgotEmailOtp = (otp, history) => async (dispatch) => {
+  try {
+    const formData = (localStorage.getItem("email"));
+    console.log(formData);
+    const { data } = await api.verifyForgotEmailOtp(otp, formData);
+    dispatch({ type: VERIFY_FORGOT, data });
+    swal({
+      text: "OTP Verified",
+      icon: "success",
+    });
+    history.push("/change");
+  } catch (e) {
+    swal({
+      text: e.response.data.msg,
+      icon: "error",
+    });
+  }
+};
+
+export const changePassword = (password, history) => async (dispatch) => {
+  try {
+    const formData = (localStorage.getItem("email"));
+    const token = (localStorage.getItem("forgotToken"));
+    const body = {
+      "email" : formData,
+      "token" : token,
+      "pass" : password
+    };
+    const { data } = await api.changePassword(body);
+    dispatch({ type: CHANGE_PASSWORD, data });
+    swal({
+      text: "Password Changed",
+      icon: "success",
+    });
+    history.push("/login");
   } catch (e) {
     swal({
       text: e.response.data.msg,
@@ -113,11 +156,59 @@ export const driverSignUp = (formData, history) => async (dispatch) => {
       icon: "success",
     });
     await api.getEmailOtp(formData.email);
+    history.push("/driver/email");
+  } catch (e) {
+    swal({
+      text: e.response.data.msg,
+      icon: "error",
+    });
+  }
+};
+
+export const emailOtp = () => async (dispatch) => {
+  try {
+    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const { data } = await api.getEmailOtp(formData.email);
     swal({
       text: "Code is send to your email successfully",
       icon: "success",
     });
-    history.push("/driver/email");
+    dispatch({ type: EMAIL_OTP, data });
+  } catch (e) {
+    swal({
+      text: e.response.data.msg,
+      icon: "error",
+    });
+  }
+};
+
+export const forgotEmailOtp = ( formData, history) => async (dispatch) => {
+  try {
+    const { data } = await api.getEmailOtp(formData.email);
+    localStorage.setItem("email" ,formData.email);
+    swal({
+      text: "Code is send to your email successfully",
+      icon: "success",
+    });
+    dispatch({ type: EMAIL_OTP, data });
+    history.push("/forgot-otp");
+  } catch (e) {
+    swal({
+      text: e.response.data.msg,
+      icon: "error",
+    });
+  }
+};
+
+export const phoneOtp = () => async (dispatch) => {
+  try {
+    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const { data } = await api.getPhoneOtp(formData.phone);
+    swal({
+      text: "Code is send to your Phone successfully",
+      icon: "success",
+    });
+    dispatch({ type: PHONE_OTP, data });
   } catch (e) {
     swal({
       text: e.response.data.msg,
@@ -133,7 +224,7 @@ export const verifyDriverEmailOtp = (otp, history) => async (dispatch) => {
     dispatch({ type: VERIFY_EMAIL, data });
     await api.getPhoneOtp(`${formData.phone}`);
     swal({
-      text: "Email is Verified and otp on phone number is send",
+      text: "Email Verified Successfully!",
       icon: "success",
     });
     history.push("/driver/otp");

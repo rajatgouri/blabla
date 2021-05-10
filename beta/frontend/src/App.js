@@ -9,6 +9,9 @@ import "datatables.net-dt/css/jquery.dataTables.min.css";
 import Login from "./components/Shared/Login/Login";
 import NavbarComponent from './components/Shared/Navbar/NavbarComponent';
 import Footer from "./components/Shared/Footer/Footer";
+import Forgot from "./components/Shared/Forgot/Forgot";
+import Change from "./components/Shared/Change-Password/Change";
+import ForgotOTP from "./components/Shared/Forgot-OTP/OTP";
 
 //Auth Guard Import 
 import AdminGuard from "./components/Guards/AdminGuard";
@@ -59,6 +62,9 @@ function App() {
 
         {/* Login */}
         <AuthGuard exact path="/login" component={Login} />
+        <Route exact path="/forgot" component={Forgot} />
+        <Route exact path="/change" component={Change} />
+        <Route exact path="/forgot-otp" component={ForgotOTP} />
 
         {/* User Profile */}
         
@@ -80,7 +86,7 @@ function App() {
         <AuthGuard exact path="/driver/otp" component={DriverOtp} />
         <AuthGuard exact path="/driver/email" component={DriverEmail} />
         <AuthGuard exact path="/driver/verify" component={DriverVerify} />
-        <DriverGuard
+        <AuthGuard
           exact
           path="/driver/add-vehicle"
           component={DriverAddVehicle}

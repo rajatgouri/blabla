@@ -21,6 +21,8 @@ function Signup() {
     localStorage.setItem("userProfile", JSON.stringify(formData));
     setformData(initialState);
   };
+
+  const countries = ['IN','CA' ,'SN'];
   return (
     <>
       <div className="container my-5">
@@ -68,6 +70,7 @@ function Signup() {
                     placeholder="Phone number"
                     value={phone}
                     onChange={setPhone}
+                    countries={countries}
                     className="form-control"
                   />
                   {/* <input

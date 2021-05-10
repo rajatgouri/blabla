@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { signIn } from "../../../redux/actions/auth";
+import { forgotEmailOtp } from "../../../redux/actions/auth";
 import { Link } from "react-router-dom";
 
-import "./Login.css";
+import "./Forgot.css";
 
-function Login() {
-  const initialState = { email: "", password: "" };
+function Forgot() {
+  const initialState = { email: ""};
   const [formData, setformData] = useState(initialState);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signIn(formData, history));
+    dispatch(forgotEmailOtp(formData, history));
     setformData(initialState);
   };
 
@@ -25,7 +25,7 @@ function Login() {
           <div className="col-lg-8 col-md-8 col-sm-12 col-12">
             <div className="card">
               <h4 className="text-center font-bold text-primaryColor mb-4">
-                Sign in to your account
+              Enter the E-mail associated with your account
               </h4>
               <form onSubmit={handleSubmit}>
                 <div className="input-group mt-4">
@@ -39,47 +39,17 @@ function Login() {
                       });
                     }}
                     name="email"
-                    type="text"
+                    type="email"
                     className="form-control"
-                    placeholder="Email/Number"
+                    placeholder="Email"
                   />
-                </div>
-                <div className="input-group mt-4">
-                  <input
-                    required
-                    value={formData.password}
-                    onChange={(e) => {
-                      setformData({
-                        ...formData,
-                        [e.target.name]: e.target.value,
-                      });
-                    }}
-                    name="password"
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="d-flex justify-content-between">
-                  <Link to="/client/signup">
-                    {" "}
-                    <div className="font-demi grey-hover text-primaryColor mt-4 py-3 px-3">
-                      Become a member{" "}
-                      <span className="ml-2 text-secondaryColor">Signup</span>
-                    </div>
-                  </Link>
-                  <Link to="/forgot">
-                    <p className="text-secondaryColor font-demi grey-hover mt-4 py-3 px-3 hoverable">
-                      Forgot Password
-                    </p>
-                  </Link>
                 </div>
                 <div className="text-center mt-5">
                   <button
                     className="text-white bg-secondaryColor font-demi btn-blue submit-button"
                     type="submit"
                   >
-                    Signin
+                    Send OTP
                   </button>
                 </div>
               </form>
@@ -91,4 +61,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Forgot;

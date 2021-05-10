@@ -18,6 +18,10 @@ select{
   outline: none !important;
 }
 
+.hoverable{
+  cursor: pointer;
+}
+
 /* Root variables */
 :root {
   --primaryColor: #1e4c6b;

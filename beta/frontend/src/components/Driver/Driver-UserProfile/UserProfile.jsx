@@ -56,13 +56,16 @@ function DriverUserProfile() {
             </div>
           </div>
         </div>
-        <div className="row mt-4">
+        <div className="row mt-5">
+          <h2 className="ml-4 font-demi text-primaryColor">My Driver License</h2>
+        </div>
+        <div className="row mt-3">
           <div className="col-lg-6 col-sm-12 col-12 col-md-6">
             <div className="card">
               <img
                 src="https://source.unsplash.com/random"
                 alt="verification-id"
-                className="img-fluid p-5"
+                className="img-fluid p-5 height-500"
                 style={{
                   background: "#e0f6ff",
                   borderRadius: "5px",
@@ -75,7 +78,7 @@ function DriverUserProfile() {
               <img
                 src="https://source.unsplash.com/random"
                 alt="verification-id"
-                className="img-fluid p-5"
+                className="img-fluid p-5 height-500"
                 style={{
                   background: "#e0f6ff",
                   borderRadius: "5px",
@@ -85,6 +88,12 @@ function DriverUserProfile() {
           </div>
         </div>
         <div className="row mt-5">
+          <h2 className="ml-4 font-demi text-primaryColor">My Vehicles <i className="fa fa-plus" aria-hidden="true"></i></h2>
+        </div>
+        <div className="row mt-5">
+          <h4 className="ml-4 font-demi text-primaryColor">Vehicle 1</h4>
+        </div>
+        <div className="row mt-2">
           <div className="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
             <div className="card">
               <form>
@@ -128,7 +137,7 @@ function DriverUserProfile() {
                 </div>
                 <div className="text-center mt-4">
                   <button className="text-white bg-secondaryColor font-demi btn-blue submit-button">
-                    Add Vehicle
+                    Edit
                   </button>
                 </div>
               </form>
