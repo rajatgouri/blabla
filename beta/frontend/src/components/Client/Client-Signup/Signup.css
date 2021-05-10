@@ -5,3 +5,19 @@
     font-family: Avenir-medium !important;
     flex-direction: row;
 }
+.PhoneInputInput{
+    display: block;
+    width: 100%;
+    padding: 9px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--primaryColor);
+    background-color: var(--tertiaryColor);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 10px;
+}
+.PhoneInputInput:focus{
+    outline: none;
+}

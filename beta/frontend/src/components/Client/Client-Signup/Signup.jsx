@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { clientSignUp } from "../../../redux/actions/auth";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import "./Signup.css";
 
 function ClientSignup() {
   const initialState = { fullName: "", email: "", password: "", phone: "" };
   const [formData, setformData] = useState(initialState);
+  const [phone, setPhone] = useState("");  
 
+  formData.phone = phone && phone.toString().slice(1);
   const dispatch = useDispatch();
   const history = useHistory();
 
+  console.log(formData)
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clientSignUp(formData, history));
@@ -61,7 +66,13 @@ function ClientSignup() {
                   />
                 </div>
                 <div className="input-group mt-4">
-                  <input
+                  <PhoneInput
+                    placeholder="Phone number"
+                    value={phone}                    
+                    onChange={setPhone}
+                    className="form-control"
+                  />
+                  {/* <input
                     value={formData.phone}
                     onChange={(e) => {
                       setformData({
@@ -74,7 +85,7 @@ function ClientSignup() {
                     type="text"
                     className="form-control"
                     placeholder="Phone Number"
-                  />
+                  /> */}
                 </div>
                 <div className="input-group mt-4">
                   <input

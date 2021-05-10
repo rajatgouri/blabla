@@ -20,6 +20,7 @@
     "react-form-stepper": "^1.4.1",
     "react-html5-camera-photo": "^1.5.4",
     "react-otp-input": "^2.3.0",
+    "react-phone-number-input": "^3.1.21",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
