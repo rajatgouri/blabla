@@ -114,7 +114,7 @@ export default function MiniDrawer(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar style={{height: "75px"}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -143,7 +143,7 @@ export default function MiniDrawer(props) {
           }),
         }}
       >
-        <div className={classes.toolbar}>
+        <div className={classes.toolbar} style={{height: "75px"}}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />

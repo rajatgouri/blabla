@@ -11,7 +11,7 @@ function User() {
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
-    },    
+    },
     content: {
       flexGrow: 1,
       padding: theme.spacing(2),
@@ -21,8 +21,8 @@ function User() {
   return (
     <div>
       <Sidebar>
-      <main className={classes.content}>        
-        {/* <div class="container">
+        <main className={classes.content}>
+          {/* <div class="container">
           <div class="row mb-5 mt-3">
           <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
               <div class="card font-regular">
@@ -99,29 +99,29 @@ function User() {
           </div>
         </div> */}
 
-<div class="container">
-              <>
-                <div class="row mb-1 col-12">
-                  <div class="card w-100 mb-5">
-                    <div class="card-body w-100 d-flex justify-content-between">
-                      <h5 class="card-title text-secondaryColor font-bold w-100">All Users</h5>
-                      <span className="text-secondaryColor font-bold dropdown-icon"></span>
-                    </div>
-                    {showTable1 ? (
-                      <>
-                        <hr className="all-hr" />
-                        <Table ongoing={false}></Table>
-                      </>
-                      ) : (
-                        ""
-                      )}
+          <div class="container">
+            <>
+              <div class="row mb-1 col-12">
+                <div class="card w-100 mb-5">
+                  <div class="card-body w-100 d-flex justify-content-between">
+                    <h5 class="card-title text-secondaryColor font-bold w-100">All Users</h5>
+                    <span className="text-secondaryColor font-bold dropdown-icon"></span>
                   </div>
+                  {showTable1 ? (
+                    <>
+                      <hr className="all-hr" />
+                      <Table ongoing={false}></Table>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
-              </>
-        </div>
-      </main>
+            </>
+          </div>
+        </main>
       </Sidebar>
-      
+
     </div>
   );
 }

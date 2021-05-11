@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:8090/api";
+export const url = "http://localhost:8090/api";
 
 export const signIn = (formData) => axios.post(`${url}/login`, formData);
 export const clientSignUp = (formData) =>
@@ -25,3 +25,11 @@ export const addVehicle = ( email, body) =>
   axios.post(`${url}/add-vehicle?email=${email}`, body);
 export const changePassword = (body) =>
   axios.put(`${url}/change-password`, body);
+export const getUsers = () =>
+  axios.get(`${url}/admin/get-users`);
+export const getUserById = (id) =>
+  axios.get(`${url}/admin/get-user?id=${id}`);
+export const approveUser = (id) =>
+  axios.post(`${url}/admin/approve-user`,{
+    id: id
+  });

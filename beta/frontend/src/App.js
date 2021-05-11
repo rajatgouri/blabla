@@ -50,6 +50,7 @@ import AdminRides from "./components/Admin/Admin-Rides/AllRides";
 import OngoingRides from "./components/Admin/Ongoing-Rides/Ongoing";
 import RideDetails from "./components/Admin/Admin-Ride-Details/RideDetails";
 import AdminUsers from "./components/Admin/User/User";
+import UserDetails from "./components/Admin/User/User-Details/Details";
 
 
 function App() {
@@ -110,6 +111,7 @@ function App() {
         />
         <AdminGuard exact path="/admin/ride-details" component={RideDetails} />
         <AdminGuard exact path="/admin/users" component={AdminUsers} />
+        <AdminGuard exact path="/admin/users/:id" component={UserDetails} />
       </Switch>
       <Footer />
     </div>

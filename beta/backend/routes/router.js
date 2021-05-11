@@ -2,7 +2,8 @@ const router = require('express').Router();
 const routes = [
     'auth',
     'vehicle',
-    'verify'
+    'verify',
+    'admin'
 ];
 
 module.exports = {

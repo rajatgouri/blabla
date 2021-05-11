@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
-app.use('/images', express.static(path.join('assets/images')));
+app.use('/api/images', express.static(path.join('assets/images')));
 app.use('/', route.init());
 
 mongoose

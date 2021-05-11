@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { driverSignUp } from "../../../redux/actions/auth";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 function Signup() {
