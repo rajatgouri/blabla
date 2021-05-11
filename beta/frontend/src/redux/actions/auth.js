@@ -56,9 +56,11 @@ export const clientSignUp = (formData, history) => async (dispatch) => {
     await api.getEmailOtp(formData.email);
     history.push("/client/email");    
   } catch (e) {
+    console.log(e.response);
     swal({
       text: e.response.data.msg,
       icon: "error",
+     
     });
   }
 };
@@ -75,6 +77,7 @@ export const verifyEmailOtp = (otp, history) => async (dispatch) => {
     });
     history.push("/client/otp");
   } catch (e) {
+    console.log(e.response)
     swal({
       text: e.response.data.msg,
       icon: "error",

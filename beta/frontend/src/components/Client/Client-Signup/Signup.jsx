@@ -7,22 +7,20 @@ import "react-phone-number-input/style.css";
 import "./Signup.css";
 
 function ClientSignup() {
-  const initialState = { fullName: "", email: "", password: "", phone: "" };
+  const initialState = { fullName: "", email: "", password: "", phone: "", dialcode: "1" };
   const [formData, setformData] = useState(initialState);
-  const [phone, setPhone] = useState("");  
 
-  formData.phone = phone && phone.toString().slice(1);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    formData.phone = formData.dialcode + formData.phone;
     dispatch(clientSignUp(formData, history));
     localStorage.setItem("userProfile", JSON.stringify(formData));
     setformData(initialState);
   };
 
-  const countries = ['IN','CA' ,'SN'];
 
   return (
     <>
@@ -67,14 +65,32 @@ function ClientSignup() {
                   />
                 </div>
                 <div className="input-group mt-4">
-                  <PhoneInput
+                  {/* <PhoneInput
                     placeholder="Phone number"
                     value={phone}                    
                     onChange={setPhone}
                     countries={countries}
                     className="form-control"
-                  />
-                  {/* <input
+                  /> */}
+
+                  <div class="input-group-prepend">
+                    <select 
+                      name="dialcode"
+                      className=""
+                      value={formData.dialcode}
+                      onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                      }}>
+                      <option value="1" selected>+1</option>
+                      <option value="91" >+91</option>
+                      <option value="221">+221</option>
+
+                    </select>
+                  </div>
+                  <input
                     value={formData.phone}
                     onChange={(e) => {
                       setformData({
@@ -85,9 +101,9 @@ function ClientSignup() {
                     required
                     name="phone"
                     type="text"
-                    className="form-control"
+                    className="form-control mt-1"
                     placeholder="Phone Number"
-                  /> */}
+                  />
                 </div>
                 <div className="input-group mt-4">
                   <input

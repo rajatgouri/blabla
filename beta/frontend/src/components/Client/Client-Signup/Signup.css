@@ -21,3 +21,7 @@
 .PhoneInputInput:focus{
     outline: none;
 }
+
+.mt-1 {
+    margin-top: 5px;
+}

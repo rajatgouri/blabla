@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const { JWT } = process.env;
-const config = JWT;
+const { JwtSecret } = process.env;
+const config = JwtSecret;
 
 exports.createToken = (user) => {
   return jwt.sign({ id: user.id, email: user.email, name: user.fullName ,role: user.role }, config, {

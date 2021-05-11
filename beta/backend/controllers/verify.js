@@ -10,7 +10,6 @@ const fs = require('fs');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 exports.emailOtpSend = (req, res) => {
-  console.log(req.query);
   if (!req.query.email) {
     return res.status(400).send({ msg: 'You need to send email' });
   }
