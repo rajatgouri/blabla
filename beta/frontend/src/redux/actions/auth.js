@@ -18,8 +18,12 @@ import swal from "sweetalert";
 export const signIn = (formData, history) => async (dispatch) => {
   try {
     const { data } = await api.signIn(formData);
+    console.log(jwt(data.token));
     dispatch({ type: SIGN_IN, data });
     const role = jwt(data.token).role;
+    localStorage.setItem("isEmailVerified",jwt(data.token).isEmailVerified);
+    localStorage.setItem("isNumberVerified",jwt(data.token).isNumberVerified);
+    localStorage.setItem("isIdSubmitted",jwt(data.token).isIdSubmitted);
     swal({
       text: `You are logged in as ${role}`,
       icon: "success",
@@ -36,7 +40,6 @@ export const signIn = (formData, history) => async (dispatch) => {
         break;
     }
   } catch (e) {
-    console.log(e.response);
     swal({
       text: e.response.data.msg,
       icon: "error",
@@ -47,6 +50,16 @@ export const signIn = (formData, history) => async (dispatch) => {
 
 export const clientSignUp = (formData, history) => async (dispatch) => {
   try {
+    try 
+    {
+      await api.getPhoneOtp(formData.phone);
+    } catch(e) {
+      swal({
+        text: "Wrong Number",
+        icon: "error", 
+      });
+      return ;
+    }
     const { data } = await api.clientSignUp(formData);
     dispatch({ type: CLIENT_SIGN_UP, data });
     swal({
@@ -54,6 +67,7 @@ export const clientSignUp = (formData, history) => async (dispatch) => {
       icon: "success",
     });
     await api.getEmailOtp(formData.email);
+    localStorage.setItem("isEmailVerified",'false');
     history.push("/client/email");    
   } catch (e) {
     console.log(e.response);
@@ -67,14 +81,15 @@ export const clientSignUp = (formData, history) => async (dispatch) => {
 
 export const verifyEmailOtp = (otp, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.verifyEmailOtp(otp, formData.email);
     dispatch({ type: VERIFY_EMAIL, data });
-    await api.getPhoneOtp(`${formData.phone}`);
     swal({
-      text: "Email is Verified and otp on phone number is send",
+      text: "Email is Verified",
       icon: "success",
     });
+    localStorage.setItem("isEmailVerified",'true');
+    localStorage.setItem("isNumberVerified",'false');
     history.push("/client/otp");
   } catch (e) {
     console.log(e.response)
@@ -130,7 +145,7 @@ export const changePassword = (password, history) => async (dispatch) => {
 
 export const verifyPhoneOtp = (otp, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.verifyPhoneOtp(
       otp,
       formData.email,
@@ -141,6 +156,8 @@ export const verifyPhoneOtp = (otp, history) => async (dispatch) => {
       text: "Phone Number is Verified",
       icon: "success",
     });
+    localStorage.setItem("isNumberVerified",'true');
+    localStorage.setItem("isIdSubmitted",'false');
     history.push("/client/verify");
   } catch (e) {
     swal({
@@ -152,6 +169,16 @@ export const verifyPhoneOtp = (otp, history) => async (dispatch) => {
 
 export const driverSignUp = (formData, history) => async (dispatch) => {
   try {
+    try 
+    {
+      await api.getPhoneOtp(formData.phone);
+    } catch(e) {
+      swal({
+        text: "Wrong Number",
+        icon: "error", 
+      });
+      return ;
+    }
     const { data } = await api.driverSignUp(formData);
     dispatch({ type: DRIVER_SIGN_UP, data });
     swal({
@@ -159,6 +186,7 @@ export const driverSignUp = (formData, history) => async (dispatch) => {
       icon: "success",
     });
     await api.getEmailOtp(formData.email);
+    localStorage.setItem("isEmailVerified",'false');
     history.push("/driver/email");
   } catch (e) {
     swal({
@@ -170,7 +198,7 @@ export const driverSignUp = (formData, history) => async (dispatch) => {
 
 export const emailOtp = () => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.getEmailOtp(formData.email);
     swal({
       text: "Code is send to your email successfully",
@@ -205,7 +233,7 @@ export const forgotEmailOtp = ( formData, history) => async (dispatch) => {
 
 export const phoneOtp = () => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.getPhoneOtp(formData.phone);
     swal({
       text: "Code is send to your Phone successfully",
@@ -222,14 +250,15 @@ export const phoneOtp = () => async (dispatch) => {
 
 export const verifyDriverEmailOtp = (otp, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.verifyEmailOtp(otp, formData.email);
     dispatch({ type: VERIFY_EMAIL, data });
-    await api.getPhoneOtp(`${formData.phone}`);
     swal({
       text: "Email Verified Successfully!",
       icon: "success",
     });
+    localStorage.setItem("isEmailVerified",'true');
+    localStorage.setItem("isNumberVerified",'false');
     history.push("/driver/otp");
   } catch (e) {
     swal({
@@ -241,7 +270,7 @@ export const verifyDriverEmailOtp = (otp, history) => async (dispatch) => {
 
 export const verifyDriverPhoneOtp = (otp, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.verifyPhoneOtp(
       otp,
       formData.email,
@@ -252,6 +281,8 @@ export const verifyDriverPhoneOtp = (otp, history) => async (dispatch) => {
       text: "Phone Number is Verified",
       icon: "success",
     });
+    localStorage.setItem("isNumberVerified",'true');
+    localStorage.setItem("isIdSubmitted",'false');
     history.push("/driver/verify");
   } catch (e) {
     swal({
@@ -263,7 +294,7 @@ export const verifyDriverPhoneOtp = (otp, history) => async (dispatch) => {
 
 export const verifyClientId = (body, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.verifyId(
       formData.email,
       body
@@ -273,6 +304,7 @@ export const verifyClientId = (body, history) => async (dispatch) => {
       text: "All Documents Submitted",
       icon: "success",
     });
+    localStorage.setItem("isIdSubmitted",'true');
     history.push("/");
   } catch (e) {
     swal({
@@ -284,7 +316,7 @@ export const verifyClientId = (body, history) => async (dispatch) => {
 
 export const verifyDriverId = (body, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.verifyId(
       formData.email,
       body
@@ -294,6 +326,7 @@ export const verifyDriverId = (body, history) => async (dispatch) => {
       text: "All Documents Submitted",
       icon: "success",
     });
+    localStorage.setItem("isIdSubmitted",'true');
     history.push("/driver/add-vehicle");
   } catch (e) {
     swal({
@@ -305,7 +338,7 @@ export const verifyDriverId = (body, history) => async (dispatch) => {
 
 export const addVehicle = (body, history) => async (dispatch) => {
   try {
-    const formData = JSON.parse(localStorage.getItem("userProfile"));
+    const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
     const { data } = await api.addVehicle(
       formData.email,
       body
@@ -353,6 +386,54 @@ export const userRole = () => {
     } else {
       const decoded = jwt(token)?.role
       return decoded;
+    }
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+}
+
+export const isEmailVerified = () => {
+  try {
+    const isEmailVerified = localStorage.getItem("isEmailVerified");
+    if (!isEmailVerified) {
+      return ''
+    } else {
+      return isEmailVerified;
+    }
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+}
+
+export const isNumberVerified = () => {
+  try {
+    const isNumberVerified = localStorage.getItem("isNumberVerified");
+    if (!isNumberVerified) {
+      return ''
+    } else {
+      return isNumberVerified;
+    }
+  } catch (e) {
+    swal({
+      text: e.message,
+      icon: "error",
+    });
+  }
+}
+
+export const isIdSubmitted = () => {
+  try {
+    const isIdSubmitted = localStorage.getItem("isIdSubmitted");
+    if (!isIdSubmitted) {
+      return ''
+    } else {
+      return isIdSubmitted;
     }
   } catch (e) {
     swal({

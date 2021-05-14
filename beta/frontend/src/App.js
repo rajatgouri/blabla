@@ -18,6 +18,9 @@ import AdminGuard from "./components/Guards/AdminGuard";
 import ClientGuard from "./components/Guards/ClientGuard";
 import DriverGuard from "./components/Guards/DriverGuard";
 import AuthGuard from "./components/Guards/AuthGuard";
+import EmailGuardedRoute from "./components/Guards/EmailGuard";
+import IdGuardedRoute from "./components/Guards/IdGuard";
+import NumberGuardedRoute from "./components/Guards/OtpGuard";
 import HomeGuard from './components/Guards/HomeGuard';
 
 //Client Imports
@@ -72,9 +75,9 @@ function App() {
 
         {/*  Client */}
         <AuthGuard exact path="/client/signup" component={ClientSignup} />
-        <AuthGuard exact path="/client/otp" component={ClientOtp} />
-        <AuthGuard exact path="/client/email" component={ClientEmail} />
-        <AuthGuard exact path="/client/verify" component={ClientVerify} />
+        <NumberGuardedRoute exact path="/client/otp" component={ClientOtp} />
+        <EmailGuardedRoute exact path="/client/email" component={ClientEmail} />
+        <IdGuardedRoute exact path="/client/verify" component={ClientVerify} />
         <Route exact path="/client/contact" component={ClientContact} />
         <ClientGuard exact path="/client/myride" component={ClientMyRide} />
         <ClientGuard exact path="/client/ride" component={ClientRide} />
@@ -84,10 +87,10 @@ function App() {
         {/* Driver */}
         <DriverGuard exact path="/driver/home" component={DriverHome} />
         <AuthGuard exact path="/driver/signup" component={DriverSignup} />
-        <AuthGuard exact path="/driver/otp" component={DriverOtp} />
-        <AuthGuard exact path="/driver/email" component={DriverEmail} />
-        <AuthGuard exact path="/driver/verify" component={DriverVerify} />
-        <AuthGuard
+        <NumberGuardedRoute exact path="/driver/otp" component={DriverOtp} />
+        <EmailGuardedRoute exact path="/driver/email" component={DriverEmail} />
+        <IdGuardedRoute exact path="/driver/verify" component={DriverVerify} />
+        <Route
           exact
           path="/driver/add-vehicle"
           component={DriverAddVehicle}

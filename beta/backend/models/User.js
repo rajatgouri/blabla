@@ -55,6 +55,10 @@ const ClientSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  isIdSubmitted: {
+    type: Boolean,
+    required: true,
+  },
   isEmailVerified: {
     type: Boolean,
     required: true,

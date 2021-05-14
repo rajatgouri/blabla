@@ -82,12 +82,11 @@ exports.phoneOtpSend = async (req, res) => {
     verificationRequest = await twilio.verify.services(VERIFICATION_SID)
       .verifications
       .create({ to: '+' + req.query.phone, channel });
+      return res.status(200).send({msg:"Verify otp sent"});
   } catch (e) {
     console.log(e);
-    return res.status(500).send({msg: e});
+    return res.status(400).send({msg: e});
   }
-
-  return res.status(200).send({msg:"Verify otp sent"});
 };
 
 exports.phoneOtpCheck = async (req, res) => {
@@ -201,7 +200,8 @@ exports.uploadId = async (req, res) => {
         fs.writeFileSync("./assets/images/" + fileNameProfile, imageBufferProfile, 'utf8');
         user.backId = "images/" +  fileNameBack,
         user.frontId = "images/" + fileNameFront,
-        user.profilePicture = "images/" + fileNameProfile
+        user.profilePicture = "images/" + fileNameProfile;
+        user.isIdSubmitted = true;
         user.save()
         .then((data,error)=>{
             if (error) {

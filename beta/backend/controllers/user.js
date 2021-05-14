@@ -21,7 +21,8 @@ exports.registerUser = (req, res) => {
     profilePicture : 'test',
     frontId : 'test',
     backId : 'test',
-    role: 'user'
+    role: 'user',
+    isIdSubmitted : false
   }
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
@@ -36,10 +37,8 @@ exports.registerUser = (req, res) => {
     newUser.save((err, user) => {
       if (err) {
         return res.status(400).json({ msg: err });
-        console.log(err)
       }
       return res.status(201).json(user);
-      console.log(user)
     });
   });
 };
@@ -64,7 +63,8 @@ exports.registerDriver = (req,res) => {
     profilePicture : 'test',
     frontId : 'test',
     backId : 'test',
-    role: 'driver'
+    role: 'driver',
+    isIdSubmitted : false
   }
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
@@ -86,7 +86,6 @@ exports.registerDriver = (req,res) => {
 }
 
 exports.changePassword = (req,res) => {
-  console.log(req.body);
   if (
     !req.body.email ||
     !req.body.token ||
@@ -124,6 +123,7 @@ exports.loginUser = (req, res) => {
       }
   
       user.comparePassword(req.body.password, (err, isMatch) => {
+        console.log(user);
         if (isMatch && !err) {
           return res.status(200).json({
             token: createToken(user),

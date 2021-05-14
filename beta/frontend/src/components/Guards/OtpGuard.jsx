@@ -1,16 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from "react-router-dom";
-import { isAuthenticated, userRole } from "../../redux/actions/auth";
+import { isNumberVerified } from "../../redux/actions/auth";
 
-const AuthGuardedRoute = ({ component: Component, ...rest }) => {
-    const auth = isAuthenticated();
+const NumberGuardedRoute = ({ component: Component, ...rest }) => {
     return (
         <Route {...rest} render={(props) => (
-            auth === false
+            isNumberVerified() === 'false'
                 ? <Component {...props} />
                 : <Redirect to='/' />
         )} />
     )
 }
 
-export default AuthGuardedRoute;
+export default NumberGuardedRoute;
