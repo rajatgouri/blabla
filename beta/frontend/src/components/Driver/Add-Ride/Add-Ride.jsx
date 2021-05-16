@@ -1,5 +1,4 @@
 import React,{ useEffect ,useState }  from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getVehicles , addRide } from "../../../redux/actions/ride";
 import { useHistory } from "react-router-dom";
@@ -11,6 +10,7 @@ function AddRide() {
   const dispatch = useDispatch();
   const history = useHistory();
   const submitRide = (e) => {
+    console.log(formData);
     e.preventDefault();
     dispatch(addRide(formData, history));
   }
@@ -47,7 +47,7 @@ const vehicles = useSelector(state => state.ride?.rideData?.vehicles);
                       <option selected disabled>Going From</option>
                       {locations && locations.length>0 ? (
                         locations.map(v=>{
-                          return (<option value={v.id}>{v.name}</option>)
+                          return (<option value={v.name}>{v.name}</option>)
                         })
                       )
                         : ''
@@ -71,7 +71,7 @@ const vehicles = useSelector(state => state.ride?.rideData?.vehicles);
                       <option selected disabled>Going To</option>
                       {locations && locations.length>0 ? (
                         locations.map(v=>{
-                          return (<option value={v.id}>{v.name}</option>)
+                          return (<option value={v.name}>{v.name}</option>)
                         })
                       )
                         : ''

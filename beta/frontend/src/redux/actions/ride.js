@@ -21,16 +21,18 @@ export const getVehicles = () => async (dispatch) => {
 
 export const addRide = ( ride, history ) => async (dispatch) => {
     try {
-        const formData = JSON.parse(localStorage.getItem("userProfile")) ? JSON.parse(localStorage.getItem("userProfile")) : jwt(localStorage.getItem("token"));
+        const formData = jwt(localStorage.getItem("token"));
+        console.log(formData);
         const { data } = await api.addRide({
             ...ride,
-            id: formData._id
+            driver: formData.id
         });
         dispatch({ type: ADD_RIDE, data });
         swal({
             text: "Ride added successfully!",
-            icon: "info",
+            icon: "success",
         });
+        history.push("/driver/home");
     } catch (e) {
         swal({
             text: e.response.data.msg,

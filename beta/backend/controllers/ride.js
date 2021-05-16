@@ -2,17 +2,17 @@ const User = require("../models/User");
 const Ride = require("../models/Ride");
 
 exports.addRide = (req, res) => {
-  if (!req.body.vehicle.id 
-    || !req.body.vehicle.from 
-    || !req.body.vehicle.to 
-    || !req.body.vehicle.date 
-    || !req.body.vehicle.time 
-    || !req.body.vehicle.vehicle 
-    || !req.body.vehicle.vehicle ) {
-    return res.status(400).send({ msg: 'You need to send email' });
+  if (!req.body.ride
+    || !req.body.ride.from 
+    || !req.body.ride.to 
+    || !req.body.ride.date 
+    || !req.body.ride.time 
+    || !req.body.ride.driver 
+    || !req.body.ride.vehicle ) {
+    return res.status(400).send({ msg: 'Invalid form Data' });
   }
 
-  User.findOne({ email: req.query.email }, (err, user) => {
+  User.findOne({ _id: req.body.ride.driver  }, (err, user) => {
     if (err) {
       return res.status(400).send({ msg: err });
     }
@@ -20,13 +20,9 @@ exports.addRide = (req, res) => {
     if (!user) {
       return res.status(400).json({ msg: 'The user does not exist' });
     }
-    user.vehicles.push(req.body)
-    user.save()
-    .then(result=>{
-      res.status(200).send({message: "Vehicle Added successfully", data: result})
-    })
-    .catch(err => {
-      res.status(400).send({message: "Some error occured , please try again"})
+    Ride.create(req.body.ride, function (err,ride) {
+      if (err) res.status(400).send({message: "Some error occured , please try again"});
+      res.status(200).send({message: "Ride Added successfully", data: ride})
     });
   })
 };
