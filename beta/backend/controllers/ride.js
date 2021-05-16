@@ -1,7 +1,14 @@
 const User = require("../models/User");
+const Ride = require("../models/Ride");
 
-exports.addVehicle = (req, res) => {
-  if (!req.query.email) {
+exports.addRide = (req, res) => {
+  if (!req.body.vehicle.id 
+    || !req.body.vehicle.from 
+    || !req.body.vehicle.to 
+    || !req.body.vehicle.date 
+    || !req.body.vehicle.time 
+    || !req.body.vehicle.vehicle 
+    || !req.body.vehicle.vehicle ) {
     return res.status(400).send({ msg: 'You need to send email' });
   }
 

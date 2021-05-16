@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { addVehicle } from "../../../redux/actions/auth";
 
 function AddVehicle() {
-  const initialState = { vehicleType: "", places: "", modelYear: "", color: "" };
+  const initialState = { vehicleType: "", places: "", modelName:"",modelYear: "", color: "" };
   const [formData, setformData] = useState(initialState);
 
   const dispatch = useDispatch();
@@ -81,6 +81,21 @@ function AddVehicle() {
                     placeholder="Number of Places"
                     name="places"
                     value={formData.places}
+                    onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="input-group mt-4">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Model Name"
+                    name="modelName"
+                    value={formData.modelName}
                     onChange={(e) => {
                       setformData({
                         ...formData,

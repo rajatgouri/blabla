@@ -1,24 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-const VehicleSchema = new mongoose.Schema({ 
-  vehicleType: {
-    type: String,
-    required: true,
-  },
-  places: {
-    type: String,
-    required: true,
-  },
-  modelYear: {
-    type: String,
-    required: true,
-  },
-  color: {
-    type: String,
-    required: true,
-  },
-})
+const vehicle = require('./Vehicle');
 
 const ClientSchema = new mongoose.Schema({
   email: {
@@ -80,7 +62,7 @@ const ClientSchema = new mongoose.Schema({
     required: true,
   },
   vehicles: [
-    VehicleSchema
+    vehicle
   ]
 });
 
@@ -127,4 +109,4 @@ ClientSchema.virtual('_password')
     return this.password;
   });
 
-module.exports = mongoose.model('Client', ClientSchema);
+module.exports = mongoose.model('Users', ClientSchema);

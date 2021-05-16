@@ -14,3 +14,5 @@ export const CHANGE_PASSWORD = "CHANGE_PASSWORD";
 export const GET_USERS = "GET_USERS";
 export const GET_USER_BY_ID = "GET_USER_BY_ID";
 export const APPROVE_USER = "APPROVE_USER";
+export const GET_VEHICLES = "GET_VEHICLES";
+export const ADD_RIDE = "ADD_RIDE";
