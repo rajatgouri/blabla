@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./reserve.css";
+import { useLocation } from "react-router-dom";
 
 function ClientReserve() {
+  const location = useLocation();
+  const query = new URLSearchParams(location.search)
+  const id = query.get('ride');
   return (
     <>
       <div className="container">

@@ -1,4 +1,4 @@
-import React,{ useEffect ,useState }  from "react";
+import React,{ useEffect , useState }  from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getVehicles , addRide } from "../../../redux/actions/ride";
 import { useHistory } from "react-router-dom";
@@ -16,40 +16,44 @@ function AddRide() {
   const hh = minDate.getHours();
   const minutes = minDate.getMinutes();
   const yyyy = minDate.getFullYear();
+  
   if ( dd < 10 ) { 
     dd = '0' + dd
   } 
   if ( mm < 10 ) {
     mm = '0' + mm
   } 
+  
   minDate = yyyy + '-' + mm + '-' + dd;
 
   const submitRide = (e) => {
-    console.log((formData.time.slice(0,2)))
-    if ( formData.time.slice(0,2) < (hh) ) {
-      swal({
-        text: `Please enter a time greater than the current time `,
-        icon: "error",
-      }); 
-      return ;
-    } else if( formData.time.slice(0,2) == (hh) )  {
-      if ( formData.time.slice(3,5) <= (minutes) ) {
+    if (formData.date.slice(0,2) == dd ) {
+      if ( formData.time.slice(0,2) < (hh) ) {
         swal({
           text: `Please enter a time greater than the current time `,
           icon: "error",
         }); 
         return ;
+      } else if( formData.time.slice(0,2) == (hh) )  {
+        if ( formData.time.slice(3,5) <= (minutes) ) {
+          swal({
+            text: `Please enter a time greater than the current time `,
+            icon: "error",
+          }); 
+          return ;
+        }
       }
     }
     e.preventDefault();
     dispatch(addRide(formData, history));
   }
+  
   useEffect(() => {
     dispatch(getVehicles());
   }, [])
 
-const vehicles = useSelector(state => state.ride?.rideData?.vehicles);
-  return (
+  const vehicles = useSelector(state => state.ride?.rideData?.vehicles);
+  return (  
     <>
       <div className="container my-5">
         <div className="row d-flex justify-content-center">

@@ -16,11 +16,11 @@
     box-shadow: 6px 6px 15px 0px rgba(0, 0, 0 , 0.2);
     transform: scale(1.04);
 }
-.line-ride {
+.line-ride-client {
     width: 4px;
     background: grey;
     margin-left: 3px;
-    height: calc(65px);
+    height: calc(40px);
 }
 .circle-ride-from {
     box-sizing: border-box;

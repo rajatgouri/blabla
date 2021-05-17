@@ -21,7 +21,7 @@ const ClientGuardedRoute = ({ component: Component, ...rest }) => {
     }
     return (
         <Route {...rest} render={(props) => (
-            auth === true && role === 'client' && redirect == '/'
+            auth === true && role === 'user' && redirect == '/'
                 ? <Component {...props} />
                 : role === 'driver'
                     ? <Redirect to='/driver/home' />

@@ -39,3 +39,5 @@ export const addRide = (ride) =>
   axios.post(`${url}/add-ride`, {
     ride: ride,
   });
+export const getRides = (from,to,date) =>
+  axios.get(`${url}/get-rides?from=${from}&to=${to}&date=${date }`);

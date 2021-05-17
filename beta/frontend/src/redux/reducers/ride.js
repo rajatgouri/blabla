@@ -1,6 +1,7 @@
 import {
     GET_VEHICLES,
-    ADD_RIDE
+    ADD_RIDE,
+    GET_RIDES
   } from "../constants";
   
   export default (state = { adminData: null }, action) => {
@@ -9,6 +10,9 @@ import {
         console.log(action?.data);
     return { ...state, rideData: action?.data };
     case ADD_RIDE:
+        console.log(action?.data);
+    return { ...state, rideData: action?.data };
+    case GET_RIDES:
         console.log(action?.data);
     return { ...state, rideData: action?.data };
     default:

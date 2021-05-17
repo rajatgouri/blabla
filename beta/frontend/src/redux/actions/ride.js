@@ -1,7 +1,8 @@
 import * as api from "../api";
 import {
     GET_VEHICLES,
-    ADD_RIDE
+    ADD_RIDE,
+    GET_RIDES
 } from "../constants";
 import jwt from "jwt-decode";
 import swal from "sweetalert";
@@ -33,6 +34,18 @@ export const addRide = ( ride, history ) => async (dispatch) => {
             icon: "success",
         });
         history.push("/driver/home");
+    } catch (e) {
+        swal({
+            text: e.response.data.msg,
+            icon: "error",
+        });
+    }
+};
+
+export const getRides = ( ride ) => async (dispatch) => {
+    try {
+        const { data } = await api.getRides(ride.from, ride.to , ride.date);
+        dispatch({ type: GET_RIDES, data });
     } catch (e) {
         swal({
             text: e.response.data.msg,

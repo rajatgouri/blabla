@@ -16,3 +16,4 @@ export const GET_USER_BY_ID = "GET_USER_BY_ID";
 export const APPROVE_USER = "APPROVE_USER";
 export const GET_VEHICLES = "GET_VEHICLES";
 export const ADD_RIDE = "ADD_RIDE";
+export const GET_RIDES = "GET_RIDES";
