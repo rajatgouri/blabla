@@ -34,6 +34,7 @@ import ClientSignup from "./components/Client/Client-Signup/Signup";
 import ClientMyRide from "./components/Client/Client-MyRide/MyRide";
 import ClientVerify from './components/Client/Client-Signup/Client-Verify/Verify';
 import UserProfile from "./components/Client/Client-UserProfile/UserProfile";
+import Confirm from "./components/Client/Client-Confirm/Confirm";
 
 //Driver Imports
 import DriverSignup from "./components/Driver/Driver-Signup/Signup";
@@ -82,6 +83,7 @@ function App() {
         <ClientGuard exact path="/client/myride" component={ClientMyRide} />
         <ClientGuard exact path="/client/ride" component={ClientRide} />
         <ClientGuard path="/client/reserve" component={ClientReserve} />
+        <ClientGuard path="/client/confirm" component={Confirm} />
         <Route exact path="/client/userprofile" component={UserProfile} />
 
         {/* Driver */}

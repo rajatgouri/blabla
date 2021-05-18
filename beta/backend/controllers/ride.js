@@ -28,8 +28,8 @@ exports.addRide = (req, res) => {
       totalSeats : vehicle[0].places
     }
     Ride.create(ride, function (err,ride) {
-      if (err) res.status(400).send({message: "Some error occured , please try again"});
-      res.status(200).send({message: "Ride Added successfully", data: ride})
+      if (err) res.status(400).send({msg: "Some error occured , please try again"});
+      res.status(200).send({msg: "Ride Added successfully", data: ride})
     });
   })
 };
@@ -46,4 +46,23 @@ exports.getRides = (req, res) => {
     res.status(200).send({rides: rides})
   })
 };
+
+exports.getRideById = (req, res) => {
+  if (!req.query.id) {
+    return res.status(400).send({ msg: 'Invalid Data' });
+  }
+
+  Ride.findById(req.query.id, (err, ride) => {
+    if (err) {
+      return res.status(400).send({ msg: err });
+    }
+    User.findById(ride.driver, (err2,user) => {
+      if (err2) {
+        return res.status(400).send({ msg: err2 });
+      }
+      res.status(200).send({ride: ride , driver: user})
+    })
+  })
+};
+
   

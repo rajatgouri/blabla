@@ -10,6 +10,10 @@ const bookingSchema = new mongoose.Schema({
       type: String,
       required: true,
   },
+  token: {
+    type: String,
+    required: true,
+  }
 })
 
 const RideSchema = new mongoose.Schema({ 

@@ -17,3 +17,6 @@ export const APPROVE_USER = "APPROVE_USER";
 export const GET_VEHICLES = "GET_VEHICLES";
 export const ADD_RIDE = "ADD_RIDE";
 export const GET_RIDES = "GET_RIDES";
+export const GET_RIDE_BY_ID = "GET_RIDE_BY_ID";
+export const CONFIRM_RIDE = "CONFIRM_RIDE";
+export const BOOK_RIDE = "BOOK_RIDE";

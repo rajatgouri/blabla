@@ -10,7 +10,7 @@ import {
   EMAIL_OTP,
   PHONE_OTP,
   VERIFY_FORGOT,
-  CHANGE_PASSWORD
+  CHANGE_PASSWORD,
 } from "../constants";
 
 export default (state = { authData: null }, action) => {

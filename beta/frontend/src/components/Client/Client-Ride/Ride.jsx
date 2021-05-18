@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Ride.css";
 import { useDispatch } from 'react-redux';
@@ -7,7 +7,26 @@ import { useSelector } from 'react-redux';
 
 function ClientRide() {
   const dispatch = useDispatch();
-  const rides = useSelector(state => state.ride?.rideData?.rides);
+  let rides = useSelector(state => state.ride?.rideData?.rides);
+  rides = rides?.filter(r=>{
+    let totalBookings = 0
+    r.bookings.forEach(b=>{
+      totalBookings = totalBookings+Number(b.seats);
+    })
+    if(totalBookings<r.totalSeats) {
+      return r;
+    }
+  })
+  rides = rides?.map(r=>{
+    let totalBookings = 0
+    r.bookings.forEach(b=>{
+      totalBookings = totalBookings+Number(b.seats);
+    })
+    return {
+      ...r,
+      totalBookings : totalBookings
+    }
+  });
   const searchData = JSON.parse(localStorage.getItem("ride"));
   useEffect(() => {
     dispatch(getRides(searchData));
@@ -92,7 +111,7 @@ function ClientRide() {
                             &#36;{ride.price}
                           </div>
                           <div className="mt-2 d-flex justify-content-end text-red">
-                            {[...Array(Number(ride.totalSeats))].map((x, i) =>(
+                            {[...Array(Number(ride.totalBookings))].map((x, i) =>(
                               <><i className="fas fa-male"></i>&nbsp;</>
                             ))}
                             {/* <i className="fas fa-male"></i>&nbsp;

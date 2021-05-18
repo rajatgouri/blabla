@@ -4,7 +4,8 @@ const routes = [
     'vehicle',
     'verify',
     'admin',
-    'ride'
+    'ride',
+    'payment'
 ];
 
 module.exports = {
