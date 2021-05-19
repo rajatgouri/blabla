@@ -12,6 +12,7 @@
   position: absolute;
   /* top: 100%; */
   right: 0;
+  left: auto;
   z-index: 1000;
   display: none;
   width: 8rem;
@@ -31,6 +32,10 @@
   background: #fff;
 }
 
+.dropdown-item.active {
+  background: #fff;
+}
+
 .dropdown-toggle::after {
   display: none;
   margin-left: .255em;
@@ -42,5 +47,5 @@
   border-left: .3em solid transparent;
 }
 .pull-left{
-  margin-right: 80px;
+  margin-left: 20px;
 }

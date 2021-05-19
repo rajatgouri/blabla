@@ -18,6 +18,8 @@ function NavbarComponent() {
   const isLoggedIn = localStorage.getItem("token");
   const signup = isDriver ? "/driver/signup" : "/client/signup";
   const home = isDriver ? "/driver/home" : "";
+  const userProfile = isDriver ? "/driver/userProfile" : "/client/userProfile";
+  const myRides = isDriver ? "/driver/all-ride" : "/client/all-ride";
 
   const logout = () => {
     dispatch({ type: LOGOUT });
@@ -65,13 +67,13 @@ function NavbarComponent() {
               ""
             )}
             {isDriver && isLoggedIn ? (
-              <NavLink exact to="/driver/all-ride" activeClassName="activeNav">
+              <NavLink exact to={myRides} activeClassName="activeNav">
                 <Nav.Link
                   href="/driver/all-ride"
                   className="font-demi font-17 px-3 navbar-item
-                text-primaryColor text-center"
+                text-primaryColor text-center hidden-desktop"
                 >
-                  All Rides
+                  My Rides
                 </Nav.Link>
               </NavLink>
             ) : (
@@ -87,12 +89,12 @@ function NavbarComponent() {
                 Contact Us
               </Nav.Link>
             </NavLink>
-            {/* {!isLoggedIn ? (
-              <NavLink to="/login" activeClassName="activeNav">
+            {!isLoggedIn ? (
+              <NavLink to="/login" activeClassName="activeNav hidden-desktop">
                 <Nav.Link
                   href="/login"
                   className="font-demi font-17
-                  px-3 navbar-item text-primaryColor text-center"
+                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
                 >
                   Login
                 </Nav.Link>
@@ -101,11 +103,11 @@ function NavbarComponent() {
               ""
             )}
             {!isLoggedIn ? (
-              <NavLink to={signup} activeClassName="activeNav">
+              <NavLink to={signup} activeClassName="activeNav hidden-desktop">
                 <Nav.Link
                   href={signup}
                   className="font-demi font-17
-                  px-3 navbar-item text-primaryColor text-center"
+                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
                 >
                   Signup
                 </Nav.Link>
@@ -117,26 +119,39 @@ function NavbarComponent() {
             {isLoggedIn ? (
               <Nav
                 className="font-demi font-17
-                  px-3 navbar-item text-white text-center pt-1 home-button"
+                  px-3 navbar-item text-white text-center pt-1 home-button hidden-desktop"
                 onClick={logout}
               >
                 Logout
               </Nav>
             ) : (
               ""
-            )} */}
+            )}
+            {isLoggedIn ?  (
+              <NavLink to={userProfile} activeClassName="activeNav hidden-desktop">
+                <Nav.Link
+                  href={userProfile}
+                  className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
+                >
+                  Settings
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
             {isLoggedIn ? (
               <NavDropdown
                 eventKey={1}
                 title={
-                  <div className="pull-left">
+                  <div className="pull-left hidden-mobile">
                     <img
                       className="thumbnail-image text-center"
                       src={avatar}
                       alt="user pic"
                       width="30"
                       height="30"
-                      className="mr-5"
+                      className="mr-1"
                       alt=""
                       style={{ borderRadius: "50%" }}
                     />
@@ -144,8 +159,27 @@ function NavbarComponent() {
                 }
                 id="basic-nav-dropdown"
               >
+              <NavDropdown.Item eventKey={1.3}>
+                <Link to={myRides}>
+                  <div className="font-demi text-primaryColor">
+                  <i class="fas fa-car-side mr-1"></i>
+                      &nbsp;My Rides
+                    </div>
+                    </Link>
+                </NavDropdown.Item>
                 <NavDropdown.Item eventKey={1.3}>
-                  <i className="fa fa-sign-out"></i> Logout
+                <Link to={userProfile}>
+                  <div className="font-demi text-primaryColor">
+                  <i className="fas fa-user-cog mr-2"></i>
+                      Settings
+                    </div>
+                    </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item eventKey={1.3} onClick={logout}>
+                  <div className="font-demi text-primaryColor">
+                    <i className="fas fa-sign-out-alt mr-2"></i>
+                      Logout
+                    </div>
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (

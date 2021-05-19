@@ -42,6 +42,7 @@ import DriverOtp from "./components/Driver/Driver-Signup/Otp";
 import DriverEmail from "./components/Driver/Driver-Signup/Email";
 import DriverVerify from './components/Driver/Driver-Signup/Driver-Verify/Verify';
 import DriverAddVehicle from './components/Driver/Driver-Signup/AddVehicle';
+import AddVehicle from './components/Driver/Driver-UserProfile/AddVehicle';
 import DriverAddRide from './components/Driver/Add-Ride/Add-Ride';
 import DriverHome from './components/Driver/Driver-Home/Home';
 import DriverRideDetails from './components/Driver/Driver-Ride-Details/RideDetails';
@@ -96,6 +97,11 @@ function App() {
           exact
           path="/driver/add-vehicle"
           component={DriverAddVehicle}
+        />
+        <DriverGuard
+          exact
+          path="/driver/details-add-vehicle"
+          component={AddVehicle}
         />
         <DriverGuard exact path="/driver/add-ride" component={DriverAddRide} />
         <DriverGuard

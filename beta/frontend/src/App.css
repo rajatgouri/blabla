@@ -61,6 +61,10 @@ select{
     background-repeat: no-repeat, no-repeat
 }
 
+.hidden-desktop {
+  display: none !important;
+}
+
 @media screen and (max-width: 991px) {
   .how-it-works {
     background-image:none
@@ -191,6 +195,12 @@ a:hover {
   background-image: linear-gradient(130deg, #eff7fa 20%,#e3e8eb 40%, #dbe3e9 50%, #e3eaf0 60% )
 }
 @media (max-width: 768px) {
+  .hidden-desktop {
+    display: block !important;
+  }
+  .hidden-mobile {
+    display: none !important;
+  }
   .submit-button{
     margin: 0 0 0 0 !important;
   }

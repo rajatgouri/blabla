@@ -10,7 +10,8 @@ import {
   EMAIL_OTP,
   PHONE_OTP,
   VERIFY_FORGOT,
-  CHANGE_PASSWORD
+  CHANGE_PASSWORD,
+  GET_LOGGED_IN_USER
 } from "../constants";
 import jwt from "jwt-decode";
 import swal from "sweetalert";
@@ -354,6 +355,20 @@ export const addVehicle = (body, history) => async (dispatch) => {
       text: e.response.data.msg,
       icon: "error",
     });
+  }
+};
+
+export const getLoggedInUser= () => async (dispatch) => {
+  try {
+    const formData = jwt(localStorage.getItem("token"));
+      const { data } = await api.getUserById(formData.id);
+      dispatch({ type: GET_LOGGED_IN_USER, data });
+  } catch (e) {
+      swal({
+          text: e.response.data.msg,
+          icon: "error",
+      });
+
   }
 };
 
