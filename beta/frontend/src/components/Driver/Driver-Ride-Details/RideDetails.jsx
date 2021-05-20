@@ -153,6 +153,15 @@ function DriverRideDetails() {
               <hr className="grey-hr" />
               <div className="d-flex justify-content-between px-3">
                 <div className="text-muted font-demi font-18 mt-2">
+                  Vehicle
+                </div>
+                <div className="text-primaryColor font-bold font-18 mt-2">
+                  {vehicle[0]?.modelName} ( {vehicle[0]?.modelYear} )
+                </div>
+              </div>
+              <hr className="grey-hr" />
+              <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18 mt-2">
                   Status
                 </div>
                 <div className="text-primaryColor font-bold font-18 mt-2">

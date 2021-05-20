@@ -1,10 +1,17 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch , useSelector} from 'react-redux';
+import { getMyRides } from "../../../redux/actions/ride";
 import "./Home.css";
 import RideCard from '../Ride-Card/RideCard';
 import img from '../../../images/driver-home.svg';
 
 function DriverHome() {
+  const dispatch = useDispatch();
+  let myRides = useSelector(state => state.ride?.rideData?.myRides);
+  useEffect(() => {
+    dispatch(getMyRides());
+  }, [])
   return (
     <>
     <img src={img} className="home-image"></img>
@@ -21,8 +28,13 @@ function DriverHome() {
                     Recent Rides
                 </span>
             </h5>
-            <RideCard />
-            <RideCard />
+            { myRides && myRides.length>0 ? (
+              myRides.map(r=>{
+                return (
+                  <RideCard ride={r} />
+                )
+              })
+            ) : ''}
             <Link to="/driver/all-ride">
             <div className="text-center mt-5 mb-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
