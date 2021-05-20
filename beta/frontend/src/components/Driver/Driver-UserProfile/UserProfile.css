@@ -12,7 +12,12 @@
 }
 
 .w-45 {
+    margin-left: 3% !important;
     width: 45%;
+}
+
+.w-50 {
+    width:48% !important;
 }
 
 .w-95 {
@@ -22,5 +27,14 @@
 @media(max-width: 991px){
     .hidden-mobile-sidebar{
         display: none
+    }
+}
+
+@media(max-width: 426px){
+    .w-45 {
+        margin-left: 3% !important;
+    }
+    .w-50 {
+        width:44% !important;
     }
 }
