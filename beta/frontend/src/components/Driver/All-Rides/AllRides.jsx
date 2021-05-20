@@ -29,7 +29,7 @@ function DriverHome() {
                   <RideCard ride={r} />
                 )
               })
-            ) : ''}
+            ) : <span className="mb-4">No Rides Available</span>}
           </div>
         </div>
       </div>

@@ -10,3 +10,17 @@
 .height-500{
     height: 450px;
 }
+
+.w-45 {
+    width: 45%;
+}
+
+.w-95 {
+    width: 99%;
+}
+
+@media(max-width: 991px){
+    .hidden-mobile-sidebar{
+        display: none
+    }
+}

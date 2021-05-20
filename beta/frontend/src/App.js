@@ -48,6 +48,8 @@ import DriverHome from './components/Driver/Driver-Home/Home';
 import DriverRideDetails from './components/Driver/Driver-Ride-Details/RideDetails';
 import DriverAllRides from './components/Driver/All-Rides/AllRides';
 import DriverUserProfile from "./components/Driver/Driver-UserProfile/UserProfile";
+import DriverLicense from "./components/Driver/Driver-UserProfile/License";
+import DriverMyVehicles from "./components/Driver/Driver-UserProfile/Vehicles";
 
 //Admin Imports
 // import Dashboard from "./components/Admin/Dashboard/Dashboard";
@@ -111,6 +113,8 @@ function App() {
         />
         <DriverGuard exact path="/driver/all-ride" component={DriverAllRides} />
         <DriverGuard exact path="/driver/userProfile" component={DriverUserProfile}/>
+        <DriverGuard exact path="/driver/driver-license" component={DriverLicense}/>
+        <DriverGuard exact path="/driver/my-vehicles" component={DriverMyVehicles}/>
 
 
         {/* Admin */}

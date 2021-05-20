@@ -34,7 +34,7 @@ function DriverHome() {
                   <RideCard ride={r} />
                 )
               })
-            ) : ''}
+            ) : <span className="mb-5">No Rides Available</span>}
             <Link to="/driver/all-ride">
             <div className="text-center mt-5 mb-5">
                 <button className="text-white bg-secondaryColor font-demi btn-blue">
