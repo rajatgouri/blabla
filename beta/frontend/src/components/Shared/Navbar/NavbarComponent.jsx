@@ -20,6 +20,8 @@ function NavbarComponent() {
   const home = isDriver ? "/driver/home" : "";
   const userProfile = isDriver ? "/driver/userProfile" : "/client/userProfile";
   const myRides = isDriver ? "/driver/all-ride" : "/client/all-ride";
+  const idPage = isDriver ? "/driver/driver-license" : "/client/my-id";
+  const displayDocument = isDriver ? "Driver License" : "My ID";
 
   const logout = () => {
     dispatch({ type: LOGOUT });
@@ -115,7 +117,46 @@ function NavbarComponent() {
             ) : (
               ""
             )}
-
+            {isLoggedIn ?  (
+              <NavLink to={userProfile} activeClassName="activeNav hidden-desktop">
+                <Nav.Link
+                  href={userProfile}
+                  className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
+                >
+                  User Profile
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            {isLoggedIn ?  (
+              <NavLink to={idPage} activeClassName="activeNav hidden-desktop">
+                <Nav.Link
+                  href={idPage}
+                  className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
+                >
+                  {displayDocument}
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            {isLoggedIn && isDriver ?  (
+              <NavLink to="/driver/my-vehicles" activeClassName="activeNav hidden-desktop">
+                <Nav.Link
+                  href="/driver/my-vehicles" 
+                  className="font-demi font-17
+                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
+                >
+                  Vehicles
+                </Nav.Link>
+              </NavLink>
+            ) : (
+              ""
+            )}
+            
             {isLoggedIn ? (
               <Nav
                 className="font-demi font-17
@@ -124,19 +165,6 @@ function NavbarComponent() {
               >
                 Logout
               </Nav>
-            ) : (
-              ""
-            )}
-            {isLoggedIn ?  (
-              <NavLink to={userProfile} activeClassName="activeNav hidden-desktop">
-                <Nav.Link
-                  href={userProfile}
-                  className="font-demi font-17
-                  px-3 navbar-item text-primaryColor text-center hidden-desktop"
-                >
-                  Settings
-                </Nav.Link>
-              </NavLink>
             ) : (
               ""
             )}
