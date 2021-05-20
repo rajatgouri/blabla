@@ -27,7 +27,7 @@ function AddRide() {
   minDate = yyyy + '-' + mm + '-' + dd;
 
   const submitRide = (e) => {
-    if (formData.date.slice(0,2) == dd ) {
+    if (formData.date.slice(9,11) == dd ) {
       if ( formData.time.slice(0,2) < (hh) ) {
         swal({
           text: `Please enter a time greater than the current time `,

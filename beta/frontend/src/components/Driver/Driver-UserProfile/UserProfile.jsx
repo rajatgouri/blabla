@@ -1,11 +1,10 @@
 import React, { useEffect }  from "react";
 import userImg from "../../../images/profile_avatar.png";
 import "./UserProfile.css";
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector} from 'react-redux';
 import { getLoggedInUser } from "../../../redux/actions/auth";
-import { NavLink, Link, useHistory, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { url } from "../../../redux/api/index";
-import { useSelector } from 'react-redux';
 
 function DriverUserProfile() {
   const dispatch = useDispatch();

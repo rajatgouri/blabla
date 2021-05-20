@@ -53,6 +53,16 @@ const RideSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      required: true,
+    },
+    startedAt: {
+      type: String,
+    },
+    endedAt: {
+      type: String,
+    },
     bookings : [bookingSchema]
 })
 

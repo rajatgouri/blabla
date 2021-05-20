@@ -49,3 +49,11 @@ export const getRideById = (id) =>
   axios.get(`${url}/get-ride?id=${id}`);
 export const confirmBooking = (booking) =>
   axios.post(`${url}/confirm-ride`,booking);
+export const getMyRides = (id) =>
+  axios.get(`${url}/get-my-rides?id=${id}`);
+export const startRideById = (id , time) =>
+  axios.get(`${url}/start-ride?id=${id}&startedAt=${time}`);
+export const endRideById = (id , time) =>
+  axios.get(`${url}/end-ride?id=${id}&endedAt=${time}`);
+export const cancelRideById = (id) =>
+  axios.get(`${url}/cancel-ride?id=${id}`);

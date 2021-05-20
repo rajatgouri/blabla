@@ -21,3 +21,8 @@ export const GET_RIDE_BY_ID = "GET_RIDE_BY_ID";
 export const CONFIRM_RIDE = "CONFIRM_RIDE";
 export const BOOK_RIDE = "BOOK_RIDE";
 export const GET_LOGGED_IN_USER = "GET_LOGGED_IN_USER";
+export const GET_MY_RIDES = "GET_MY_RIDES";
+export const START_RIDE_BY_ID = "START_RIDE_BY_ID";
+export const END_RIDE_BY_ID = "END_RIDE_BY_ID";
+export const CANCEL_RIDE_BY_ID = "CANCEL_RIDE_BY_ID";
+

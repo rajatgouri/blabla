@@ -88,9 +88,4 @@
     }
 }
 
-@media( max-width: 760px){
-    .line-ride{
-        height: calc(95px);
-    }
-}
 

@@ -5,7 +5,11 @@ import {
     GET_RIDES,
     GET_RIDE_BY_ID,
     CONFIRM_RIDE,
-    BOOK_RIDE
+    BOOK_RIDE,
+    GET_MY_RIDES,
+    START_RIDE_BY_ID,
+    END_RIDE_BY_ID,
+    CANCEL_RIDE_BY_ID
 } from "../constants";
 import jwt from "jwt-decode";
 import swal from "sweetalert";
@@ -49,6 +53,19 @@ export const getRides = ( ride ) => async (dispatch) => {
     try {
         const { data } = await api.getRides(ride.from, ride.to , ride.date);
         dispatch({ type: GET_RIDES, data });
+    } catch (e) {
+        swal({
+            text: e.response.data.msg,
+            icon: "error",
+        });
+    }
+};
+
+export const getMyRides = ( ride ) => async (dispatch) => {
+    try {
+        const user = jwt(localStorage.getItem("token"));
+        const { data } = await api.getMyRides(user.id);
+        dispatch({ type: GET_MY_RIDES, data });
     } catch (e) {
         swal({
             text: e.response.data.msg,
@@ -105,6 +122,57 @@ export const confirmBooking = ( token , history) => async (dispatch) => {
         history.push("/");
     } catch (e) {
         console.log(e);
+        swal({
+            text: e.response.data.msg,
+            icon: "error",
+        });
+    }
+};
+
+export const startRideById = ( ride , time,  history ) => async (dispatch) => {
+    try {
+        const { data } = await api.startRideById(ride ,time);
+        dispatch({ type: START_RIDE_BY_ID, data });
+        swal({
+            text: "Ride Started At "+time,
+            icon: "success",
+        });
+        history.push("/driver/home");
+    } catch (e) {
+        swal({
+            text: e.response.data.msg,
+            icon: "error",
+        });
+    }
+};
+
+export const endRideById = ( ride , time,  history ) => async (dispatch) => {
+    try {
+        const { data } = await api.endRideById(ride ,time);
+        dispatch({ type: END_RIDE_BY_ID, data });
+        swal({
+            text: "Ride Ended At "+time,
+            icon: "success",
+        });
+        history.push("/driver/home");
+    } catch (e) {
+        swal({
+            text: e.response.data.msg,
+            icon: "error",
+        });
+    }
+};
+
+export const cancelRideById = ( ride ,  history ) => async (dispatch) => {
+    try {
+        const { data } = await api.cancelRideById(ride);
+        dispatch({ type: CANCEL_RIDE_BY_ID, data });
+        swal({
+            text: "Ride Cancelled",
+            icon: "success",
+        });
+        history.push("/driver/home");
+    } catch (e) {
         swal({
             text: e.response.data.msg,
             icon: "error",
