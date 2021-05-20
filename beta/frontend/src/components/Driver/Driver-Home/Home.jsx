@@ -36,11 +36,11 @@ function DriverHome() {
               })
             ) : <span className="mb-5">No Rides Available</span>}
             <Link to="/driver/all-ride">
-            <div className="text-center mt-5 mb-5">
-                <button className="text-white bg-secondaryColor font-demi btn-blue">
-                View All
-                </button>
-            </div>
+              <div className="text-center mt-5 mb-5">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button">
+                  View All
+                  </button>
+              </div>
             </Link>
           </div>
         </div>
