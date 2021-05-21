@@ -1,11 +1,40 @@
-import React from "react";
+import React ,{ useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./MyRide.css";
+import RideCard from '../Ride-Card/RideCard';
+import { useDispatch , useSelector} from 'react-redux';
+import { getClientRides } from "../../../redux/actions/ride";
+import img from '../../../images/driver-home.svg';
 
-function ClientMyRide() {
+function MyRides() {
+  const dispatch = useDispatch();
+  let myRides = useSelector(state => state.ride?.rideData?.clientRides);
+  useEffect(() => {
+    dispatch(getClientRides());
+  }, [])
   return (
-    <div>
-      <h1>My ride</h1>
-    </div>
+    <>
+    <img src={img} className="home-image"></img>
+      <div className="container home mt-3">
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-7 col-md-8 col-sm-2 col-12 mb-2 mt-2">
+            <h5 className="text-secondaryColor">            
+                <span className="recent">
+                    All Rides
+                </span>
+            </h5>
+            { myRides && myRides.length>0 ? (
+              myRides.map(r=>{
+                return (
+                  <RideCard ride={r} />
+                )
+              })
+            ) : <span className="mb-4">No Rides Available</span>}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
-export default ClientMyRide;
+export default MyRides;

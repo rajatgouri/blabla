@@ -35,6 +35,7 @@ import ClientMyRide from "./components/Client/Client-MyRide/MyRide";
 import ClientVerify from './components/Client/Client-Signup/Client-Verify/Verify';
 import UserProfile from "./components/Client/Client-UserProfile/UserProfile";
 import ClientId from "./components/Client/Client-UserProfile/Id";
+import ClientRideDetails from "./components/Client/Client-Ride-Details/RideDetails";
 import Confirm from "./components/Client/Client-Confirm/Confirm";
 
 //Driver Imports
@@ -84,7 +85,8 @@ function App() {
         <EmailGuardedRoute exact path="/client/email" component={ClientEmail} />
         <IdGuardedRoute exact path="/client/verify" component={ClientVerify} />
         <Route exact path="/client/contact" component={ClientContact} />
-        <ClientGuard exact path="/client/myride" component={ClientMyRide} />
+        <ClientGuard exact path="/client/all-ride" component={ClientMyRide} />
+        <ClientGuard exact path="/client/ride-details" component={ClientRideDetails} />
         <ClientGuard exact path="/client/ride" component={ClientRide} />
         <ClientGuard path="/client/reserve" component={ClientReserve} />
         <ClientGuard path="/client/confirm" component={Confirm} />

@@ -10,18 +10,20 @@ function ClientRide() {
   let rides = useSelector(state => state.ride?.rideData?.rides);
   rides = rides?.filter(r=>{
     let totalBookings = 0
-    r.bookings.forEach(b=>{
+    r?.bookings?.forEach(b=>{
       totalBookings = totalBookings+Number(b.seats);
     })
-    if(totalBookings<r.totalSeats) {
+    if(totalBookings<r?.totalSeats) {
       return r;
     }
   })
   rides = rides?.map(r=>{
-    let totalBookings = 0
-    r.bookings.forEach(b=>{
-      totalBookings = totalBookings+Number(b.seats);
-    })
+    let totalBookings = 0;
+    if (r) {
+      r?.bookings?.forEach(b=>{
+        totalBookings = totalBookings+Number(b.seats);
+      })
+    }
     return {
       ...r,
       totalBookings : totalBookings

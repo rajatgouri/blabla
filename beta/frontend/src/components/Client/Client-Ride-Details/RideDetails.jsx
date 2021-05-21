@@ -1,10 +1,10 @@
 import React,{useEffect} from "react";
-import { Link } from "react-router-dom";
+import { url } from "../../../redux/api/index";
 import { useLocation } from "react-router-dom";
 import { useDispatch , useSelector} from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { getRideById , startRideById , endRideById , cancelRideById } from "../../../redux/actions/ride";
-import swal from "sweetalert";
+import jwt from "jwt-decode";
+import { getRideById } from "../../../redux/actions/ride";
 import "./RideDetails.css";
 
 function DriverRideDetails() {
@@ -13,81 +13,19 @@ function DriverRideDetails() {
   const dispatch = useDispatch();
   const ride = useSelector(state => state.ride?.rideData?.ride);
   const driver =  useSelector(state => state.ride?.rideData?.driver);
-  let totalBookings = 0
-  ride?.bookings?.forEach(b=>{
-    totalBookings = totalBookings+Number(b.seats);
-  })
+  const user = jwt(localStorage.getItem("token"));
+  let myBookings = 0
+  if (user && ride) {
+    ride?.bookings?.forEach(b=>{
+      if (b.client == user.id) {
+        myBookings = myBookings+Number(b.seats);
+      }
+    })
+  }
   const vehicle = driver?.vehicles?.filter(v=>v._id===ride?.vehicle);
   const query = new URLSearchParams(location.search)
   const id = query.get('id');
 
-  const startRide = () => {
-    const presentDate = new Date();
-    const startDate = new Date(ride?.date);
-    const mm = (startDate.getMonth() - presentDate.getMonth());
-    const days = (startDate.getDate() - presentDate.getDate());
-    const hh = (Number(ride?.time.slice(0,2))-presentDate.getHours());
-    const minutes = (Number(ride?.time.slice(3,5))-presentDate.getMinutes());
-    if (mm>1) {
-      swal({
-        text: "You need to wait" + mm + " months before starting.",
-        icon: "info",
-      });
-      return;
-    } else if(days>1) {
-      swal({
-        text: "You need to wait" + days + " days before starting.",
-        icon: "info",
-      });
-      return;
-    } else if(hh>1) {
-      swal({
-        text: "You need to wait" + hh + " hours " + minutes + " minutes before starting.",
-        icon: "info",
-      });
-      return;
-    } else if(hh>0) {
-      swal({
-        text: "You need to wait" + minutes + " minutes before starting.",
-        icon: "info",
-      });
-      return;
-    } else {
-      dispatch(startRideById(id? id : '', String(presentDate.getHours()) + ':' + String(presentDate.getMinutes()) , history))
-    }
-  }
-
-  const cancelRide = () => {
-    const presentDate = new Date();
-    const startDate = new Date(ride?.date);
-    const mm = (startDate.getMonth() - presentDate.getMonth());
-    const days = (startDate.getDate() - presentDate.getDate());
-    const hh = (Number(ride?.time.slice(0,2))-presentDate.getHours());
-    const minutes = (Number(ride?.time.slice(3,5))-presentDate.getMinutes());
-    console.log(days);
-    if (mm>=1) {
-      dispatch(cancelRideById(id? id : '', history));
-      return;
-    } else if(days>=1) {
-      dispatch(cancelRideById(id? id : '', history));
-      return;
-    } else if(hh>=10) {
-      dispatch(cancelRideById(id? id : '', history));
-      return;
-    } else {
-      swal({
-        text: "You need to contact support for cancelling!",
-        icon: "info",
-      });
-      return;
-    }
-  }
-
-  const endRide = () => {
-    const presentDate = new Date();
-    dispatch(endRideById(id? id : '', String(presentDate.getHours()) + ':' + String(presentDate.getMinutes()) , history))
-  }
-  
   useEffect(async() => {
     if (id) {
       await dispatch(getRideById(id? id : ''));
@@ -152,13 +90,26 @@ function DriverRideDetails() {
                 </div>
               </div>
               <hr className="grey-hr" />
+                { driver? (
+                <div className="d-flex justify-content-between px-3">
+                <div className="text-muted font-demi font-18">
+                 <img src={url+'/'+driver?.profilePicture} class="profile-driver" ></img>
+                </div>
+                <div className="text-primaryColor font-bold font-18 custom-line">
+                  <span>{driver?.fullName}</span><br></br>
+                  <span>{vehicle ? vehicle[0]?.modelName : ''}</span><br></br>
+                  <span>( {vehicle ? vehicle[0]?.modelYear : ''} )</span><br></br>
+                </div>
+              </div>
+                ) : ''}
+              <hr className="grey-hr" />
               <div className="d-flex justify-content-between px-3">
                 <div className="text-muted font-demi font-18 mt-2">
-                  Vehicle
-                </div>
+                  Contact Number
+              </div>
                 <div className="text-primaryColor font-bold font-18 mt-2">
-                  {vehicle ? (<>{vehicle[0]?.modelName} ( {vehicle[0]?.modelYear} )</>) : '' }
-                </div>
+                  +{driver?.phone}
+              </div>
               </div>
               <hr className="grey-hr" />
               <div className="d-flex justify-content-between px-3">
@@ -213,69 +164,20 @@ function DriverRideDetails() {
                   </div>
                   <div className="d-flex justify-content-between px-3">
                   <div className="text-muted font-demi font-18">
-                    Total seats Provided
+                    Total seats Booked
                   </div>
                   <div className="text-primaryColor font-bold font-18">
-                    {ride?.totalSeats}
+                    {myBookings}
                   </div>
                 </div>
-                <div className="d-flex justify-content-between px-3">
+                <div className="d-flex justify-content-between px-3 mb-5">
                   <div className="text-muted font-demi font-18">
-                    Seats Booked
-                  </div>
-                  <div className="text-primary font-bold font-18">
-                    {totalBookings? totalBookings : 0}
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between px-3">
-                  <div className="text-muted font-demi font-18">
-                    Vacant Seats
-                  </div>
-                  <div className="text-danger font-bold font-18">
-                    {totalBookings? Number(ride?.totalSeats) - totalBookings : ride?.totalSeats}
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between px-3">
-                  <div className="text-muted font-demi font-18">
-                    Total Earnings
+                    Total
                   </div>
                   <div className="text-green font-bold font-18">
-                  &#36;{totalBookings ? totalBookings*Number(ride?.price) : 0}
+                  &#36;{myBookings ? myBookings*Number(ride?.price) : 0}
                   </div>
-                </div>
-                <hr className="grey-hr" />
-                  {ride && ride?.status == "Scheduled" ? (
-                  <div className="text-center mt-4 mb-5 d-flex justify-content-center">
-                    <button
-                      className="text-white bg-secondaryColor font-demi btn-blue submit-button"
-                      onClick={startRide}
-                    >
-                      Start Ride
-                    </button>
-                    <span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;
-                    </span>
-                    <button
-                      className="text-white bg-danger font-demi btn-blue submit-button "
-                      onClick={cancelRide}
-                    >
-                      Cancel Ride
-                    </button>
-                  </div>
-                  ) : ''}
-                {ride && ride?.status == "Ongoing" ? (
-                  <div className="text-center mt-4 mb-5 d-flex justify-content-center">
-                    <button
-                      className="text-white bg-secondaryColor font-demi btn-blue submit-button"
-                      onClick={endRide}
-                    >
-                      End Ride
-                    </button>
-                  </div>
-                ) : ''}
-                  {ride && ride?.status == "Completed" ? (
-                    <span className="mb-5">&nbsp;</span>
-                  ) : ''}
+                </div>              
             </>
               ) : (
                 <span className="mb-5">&nbsp;</span>

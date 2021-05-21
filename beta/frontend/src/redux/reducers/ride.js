@@ -8,7 +8,8 @@ import {
     GET_MY_RIDES,
     START_RIDE_BY_ID,
     END_RIDE_BY_ID,
-    CANCEL_RIDE_BY_ID
+    CANCEL_RIDE_BY_ID,
+    GET_CLIENT_RIDES
   } from "../constants";
   
   export default (state = { adminData: null }, action) => {
@@ -41,6 +42,9 @@ import {
         console.log(action?.data);
     return { ...state, rideData: action?.data };
     case CANCEL_RIDE_BY_ID:
+        console.log(action?.data);
+    return { ...state, rideData: action?.data };
+    case GET_CLIENT_RIDES:
         console.log(action?.data);
     return { ...state, rideData: action?.data };
     default:

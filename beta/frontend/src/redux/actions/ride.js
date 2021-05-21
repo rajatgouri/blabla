@@ -9,7 +9,8 @@ import {
     GET_MY_RIDES,
     START_RIDE_BY_ID,
     END_RIDE_BY_ID,
-    CANCEL_RIDE_BY_ID
+    CANCEL_RIDE_BY_ID,
+    GET_CLIENT_RIDES
 } from "../constants";
 import jwt from "jwt-decode";
 import swal from "sweetalert";
@@ -54,6 +55,7 @@ export const getRides = ( ride ) => async (dispatch) => {
         const { data } = await api.getRides(ride.from, ride.to , ride.date);
         dispatch({ type: GET_RIDES, data });
     } catch (e) {
+        console.log(e);
         swal({
             text: e.response.data.msg,
             icon: "error",
@@ -66,6 +68,19 @@ export const getMyRides = ( ride ) => async (dispatch) => {
         const user = jwt(localStorage.getItem("token"));
         const { data } = await api.getMyRides(user.id);
         dispatch({ type: GET_MY_RIDES, data });
+    } catch (e) {
+        swal({
+            text: e.response.data.msg,
+            icon: "error",
+        });
+    }
+};
+
+export const getClientRides = ( ride ) => async (dispatch) => {
+    try {
+        const user = jwt(localStorage.getItem("token"));
+        const { data } = await api.getClientRides(user.id);
+        dispatch({ type: GET_CLIENT_RIDES, data });
     } catch (e) {
         swal({
             text: e.response.data.msg,

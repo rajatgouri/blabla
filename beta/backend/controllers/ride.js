@@ -47,6 +47,12 @@ exports.getRides = (req, res) => {
     if (err) {
       return res.status(400).send({ msg: err });
     }
+    rides = rides.map(r=>{
+      if (r.status === 'Scheduled') {
+        return r;
+      }
+    })
+    rides = rides.length > 0 ? rides : null;
     res.status(200).send({rides: rides})
   })
 };
@@ -61,6 +67,19 @@ exports.getMyRides = (req, res) => {
       return res.status(400).send({ msg: err });
     }
     res.status(200).send({myRides: rides})
+  })
+};
+
+exports.getClientRides = (req, res) => {
+  if (!req.query.id) {
+    return res.status(400).send({ msg: 'Please send id' });
+  }
+
+  Ride.find({ "bookings.client": req.query.id}, (err, rides) => {
+    if (err) {
+      return res.status(400).send({ msg: err });
+    }
+    res.status(200).send({clientRides: rides})
   })
 };
 

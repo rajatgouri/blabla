@@ -51,6 +51,8 @@ export const confirmBooking = (booking) =>
   axios.post(`${url}/confirm-ride`,booking);
 export const getMyRides = (id) =>
   axios.get(`${url}/get-my-rides?id=${id}`);
+export const getClientRides = (id) =>
+  axios.get(`${url}/get-client-rides?id=${id}`);
 export const startRideById = (id , time) =>
   axios.get(`${url}/start-ride?id=${id}&startedAt=${time}`);
 export const endRideById = (id , time) =>
