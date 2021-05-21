@@ -12,7 +12,8 @@ exports.createAdmin= ()=> {
         profilePicture : 'test',
         frontId : 'test',
         backId : 'test',
-        role: 'admin'
+        role: 'admin',
+        isIdSubmitted: 'true'
     }
     
     let newUser = User(incomingUser);

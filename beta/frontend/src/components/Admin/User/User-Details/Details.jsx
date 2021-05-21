@@ -95,7 +95,7 @@ function UserDetails() {
                   <div
                       className="form-control w-50"
                     >
-                        Phone Verified : {user?.isPhoneVerified? (
+                        Phone Verified : {user?.isNumberVerified? (
                             <span className="text-green">Yes</span>
                         ): (
                             <span className="text-red">No</span>

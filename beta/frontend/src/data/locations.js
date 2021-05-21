@@ -1,26 +1,22 @@
 export const locations = [
     {
-        name: "Ambala",
+        name: "Montreal",
         id : "1"
     },
     {
-        name: "Yamunanagar",
+        name: "Ottawa",
         id : "2"
     },
     {
-        name: "Vancouver",
+        name: "Paris",
         id : "3"
     },
     {
-        name: "Torronto",
+        name: "Milan",
         id : "4"
     },
     {
-        name: "Delhi",
+        name: "New York",
         id : "5"
-    },
-    {
-        name: "Mohali",
-        id : "6"
     },
 ]

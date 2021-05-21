@@ -5,13 +5,13 @@ const Ride = require("../models/Ride");
 const sgMail = require('@sendgrid/mail');
 const User = require("../models/User");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-const { MASTER_KEY, PRIVATE_KEY, PUBLIC_KEY, PAYDUNYA_TOKEN ,REDIRECT_URL ,CANCEL_URL , ADMIN_EMAIL} = process.env;
+const { MASTER_KEY, PRIVATE_KEY, PUBLIC_KEY, PAYDUNYA_TOKEN ,REDIRECT_URL ,CANCEL_URL , PAYMENT_MODE} = process.env;
 var setup = new paydunya.Setup({
     masterKey: MASTER_KEY,
     privateKey: PRIVATE_KEY,
     publicKey: PUBLIC_KEY,
     token: PAYDUNYA_TOKEN,
-    mode: 'test' // Optional. Use this option for test payments.
+    mode: PAYMENT_MODE // Optional. Use this option for test payments.
   });
 
 var store = new paydunya.Store({
@@ -29,7 +29,7 @@ exports.processPayment = (req, res) => {
     console.log(req.body.ride);
     invoice.addItem('Seats', req.body.ride.seats,req.body.ride.total/req.body.ride.seats);
     invoice.addItem('Carpooling', 1,500);
-    invoice.totalAmount = req.body.ride.total + 500;
+    invoice.totalAmount = +req.body.ride.total + 500;
     invoice.create()
         .then(function (){
             const payment = {

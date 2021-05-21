@@ -26,9 +26,9 @@ function DriverRideDetails() {
   const query = new URLSearchParams(location.search)
   const id = query.get('id');
 
-  useEffect(async() => {
+  useEffect(() => {
     if (id) {
-      await dispatch(getRideById(id? id : ''));
+      dispatch(getRideById(id? id : ''));
     }
   },[])
 

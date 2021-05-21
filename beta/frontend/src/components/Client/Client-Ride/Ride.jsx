@@ -113,7 +113,7 @@ function ClientRide() {
                             &#36;{ride.price}
                           </div>
                           <div className="mt-2 d-flex justify-content-end text-red">
-                            {[...Array(Number(ride.totalBookings))].map((x, i) =>(
+                            {[...Array(Number(ride.totalSeats)-Number(ride.totalBookings))].map((x, i) =>(
                               <><i className="fas fa-male"></i>&nbsp;</>
                             ))}
                             {/* <i className="fas fa-male"></i>&nbsp;
@@ -142,7 +142,7 @@ function ClientRide() {
 
             <Link to="/">
               <div className="text-center mt-4 mb-5">
-                <button className="text-white bg-secondaryColor font-demi btn-blue">
+                <button className="text-white bg-secondaryColor font-demi btn-blue submit-button">
                   Change your ride
                 </button>
               </div>

@@ -9,9 +9,9 @@ function Confirm() {
     const dispatch = useDispatch();
     const query = new URLSearchParams(location.search)
     const token = query.get('token');
-    useEffect(async() => {
+    useEffect(() => {
         if (token) {
-          await dispatch(confirmBooking(token , history));
+          dispatch(confirmBooking(token , history));
         }
       },[])
   return (

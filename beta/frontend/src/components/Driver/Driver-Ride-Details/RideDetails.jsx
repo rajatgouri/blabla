@@ -30,25 +30,25 @@ function DriverRideDetails() {
     const minutes = (Number(ride?.time.slice(3,5))-presentDate.getMinutes());
     if (mm>1) {
       swal({
-        text: "You need to wait" + mm + " months before starting.",
+        text: "You need to wait " + mm + " months before starting.",
         icon: "info",
       });
       return;
     } else if(days>1) {
       swal({
-        text: "You need to wait" + days + " days before starting.",
+        text: "You need to wait " + days + " days before starting.",
         icon: "info",
       });
       return;
     } else if(hh>1) {
       swal({
-        text: "You need to wait" + hh + " hours " + minutes + " minutes before starting.",
+        text: "You need to wait " + hh + " hours " + minutes + " minutes before starting.",
         icon: "info",
       });
       return;
     } else if(hh>0) {
       swal({
-        text: "You need to wait" + minutes + " minutes before starting.",
+        text: "You need to wait " + minutes + " minutes before starting.",
         icon: "info",
       });
       return;
@@ -88,9 +88,9 @@ function DriverRideDetails() {
     dispatch(endRideById(id? id : '', String(presentDate.getHours()) + ':' + String(presentDate.getMinutes()) , history))
   }
   
-  useEffect(async() => {
+  useEffect(() => {
     if (id) {
-      await dispatch(getRideById(id? id : ''));
+      dispatch(getRideById(id? id : ''));
     }
   },[])
 
