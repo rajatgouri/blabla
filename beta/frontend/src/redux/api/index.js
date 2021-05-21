@@ -59,3 +59,5 @@ export const endRideById = (id , time) =>
   axios.get(`${url}/end-ride?id=${id}&endedAt=${time}`);
 export const cancelRideById = (id) =>
   axios.get(`${url}/cancel-ride?id=${id}`);
+export const contactUs = (formData) =>
+  axios.post(`${url}/contact-us`,{formData});

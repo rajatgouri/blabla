@@ -1,7 +1,20 @@
-import React from "react";
+import React ,{ useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { contactUs } from "../../../redux/actions/contact";
 import { Link } from "react-router-dom";
 
 function ClientContact() {
+  const initialState = { name: "", email: "", message: ""};
+  const [formData, setformData] = useState(initialState);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(contactUs(formData, history));
+  };
   return (
     <>
       <div className="container my-5">
@@ -24,6 +37,15 @@ function ClientContact() {
                     <input
                       type="text"
                       className="form-control"
+                      name="name"
+                      value={formData.name}
+                      onChange={(e) => {
+                        setformData({
+                          ...formData,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
+                      required
                       placeholder="Name (*)"
                     />
                   </div>
@@ -31,6 +53,14 @@ function ClientContact() {
                     <input
                       type="email"
                       className="form-control"
+                      name="email"
+                      value={formData.email}
+                      onChange={(e) => {
+                        setformData({
+                          ...formData,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
                       placeholder="Email (*)"
                     />
                   </div>
@@ -39,17 +69,23 @@ function ClientContact() {
                   <textarea
                     type="text"
                     className="form-control"
+                    name="message"
+                    value={formData.message}
+                    onChange={(e) => {
+                      setformData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                     placeholder="Message (*)"
                     rows="8"
                   ></textarea>
                 </div>
-                <Link to="/">
-                  <div className="text-center mt-5">
-                    <button className="text-white bg-secondaryColor font-demi btn-blue">
-                      Submit
-                    </button>
-                  </div>
-                </Link>
+                <div className="text-center mt-5" >
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={handleSubmit}>
+                    Submit
+                  </button>
+                </div>
               </form>
             </div>
           </div>
