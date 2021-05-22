@@ -31,9 +31,9 @@ exports.emailOtpSend = (req, res) => {
       to: req.query.email,
       from: process.env.SENDGRID_EMAIL, // Change to your verified sender
       subject: 'Carpooling OTP',
-      text: 'Reset Passowrd Otp!',
-      html: `<h1 style = "text-align:center; color: red;">Password Reset Otp</h1>
-             <pre>The otp to reset your password is ${otp} </pre>`,
+      text: 'Email Verification OTP',
+      html: `<h1>Email Verification OTP</h1>
+             <pre>The otp to verify your email is  ${otp} </pre>`,
     }
     sgMail.send(msg)
     .then(info => {
