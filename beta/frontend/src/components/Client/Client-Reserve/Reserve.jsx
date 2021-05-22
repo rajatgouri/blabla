@@ -4,8 +4,10 @@ import { useLocation } from "react-router-dom";
 import { url } from "../../../redux/api/index";
 import { useDispatch , useSelector} from 'react-redux';
 import { getRideById , confirmRide } from "../../../redux/actions/ride";
+import { useHistory } from "react-router-dom";
 
 function ClientReserve() {
+  const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
   const ride = useSelector(state => state.ride?.rideData?.ride);
@@ -32,7 +34,7 @@ function ClientReserve() {
       total : total? total : ride?.price,
       seats: total? total/ride.price : 1
     }
-    dispatch(confirmRide(formData));
+    dispatch(confirmRide(formData,history));
   }
   
   return (

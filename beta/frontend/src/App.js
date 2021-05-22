@@ -87,8 +87,8 @@ function App() {
         <Route exact path="/client/contact" component={ClientContact} />
         <ClientGuard exact path="/client/all-ride" component={ClientMyRide} />
         <ClientGuard exact path="/client/ride-details" component={ClientRideDetails} />
-        <ClientGuard exact path="/client/ride" component={ClientRide} />
-        <ClientGuard path="/client/reserve" component={ClientReserve} />
+        <HomeGuard exact path="/client/ride" component={ClientRide} />
+        <HomeGuard path="/client/reserve" component={ClientReserve} />
         <ClientGuard path="/client/confirm" component={Confirm} />
         <ClientGuard exact path="/client/userprofile" component={UserProfile} />
         <ClientGuard exact path="/client/my-id" component={ClientId} />
