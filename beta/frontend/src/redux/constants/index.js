@@ -27,4 +27,6 @@ export const END_RIDE_BY_ID = "END_RIDE_BY_ID";
 export const CANCEL_RIDE_BY_ID = "CANCEL_RIDE_BY_ID";
 export const GET_CLIENT_RIDES = "GET_CLIENT_RIDES";
 export const CONTACT_US = "CONTACT_US";
+export const ADMIN_RIDES = "ADMIN_RIDES";
+export const ADMIN_RIDE = "ADMIN_RIDE";
 

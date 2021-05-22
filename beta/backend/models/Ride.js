@@ -6,6 +6,10 @@ const bookingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  clientName: {
+    type: String,
+    required: true,
+  },
   seats: {
       type: String,
       required: true,
@@ -44,6 +48,10 @@ const RideSchema = new mongoose.Schema({
     driver: {
         type: String,
         required: true,
+    },
+    driverName: {
+      type: String,
+      required: true,
     },
     totalSeats: {
       type: String,

@@ -1,8 +1,7 @@
 import React, { useState }  from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Table from '../Ride-Table/RideTable';
-import RideDetails from "../Admin-Ride-Details/RideDetails";
 import './AllRides.css'
 
 function Blogs() {

@@ -27,6 +27,7 @@ exports.addRide = (req, res) => {
     const vehicle = user.vehicles.filter(v=> v._id == req.body.ride.vehicle);
     const ride = {
       ...req.body.ride,
+      driverName : user.fullName,
       vehicleName : vehicle[0].modelName,
       totalSeats : vehicle[0].places,
       status : "Scheduled"

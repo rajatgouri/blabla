@@ -35,6 +35,10 @@ export const approveUser = (id) =>
   });
 export const getVehicles = (email) =>
   axios.get(`${url}/get-vehicles?email=${email}`);
+export const getAdminRides = () =>
+  axios.get(`${url}/admin/get-admin-rides`);
+export const getAdminRide = (id) =>
+  axios.get(`${url}/admin/get-admin-ride?id=${id}`);
 export const addRide = (ride) =>
   axios.post(`${url}/add-ride`, {
     ride: ride,

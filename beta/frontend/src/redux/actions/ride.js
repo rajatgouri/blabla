@@ -107,7 +107,8 @@ export const confirmRide = ( formData ) => async (dispatch) => {
         const user = jwt(localStorage.getItem("token"));
         const ride = {
             ...formData,
-            user : user.id
+            user : user.id,
+            fullName : user.name
         }
         const { data } = await api.confirmRide(ride);
         window.location.href = data.url;

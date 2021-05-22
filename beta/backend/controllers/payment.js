@@ -35,6 +35,7 @@ exports.processPayment = (req, res) => {
             const payment = {
                 ride: req.body.ride.id,
                 user: req.body.ride.user,
+                userName: req.body.ride.fullName,
                 token: invoice.token,
                 total: req.body.ride.total + 500,
                 status: invoice.status,
@@ -73,6 +74,7 @@ exports.confirmRide = (req, res) => {
                     }
                     const booking = {
                         client : pay.user,
+                        clientName : pay.userName,
                         seats: pay.seats,
                         token: req.body.token
                     }

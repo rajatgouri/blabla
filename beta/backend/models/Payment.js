@@ -5,6 +5,10 @@ const PaymentSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    userName : {
+      type: String,
+      required: true,
+    },
     ride : {
         type: String,
         required: true,

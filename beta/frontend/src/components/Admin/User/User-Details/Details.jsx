@@ -85,9 +85,9 @@ function UserDetails() {
                       className="form-control w-50"
                     >
                         Email Verified : {user?.isEmailVerified? (
-                            <span className="text-green">Yes</span>
+                            <span className="text-green">True</span>
                         ): (
-                            <span className="text-red">No</span>
+                            <span className="text-red">False</span>
                         )}
                     </div>
                   </div>
@@ -96,9 +96,9 @@ function UserDetails() {
                       className="form-control w-50"
                     >
                         Phone Verified : {user?.isNumberVerified? (
-                            <span className="text-green">Yes</span>
+                            <span className="text-green">True</span>
                         ): (
-                            <span className="text-red">No</span>
+                            <span className="text-red">False</span>
                         )}
                     </div>
                   </div>
@@ -144,15 +144,17 @@ function UserDetails() {
             <h4 className="ml-4 font-demi text-primaryColor">Not Yet Submitted</h4>
           </div>
         )}
-        <div className="row mt-2">
-          <div className="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-            <div className="text-center mt-4">
-                <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={approve}>
-                    Approve
-                </button>
+        {user && !user.isIdApproved ? (
+          <div className="row mt-2">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+              <div className="text-center mt-4">
+                  <button className="text-white bg-secondaryColor font-demi btn-blue submit-button" onClick={approve}>
+                      Approve
+                  </button>
+              </div>
             </div>
           </div>
-        </div>
+        ) : ''}
       </div>
     </>
   );
