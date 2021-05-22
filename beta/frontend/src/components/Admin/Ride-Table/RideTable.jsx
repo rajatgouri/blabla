@@ -12,8 +12,17 @@ function RideTable(props) {
     useEffect(() => {
         dispatch(getAdminRides());
     }, [])
-    
+    console.log(props.status)
     let rides = useSelector(state => state.admin?.adminData?.adminRides);
+    rides = rides.filter(r=>{
+        if (props.status=='') {
+            return r;
+        } else {
+            if(props.status === r.status) {
+                return r;
+            }
+        }
+    })
     rides = sortedRides.length>0 ? sortedRides : rides;
     const sortDate = ()=>{
         if (ascending) {
