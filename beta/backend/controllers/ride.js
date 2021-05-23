@@ -24,6 +24,11 @@ exports.addRide = (req, res) => {
     if (!user) {
       return res.status(400).json({ msg: 'The user does not exist' });
     }
+
+    if (!user.isIdApproved) {
+      return res.status(400).json({ msg: 'You need to wait before your Id gets approved' });
+    }
+
     const vehicle = user.vehicles.filter(v=> v._id == req.body.ride.vehicle);
     const ride = {
       ...req.body.ride,
@@ -165,7 +170,7 @@ exports.cancelRide = (req, res) => {
               from: process.env.SENDGRID_EMAIL, // Change to your verified sender
               subject: 'Booking Cancelled',
               text: 'Booking Cancelled',
-              html: `<h1 style = "text-align:center;">Booking Cancelled</h1>
+              html: `<h1>Booking Cancelled</h1>
                             <pre>Booking Cancelled for the ride on ${ride.date} from ${ride.from} to ${ride.to}.<br></br>
                             </pre>`,
             }
@@ -176,11 +181,11 @@ exports.cancelRide = (req, res) => {
                   from: process.env.SENDGRID_EMAIL, // Change to your verified sender
                   subject: 'Booking Cancelled',
                   text: 'Booking Cancelled',
-                  html: `<h1 style = "text-align:center;">Booking Cancelled</h1>
-                                <pre>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.<br></br>
+                  html: `<h1 >Booking Cancelled</h1>
+                                <p>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.
                                 <p>Driver Phone : ${driver.phone}</p>
                                 <p>Driver Name : ${driver.fullName}</p>
-                                </pre>`,
+                                </p>`,
                 }
                 sgMail.send(msg2)
                   .then(info => {
@@ -194,27 +199,27 @@ exports.cancelRide = (req, res) => {
                           from: process.env.SENDGRID_EMAIL, // Change to your verified sender
                           subject: 'Booking Cancelled',
                           text: 'Booking Cancelled',
-                          html: `<h1 style = "text-align:center;">Booking Cancelled</h1>
-                                        <pre>Booking Cancelled for the ride on ${ride.date} from ${ride.from} to ${ride.to}.<br></br>
-                                        <p>Your booking amount will be refunded to you within a few days.</p>
-                                        </pre>`,
+                          html: `<h1 >Booking Cancelled</h1>
+                                        <p>Booking Cancelled for the ride on ${ride.date} from ${ride.from} to ${ride.to}.
+                                          <p>Your booking amount will be refunded to you within a few days.</p>
+                                        </p>`,
                         }
                         sgMail.send(msg3)
                           .then(info => {
                             return res.status(200).send({ ride: ride });
                           })
                           .catch(err => {
-                            res.status(400).send({ msg: "Some error occured" })
+                            return res.status(400).send({ msg: "Some error occured" })
                           })
                       })
                     })
                   })
                   .catch(err => {
-                    res.status(400).send({ msg: "Some error occured" })
+                    return res.status(400).send({ msg: "Some error occured" })
                   });
               })
               .catch(err => {
-                res.status(400).send({ msg: "Some error occured" })
+                return res.status(400).send({ msg: "Some error occured" })
               });
           })
         return res.status(200).send({ ride: ride });

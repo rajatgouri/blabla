@@ -24,7 +24,9 @@ exports.registerUser = (req, res) => {
     role: 'user',
     isIdSubmitted : false
   }
-  User.findOne({ email: req.body.email }, (err, user) => {
+
+
+  User.findOne({ $or:[ {'email':req.body.email}, {'phone':req.body.phone} ]}, (err, user) => {
     if (err) {
       return res.status(400).json({ msg: err });
     }
@@ -32,6 +34,7 @@ exports.registerUser = (req, res) => {
     if (user) {
       return res.status(400).json({ msg: 'The user already exists' });
     }
+
 
     let newUser = User(incomingUser);
     newUser.save((err, user) => {

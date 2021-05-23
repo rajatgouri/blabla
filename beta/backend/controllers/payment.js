@@ -24,35 +24,45 @@ var store = new paydunya.Store({
 });
 
 var invoice = new paydunya.CheckoutInvoice(setup, store);
-
 exports.processPayment = (req, res) => {
-    console.log(req.body.ride);
-    invoice.addItem('Seats', req.body.ride.seats,req.body.ride.total/req.body.ride.seats);
-    invoice.addItem('Carpooling', 1,500);
-    invoice.totalAmount = +req.body.ride.total + 500;
-    invoice.create()
-        .then(function (){
-            const payment = {
-                ride: req.body.ride.id,
-                user: req.body.ride.user,
-                userName: req.body.ride.fullName,
-                token: invoice.token,
-                total: req.body.ride.total + 500,
-                status: invoice.status,
-                seats: req.body.ride.seats
-            }
-            Payment.create(payment, function (err) {
-                if (err){
-                    console.log(err);
-                    res.status(400).send({msg: err});
-                } 
-                res.status(200).send({url:invoice.url})
-              });
-        })
-        .catch(function (e) {
-            res.status(400).send({msg: e})
-        });
-  };
+    User.findOne({ _id: req.body.ride.user  }, (err, user) => {
+        if (err) {
+          return res.status(400).send({ msg: err });
+        }
+    
+        if (!user) {
+          return res.status(400).json({ msg: 'The user does not exist' });
+        }
+        if (!user.isIdApproved) {
+          return res.status(400).json({ msg: 'You need to wait before your Id gets approved' });
+        }
+        invoice.addItem('Seats', req.body.ride.seats,req.body.ride.total/req.body.ride.seats);
+        invoice.addItem('Carpooling', 1,500);
+        invoice.totalAmount = +req.body.ride.total + 500;
+        invoice.create()
+            .then(function (){
+                const payment = {
+                    ride: req.body.ride.id,
+                    user: req.body.ride.user,
+                    userName: req.body.ride.fullName,
+                    token: invoice.token,
+                    total: req.body.ride.total + 500,
+                    status: invoice.status,
+                    seats: req.body.ride.seats
+                }
+                Payment.create(payment, function (err) {
+                    if (err){
+                        console.log(err);
+                        res.status(400).send({msg: err});
+                    } 
+                    res.status(200).send({url:invoice.url})
+                  });
+            })
+            .catch(function (e) {
+                res.status(400).send({msg: e})
+            });
+    });
+};
 
 exports.confirmRide = (req, res) => {
     if (!req.body.token) {
@@ -95,7 +105,6 @@ exports.confirmRide = (req, res) => {
                             if (err) {
                                 return res.status(400).send({ msg: err });
                             }
-                            console.log(ride);
                             User.findById(booking.client , ( err, client ) => {
                                 if (err) {
                                     return res.status(400).send({ msg: err });
@@ -109,12 +118,12 @@ exports.confirmRide = (req, res) => {
                                         from: process.env.SENDGRID_EMAIL, // Change to your verified sender
                                         subject: 'Booking Confirmed',
                                         text: 'Booking Confirmed',
-                                        html: `<h1 style = "text-align:center;">Booking Confirmed</h1>
-                                               <pre>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.<br></br>
+                                        html: `<h1 >Booking Confirmed</h1>
+                                               <div>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.
                                                <p>Driver Phone : ${driver.phone}</p>
                                                <p>Driver Name : ${driver.fullName}</p>
                                                <p>Seats Booked  : ${booking.seats}</p>
-                                               </pre>`,
+                                               </div>`,
                                       }
                                       sgMail.send(msg)
                                       .then(info => {
@@ -123,12 +132,12 @@ exports.confirmRide = (req, res) => {
                                             from: process.env.SENDGRID_EMAIL, // Change to your verified sender
                                             subject: 'Booking Confirmed',
                                             text: 'Booking Confirmed',
-                                            html: `<h1 style = "text-align:center;">Booking Confirmed</h1>
-                                                   <pre>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.<br></br>
+                                            html: `<h1 >Booking Confirmed</h1>
+                                                   <div>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.
                                                    <p>Client Phone : ${client.phone}</p>
                                                    <p>Client Name : ${client.fullName}</p>
                                                    <p>Seats Booked  : ${booking.seats}</p>
-                                                   </pre>`,
+                                                   </div>`,
                                           }
                                           sgMail.send(msg2)
                                           .then(info=>{
@@ -137,29 +146,29 @@ exports.confirmRide = (req, res) => {
                                                 from: process.env.SENDGRID_EMAIL, // Change to your verified sender
                                                 subject: 'Booking Confirmed',
                                                 text: 'Booking Confirmed',
-                                                html: `<h1 style = "text-align:center;">Booking Confirmed</h1>
-                                                       <pre>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.<br></br>
+                                                html: `<h1>Booking Confirmed</h1>
+                                                       <div>Booking Confirmed for the ride on ${ride.date} from ${ride.from} to ${ride.to}.
                                                        <p>Client Phone : ${client.phone}</p>
                                                        <p>Client Name : ${client.fullName}</p>
                                                        <p>Driver Phone : ${driver.phone}</p>
                                                        <p>Driver Name : ${driver.fullName}</p>
                                                        <p>Seats Booked  : ${booking.seats}</p>
-                                                       </pre>`,
+                                                       </div>`,
                                               }
                                               sgMail.send(msg3)
                                               .then(info=>{
                                                 return res.status(200).send({ ride: ride });
                                               })
                                               .catch(err=>{
-                                                res.status(400).send({msg: "Some error occured"})
+                                                return res.status(400).send({msg: "Some error occured"})
                                               })
                                           })
                                           .catch(err => {
-                                            res.status(400).send({msg: "Some error occured"})
+                                            return res.status(400).send({msg: "Some error occured"})
                                           });
                                       })
                                       .catch(err => {
-                                          res.status(400).send({msg: "Some error occured"})
+                                        return res.status(400).send({msg: "Some error occured"})
                                       });
                                 })
                             })

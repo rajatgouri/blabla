@@ -31,14 +31,7 @@ export const getVehicles = () => async (dispatch) => {
 export const addRide = ( ride, history ) => async (dispatch) => {
     try {
         const formData = jwt(localStorage.getItem("token"));
-        if (!formData.verified) {
-            swal({
-                text: "You need to wait until your account gets approved",
-                icon: "Info",
-            });
-            history.push("/driver/home");
-            return;
-        }
+        
         const { data } = await api.addRide({
             ...ride,
             driver: formData.id
@@ -111,23 +104,9 @@ export const getRideById = ( id ) => async (dispatch) => {
 
 export const confirmRide = ( formData , history) => async (dispatch) => {
     try {
-        if (!localStorage.getItem("token")) {
-            swal({
-                text: "You need signup before you can book rides",
-                icon: "info",
-            });
-            history.push("/client/signup");
-            return;
-        }
+        
         const user = jwt(localStorage.getItem("token"));
-        if (!user.verified) {
-            swal({
-                text: "You need to wait until your account gets approved",
-                icon: "Info",
-            });
-            history.push("/home");
-            return;
-        }
+       
         const ride = {
             ...formData,
             user : user.id,
@@ -148,26 +127,12 @@ export const confirmRide = ( formData , history) => async (dispatch) => {
 export const confirmBooking = ( token , history) => async (dispatch) => {
     try {
         const user = jwt(localStorage.getItem("token"));
-        if (!user) {
-            swal({
-                text: "You need signup before you can book rides",
-                icon: "Info",
-            });
-            history.push("/client/signup");
-            return;
-        }
+        
         const booking = {
             token: token,
             user : user.id
         }
-        if (!user.verified) {
-            swal({
-                text: "You need to wait until your account gets approved",
-                icon: "Info",
-            });
-            history.push("/home");
-            return;
-        }
+        
         const { data } = await api.confirmBooking(booking);
         dispatch({ type: BOOK_RIDE, data });
         swal({
